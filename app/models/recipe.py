@@ -7,11 +7,11 @@ class Recipe(db.Model):
     __tablename__= 'recipes'
     
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False, unique=True)
     cooking_time = db.Column(db.Integer, nullable=False)
-    prep_time = db.Column(db.Integer, nullable=False)
     servings = db.Column(db.Integer, nullable=False)
-    directions = db.Column(db.String(2000), nullable=False)
+    directions = db.Column(db.String(10000), nullable=False)
+    cuisine = db.Column(db.String(50), nullable=False)
     author_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     created_at = db.Column('created_at', db.DateTime, default=datetime.datetime.now, nullable=False)
     
@@ -28,6 +28,7 @@ class Recipe(db.Model):
             'prep_time' :self.prep_time,
             'servings' : self.servings,
             'directions' : self.directions,
+            'cuisine' : self.cuisine,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
             'ingredients' : [ingredient for ingredient in self.ingredients],
@@ -42,6 +43,7 @@ class Recipe(db.Model):
             'prep_time' :self.prep_time,
             'servings' : self.servings,
             'directions' : self.directions,
+            'cuisine' : self.cuisine,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
         }

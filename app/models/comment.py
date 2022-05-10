@@ -6,7 +6,7 @@ class Comment(db.Model):
     __tablename__= 'comments'
     
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(40), nullable=False, unique=True)
+    content = db.Column(db.String(250), nullable=False)
     recipe_id = db.Column(db.Integer, ForeignKey('recipes.id'), nullable=False)
     user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     created_at = db.Column('created_at', db.DateTime, default=datetime.datetime.now, nullable=False)
