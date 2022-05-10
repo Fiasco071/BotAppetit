@@ -1,6 +1,7 @@
 from sqlalchemy import ForeignKey
 from .db import db
-
+import simplejson as json
+from decimal import Decimal
 
 class IngredientsInRecipe(db.Model):
     __tablename__= 'ingredientsInRecipes'
@@ -14,3 +15,16 @@ class IngredientsInRecipe(db.Model):
     ingredients = db.relationship('Recipe', back_populates='recipe')
     
     ingdata = db.relationship('Ingredient', back_populates='ing_in_recipe')
+    
+
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'recipe_id' : self.recipe_id,
+            'ing_id' : self.ing_id,
+            'ingdata' : self.ingdata.to_dict_no_rel(),
+            'measurement' : json.dumps(Decimal(self.measurement), use_decimal=True),
+            'measurement_type' : self.measurement_type,
+            
+        }
+    

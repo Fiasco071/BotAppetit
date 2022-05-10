@@ -40,3 +40,11 @@ class User(db.Model, UserMixin):
             'recipes' : [recipe.to_dict_no_rel() for recipe in self.recipes]
         }
         
+    def to_dict_no_rel_user(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'cuisine_pref': self.cuisine_pref,
+            'cook_proficiency' : self.cook_proficiency,
+        }

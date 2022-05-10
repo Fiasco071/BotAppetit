@@ -1,0 +1,13 @@
+from flask import Blueprint, jsonify
+from flask_login import login_required
+from app.models import Comment
+
+comment_routes = Blueprint('comments', __name__)
+
+@comment_routes.route('/')
+# @login_required
+def get_all_comments():
+    #some recipe ID filter is needed here later
+    comments = Comment.query.all()
+    return {'comments': [comment.to_dict_no_recipe() for comment in comments]}
+

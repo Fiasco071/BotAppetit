@@ -1,4 +1,3 @@
-from unicodedata import name
 from .db import db
 from sqlalchemy import ForeignKey
 import datetime
@@ -25,22 +24,20 @@ class Recipe(db.Model):
             'id' : self.id,
             'name' : self.name,
             'cooking_time' : self.cooking_time,
-            'prep_time' :self.prep_time,
             'servings' : self.servings,
             'directions' : self.directions,
             'cuisine' : self.cuisine,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
-            'ingredients' : [ingredient for ingredient in self.ingredients],
-            'recipe_owner' : self.recipe_owner,
-            'comments' : [comment.to_dict_no_recipe() for comment in self.comments]
+            'ingredients' : [ingredient.to_dict() for ingredient in self.recipe],
+            # 'recipe_owner' : self.recipe_owner.to_dict_no_rel_user(),
+            # 'comments' : [comment.to_dict_no_recipe() for comment in self.comments]
         }
 
     def to_dict_no_rel(self):
         return {
             'name' : self.name,
             'cooking_time' : self.cooking_time,
-            'prep_time' :self.prep_time,
             'servings' : self.servings,
             'directions' : self.directions,
             'cuisine' : self.cuisine,

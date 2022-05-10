@@ -22,6 +22,6 @@ class Comment(db.Model):
             'recipe_id' : self.recipe_id,
             'user_id' :self.user_id,
             'created_at' : self.created_at,
-            'comment_owner' : self.comment_owner
+            'comment_owner' : self.comment_owner.to_dict_no_rel_user()
         }
     
