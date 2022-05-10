@@ -11,6 +11,7 @@ class IngredientsInRecipe(db.Model):
     recipe_id = db.Column(db.Integer, ForeignKey('recipes.id'), primary_key=True)
     ing_id = db.Column(db.Integer, ForeignKey('ingredients.id'), primary_key=True)
     measurement = db.Column('measurement', db.Numeric(precision=5, scale=2), nullable=False)
+    measurement_type = db.Column('measurement_type', db.String(20), nullable=False)
     
     ingredients = db.relationship('Recipe', back_populates='recipe')
     
