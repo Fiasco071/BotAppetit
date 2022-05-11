@@ -1,7 +1,7 @@
 .recipe-box {
     height: 100vh;
     width: 790px;
-    background-color: rgb(253, 248, 241);
+    background: linear-gradient(90deg, white, rgb(247, 247, 247) );
     margin-left: 150px;
     border-radius: 5px;
 }
@@ -71,11 +71,14 @@
 }
 
 .ingredient-dnd-box {
-    width: 450px;
+    width: 280px;
     height: 400px;
-    background-color: rebeccapurple;
+    background-color: rgb(207, 228, 87);
     position: absolute;
-    left: calc(100%)
+    left: calc(100%);
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 15px;
 }
 
 .ing-dnd-box-tab {
@@ -86,7 +89,7 @@
     border: 3px solid black;
     transform: rotate(270deg);
     position: absolute;
-    left: -70px;
+    left: -75px;
     top: 20px;
 }
 
@@ -100,3 +103,111 @@
       z-index: 1;
     }
   }
+
+
+.ingredient-icon-box {
+    margin: 0 5px 5px 0;
+    padding: 2px 3px;
+    background-color: white;
+    border-radius: 15px;
+    border: solid black 2px;
+    height: 20px;
+}
+
+.ing-dnd-icons-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.ingredient-icon-box-recipe {
+    margin: 0 5px 5px 0;
+    padding: 2px 3px;
+    background-color: white;
+    border-radius: 15px;
+    border: solid black 2px;
+    height: 20px;
+    width: 60px;
+    text-align: center;
+}
+
+.recipe-ing-box {
+    position: relative;
+    top: -30px;
+    display: flex;
+    flex-direction: column;
+    height: 240px;
+    padding: 10px 20px;
+    overflow-y: auto;
+}
+
+.recipe-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px 0px 5px 15px;
+    z-index: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    text-shadow: 1px 1px rgb(214, 214, 214), 1px -1px rgb(214, 214, 214), -1px 1px rgb(214, 214, 214), -1px -1px rgb(214, 214, 214);
+}
+
+.rec-ing-single-info-container {
+    display: flex;
+}
+
+.rec-ing-single-info-container > div {
+
+}
+
+.quick-info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-info-box > div:nth-child(2) {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    font-size: 20px;
+    margin: 15px 20px;
+    gap: 10px;
+}
+
+.quick-info-box > div:nth-child(2) > .cook-time-icon {
+    color:rgb(173, 173, 173);
+    margin: 0 10px 0 15px;
+}
+
+.quick-info-box > div:nth-child(2) > p:nth-child(2) {
+    color: white;
+    font-weight: bolder;
+    margin: 0 20px 0 0;
+}
+
+.quick-info-box > div:nth-child(2) > p:nth-child(4) {
+    color: white;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.direc-box-3 {
+    width: 260px;
+    height: 292px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -593px;
+    left: 490px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+
+.comment-indv-box {
+    border-radius: 10px;
+    padding: 2px 3px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    margin-bottom: 10px;
+}

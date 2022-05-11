@@ -4,10 +4,10 @@ from app.models import Comment
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/')
+@comment_routes.route('/<int:id>')
 # @login_required
-def get_all_comments():
+def get_all_comments(id):
     #some recipe ID filter is needed here later
-    comments = Comment.query.all()
+    comments = Comment.query.filter(Comment.recipe_id == id).all()
     return {'comments': [comment.to_dict_no_recipe() for comment in comments]}
 
