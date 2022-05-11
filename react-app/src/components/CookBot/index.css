@@ -1,0 +1,216 @@
+.bot-wrapper {
+    background-color: rgb(252, 252, 252);
+    width: 600px;
+    height: 500px;
+    margin-left: 100px;
+}
+
+.bot-head {
+    width: 400px;
+    height: 60px;
+    background-color: rgb(167, 167, 167);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    border-radius: 10px;
+}
+
+.bot-side {
+    width:100px;
+    height: 400px;
+    background-color: rgb(133, 132, 132);
+    position: relative;
+    left: 301px;
+    top: -60.5px;
+    clip-path: polygon(0 15%, 100% 0%, 100% 89%, 0% 100%);
+    border-radius: 10px;
+}
+
+.bot-face {
+    width: 301px;
+    height: 340px;
+    background-color: rgb(168, 168, 168);
+    position: relative;
+    top: -400px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.bot-face-screen {
+    width: 80%;
+    height: 50%;
+    background-color: rgb(205, 238, 253);
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 40px rgb(223, 238, 252), 10px 10px 70px rgb(189, 222, 253);
+}
+
+.bot-eyes {
+    width:35px;
+    height:30px;
+    background-color: black;
+    clip-path: ellipse(25% 40% at 50% 50%);
+    position: absolute;
+    margin-top: 45px;
+    left:calc(50% - 75px);
+}
+.bot-face-screen::before {
+    content: '';
+    width:35px;
+    height:30px;
+    background-color: black;
+    clip-path: ellipse(25% 40% at 50% 50%);
+    position: absolute;
+    margin-top: 45px;
+    left:calc(50% + 30px);
+}
+
+
+.bot-stache{
+    width:25px;
+    height:25px;
+    left:350px;
+    top: -100px;
+    border-radius:50%;
+    position:absolute;
+    color:black;
+    box-shadow:
+    150px 240px 0 0 currentColor,
+    172px 240px 0 0 currentColor;
+}
+.bot-stache::before{
+    content:"";
+    position:absolute;
+    left:189px;
+    top:207px;
+    width:31px;
+    height:11px;
+    border-bottom:solid 25px currentColor;
+    border-radius:0 0 0 100%;
+    transform:rotate(-40deg);
+    transform-origin:right 105px;
+}
+.bot-stache::after{
+    content:"";
+    position:absolute;
+    left:127px;
+    top:207px;
+    width:31px;
+    height:11px;
+    border-bottom:solid 25px currentColor;
+    border-radius:0 0 100%;
+    transform:rotate(40deg);
+    transform-origin:left 105px;
+}
+
+
+.bot-face-screen::after {
+    content: '';
+    width:60px;
+    height:15px;
+    background-color: black;
+    position: absolute;
+    margin-top: 105px;
+    border-radius: 10px;
+    left:calc(50% - 37px);
+}
+
+.left-arm {
+    position: relative;
+    left: calc(50% + 30px);
+    top: -550px;
+    width:50px;
+    height:200px;
+    background-color: rgb(48, 48, 48);
+    clip-path: ellipse(28% 50% at 50% 50%);
+    z-index: 1;
+}
+
+.right-arm {
+    position: relative;
+    left: calc(-20px);
+    top: -745px;
+    width:50px;
+    height:200px;
+    background-color: rgb(48, 48, 48);
+    clip-path: ellipse(28% 50% at 50% 50%);
+    z-index: 0;
+}
+
+.right-leg {
+    position: relative;
+    left: 227px;
+    top: -1095px;
+    width:50px;
+    height:200px;
+    background-color: rgb(48, 48, 48);
+    clip-path: ellipse(28% 50% at 50% 50%);
+    z-index: 0;
+}
+
+.left-leg {
+    position: relative;
+    left: 70px;
+    top: -875px;
+    width:50px;
+    height:200px;
+    background-color: rgb(48, 48, 48);
+    clip-path: ellipse(28% 50% at 50% 50%);
+    z-index: 0;
+}
+
+.left-foot {
+    position: relative;
+    top: -895px;
+    left: 65px;
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: black;
+    transform: rotate(-20deg);
+}
+
+.right-foot {
+    position: relative;
+    top: -1115px;
+    left: 220px;
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: black;
+    transform: rotate(-35deg);
+}
+
+
+.logo {
+    font-family: Arial, Helvetica, sans-serif;
+    position:relative;
+    top: -1322px;
+    left: 56px;
+    font-size: 100px;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
+    transform: skew(15deg, -15deg) skew(-15deg, -15deg) rotate(90deg);
+}
+
+.bot-stomach-lid {
+    width: 220px;
+    height: 70px;
+    background-color: rgb(65, 64, 64);
+    position: absolute;
+    top: 244px;
+    left: 28px;
+    border-radius: 10px;
+    transform: skew(0deg, 7deg) skew(0deg, 7deg) rotate(-13.5deg) 
+}
+
+.bot-stomach-lid-side {
+    position: absolute;
+    top: 238px;
+    left: 202px;
+    width: 50px;
+    height: 70px;
+    clip-path: polygon(100% 100%, 66% 15%, 100% 0);
+    background-color: rgb(43, 43, 43);
+}
