@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
-import { getAllComments } from "../../store/comment";
+import CommentBox from "../CommentBox";
+
 
 
 const Home = () => {
@@ -16,18 +17,14 @@ const Home = () => {
 
     const ingredients = useSelector(state => Object.values(state.ingredients)[0])
     const recipes = useSelector(state => Object.values(state.recipes)[0])
-    const comments = useSelector(state => Object.values(state.comments)[0])
-
+    
     //Recipe instruction break down
     let instructionArr;
 
     if (recipes) {
-        instructionArr = recipes[0].directions.split("$")
+        instructionArr = recipes[0]?.directions.split("$")
     }
 
-
-
-    console.log(comments)
 
     const [sliderFlag, setSliderFlag] = useState(false)
 
@@ -45,7 +42,6 @@ const Home = () => {
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
-        dispatch(getAllComments(1))
     }, [dispatch])
 
 
@@ -93,13 +89,8 @@ const Home = () => {
                 </div>
 
                 <div className="direc-box-3">
-                    {comments && comments.map(comment => (
-                        <div className="comment-indv-box">
-                            {comment.comment_owner.username} / {comment.content} / {comment.created_at}
-                        </div>
-                    ))}
+                   <CommentBox />
                 </div>
-
 
             </div>
             <CookBot />
