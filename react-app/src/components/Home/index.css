@@ -1,0 +1,71 @@
+.recipe-box {
+    height: 100vh;
+    width: 790px;
+    background-color: rgb(253, 248, 241);
+    margin-left: 150px;
+    border-radius: 5px;
+}
+
+.home-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.big-img-box {
+    height: 300px;
+    width: 790px;
+    background-image: url(../../assets/img/bg-recipebox.jpg);
+    background-position:center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px 5px 0 0;
+}
+
+.ing-box {
+    width: 259px;
+    height: 310px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -51px;
+    left: 488px;
+    border-top: 60px solid rgb(82, 64, 60);
+}
+
+.direc-box-1 {
+    width: 430px;
+    height: 170px;
+    border-radius: 5px;
+    background-color: rgb(248, 215, 185);
+    position: relative;
+    top: -323px;
+    left: 28px;
+}
+
+.direc-box-2 {
+    width: 428px;
+    height: 395px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -300px;
+    left: 28px;
+}
+
+.ing-box-groc-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: -35px;
+    left: 89px;
+    border-radius: 100%;
+    background-image: url(../../assets/img/groceryicon.JPG);
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 3px rgb(0, 0, 0) solid;
+}
