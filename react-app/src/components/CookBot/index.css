@@ -1,8 +1,8 @@
 .bot-wrapper {
-    background-color: rgb(252, 252, 252);
     width: 600px;
     height: 500px;
-    margin-left: 100px;
+    margin-left: 150px;
+    margin-top: 200px;
 }
 
 .bot-head {

@@ -1,8 +1,25 @@
 import CookBot from "../CookBot";
 import './index.css'
 import bigImg from '../../assets/img/bg-recipebox.jpg'
+import { useRef, useState } from "react";
+
+
+
 
 const Home = () => {
+    const ref = useRef(null);
+    const [sliderFlag, setSliderFlag] = useState(false)
+
+    const slidein = () => {
+        if (!sliderFlag) {
+            ref.current.classList.add("slideanimation");
+            setSliderFlag(true)
+        } else {
+            ref.current.classList.remove("slideanimation");
+            setSliderFlag(false)
+        }
+    }
+
     return (
         <div className="home-wrapper">
             <div className="recipe-box">
@@ -14,6 +31,9 @@ const Home = () => {
                 <div className="direc-box-2"></div>
             </div>
             <CookBot />
+            <div ref={ref} className="ingredient-dnd-box">
+                <p onClick={slidein} className="ing-dnd-box-tab">Ingredients</p>
+            </div>
         </div>
     );
 }
