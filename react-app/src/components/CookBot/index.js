@@ -3,7 +3,7 @@ import './index.css'
 const CookBot = () => {
     return (
         <div className='bot-wrapper'>
-            <p className="bubble thought">May be display some icons of ingredients here?</p>
+            <p className="bubble thought">Maybe display some ingredients icons here?</p>
             <div className='bot-head'></div>
             <div className='bot-side'></div>
             <div className='bot-face'>

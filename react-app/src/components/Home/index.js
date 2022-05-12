@@ -77,8 +77,9 @@ const Home = () => {
                     )}
                 </div>
                 <div className="direc-box-2">
+                    <h2>Instructions</h2>
                     {recipes && (
-                        <div className="">
+                        <div className="directions-box">
                         {instructionArr && (
                             instructionArr.map(direction => (
                                 <div key={instructionArr.indexOf(direction)}>{direction}</div>

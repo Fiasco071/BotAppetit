@@ -63,46 +63,52 @@ const CommentBox = () => {
     return (
         <>
             <div className='comment-form-wrapper'>
-                <form onSubmit={(e) => submitForm(e)}>
-                    <textarea
-                        name="content"
-                        className="comment-input"
-                        onChange={(e) => setContent(e.target.value)}
-                        value={content}
-                        placeholder="Write a comment here..."
-                    ></textarea >
-                    <div>
-                        {showErrors && hasSubmitted && (
-                            <ul className="errors comment-error">
-                                {validationErrors.map((error) => (
-                                    <li key={error}>{error}</li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                    <button type="submit" className="wallet-button">
-                        SUBMIT
-                    </button>
-                </form>
+                {!showEdit && (
+                    <form onSubmit={(e) => submitForm(e)}>
+                        <textarea
+                            name="content"
+                            className="comment-input"
+                            onChange={(e) => setContent(e.target.value)}
+                            value={content}
+                            placeholder="Write a comment here..."
+                        ></textarea >
+                        <div>
+                            {showErrors && hasSubmitted && (
+                                <ul className="errors comment-error">
+                                    {validationErrors.map((error) => (
+                                        <li key={error}>{error}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        <button type="submit" className="comment-submit-button">
+                            SUBMIT
+                        </button>
+                    </form>
+                )}
             </div >
             {comments.slice(0).reverse()?.map(comment => (
                 <div className="comment-indv-box" key={comment.id}>
-                    {comment.comment_owner?.username} / {comment.content} / {comment.created_at}
-                    {showEdit !== '' && +showEdit === +comment.id && (
-                        <div className='comment-edit-form'>
-                            <UpdateForm className='updateform' comment={comment} edit={prop} />
-                        </div>
-                    )}
-                    {comment.user_id == userId && (
-                        <div className='editdel-button-box'>
-                            <p
-                                onClick={() => setShowEdit(`${comment.id}`)}
-                                className='comment-update-button'>F</p>
-                            <p
-                                onClick={() => (dispatch(deleteAComment(comment.id)))}
-                                className='comment-delete-button'>X</p>
-                        </div>
-                    )}
+                    <p>{comment.content}</p>
+                    <div className='comment-owner-info'>
+                        <p>{comment.comment_owner?.username}</p>
+                        <p>{comment.created_at.split(" ")[2]} {comment.created_at.split(" ")[1]} {comment.created_at.split(" ")[3]}</p>
+                        {showEdit !== '' && +showEdit === +comment.id && (
+                            <div className='comment-edit-form'>
+                                <UpdateForm className='updateform' comment={comment} edit={prop} />
+                            </div>
+                        )}
+                        {comment.user_id == userId && (
+                            <div className='editdel-button-box'>
+                                <p
+                                    onClick={() => setShowEdit(`${comment.id}`)}
+                                    className='comment-update-button'>F</p>
+                                <p
+                                    onClick={() => (dispatch(deleteAComment(comment.id)))}
+                                    className='comment-delete-button'>X</p>
+                            </div>
+                        )}
+                    </div>
                 </div>
             ))}
         </>
