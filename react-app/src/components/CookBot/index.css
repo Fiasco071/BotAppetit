@@ -65,45 +65,6 @@
     left:calc(50% + 30px);
 }
 
-
-.bot-stache{
-    width:25px;
-    height:25px;
-    left:350px;
-    top: -100px;
-    border-radius:50%;
-    position:absolute;
-    color:black;
-    box-shadow:
-    150px 240px 0 0 currentColor,
-    172px 240px 0 0 currentColor;
-}
-.bot-stache::before{
-    content:"";
-    position:absolute;
-    left:189px;
-    top:207px;
-    width:31px;
-    height:11px;
-    border-bottom:solid 25px currentColor;
-    border-radius:0 0 0 100%;
-    transform:rotate(-40deg);
-    transform-origin:right 105px;
-}
-.bot-stache::after{
-    content:"";
-    position:absolute;
-    left:127px;
-    top:207px;
-    width:31px;
-    height:11px;
-    border-bottom:solid 25px currentColor;
-    border-radius:0 0 100%;
-    transform:rotate(40deg);
-    transform-origin:left 105px;
-}
-
-
 .bot-face-screen::after {
     content: '';
     width:60px;

@@ -4,6 +4,26 @@
     background: linear-gradient(90deg, white, rgb(247, 247, 247) );
     margin-left: 150px;
     border-radius: 5px;
+    border: 9px solid black;
+}
+
+.home-wrapper::before {
+    content: '';
+    height: 100vh;
+    width: 790px;
+    border-radius: 5px;
+    
+    position: absolute;
+    z-index: -1;
+    top: 80px;
+    left: 100px;
+    background-color: #656565;
+opacity: 1;
+background-image:  linear-gradient(135deg, #f7bf86 25%, transparent 25%), linear-gradient(225deg, #f7bf86 25%, transparent 25%), linear-gradient(45deg, #f7bf86 25%, transparent 25%), linear-gradient(315deg, #f7bf86 25%, #656565 25%);
+background-position:  10px 0, 10px 0, 0 0, 0 0;
+background-size: 20px 20px;
+background-repeat: repeat;
+border: 9px solid black;
 }
 
 .home-wrapper {
