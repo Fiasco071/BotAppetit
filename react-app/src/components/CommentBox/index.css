@@ -66,3 +66,26 @@
     gap: 20px;
     margin-right: 15px;
 }
+
+.comment-update-form {
+    position: absolute;
+    top:-38px;
+    left: -3px;
+}
+
+.comment-update-form > .comment-input {
+    width: 217px;
+    height: 94px;
+    border-radius: 10px;
+}
+
+.update-form-wrapper {
+    position: relative;
+}
+
+.update-button {
+    position: relative;
+    top: -25px;
+    left: 158px;
+}
+

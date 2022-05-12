@@ -1,8 +1,9 @@
 import './index.css'
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAComment, deleteAComment, getAllComments } from "../../store/comment";
+import UpdateForm from './UpdateForm';
 
 
 const CommentBox = () => {
@@ -18,6 +19,9 @@ const CommentBox = () => {
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
+    const [showEdit, setShowEdit] = useState('');
+    const prop = { showEdit, setShowEdit };
+
 
 
     useEffect(() => {
@@ -35,19 +39,18 @@ const CommentBox = () => {
             recipe_id: id
         };
 
-        if (validationErrors.length === 0) {
-
+        if (!validationErrors.length) {
             // lets fix below lines////////
-            let update = await dispatch(addAComment(data));
-            if (update) {
-                setContent('')
-                setValidationErrors([]);
-                setHasSubmitted(false);
-                history.push('/')
-            }
+            setContent('')
+            setShowEdit('');
+            setValidationErrors([]);
+            setHasSubmitted(false);
+            await dispatch(addAComment(data));
+            history.push('/')
             /////////////////////////
         }
     };
+
 
 
     useEffect(() => {
@@ -84,11 +87,16 @@ const CommentBox = () => {
             </div >
             {comments.slice(0).reverse()?.map(comment => (
                 <div className="comment-indv-box" key={comment.id}>
-                    {comment.comment_owner?.username} / {comment.content} / {comment.created_at} /
+                    {comment.comment_owner?.username} / {comment.content} / {comment.created_at}
+                    {showEdit !== '' && +showEdit === +comment.id && (
+                        <div className='comment-edit-form'>
+                            <UpdateForm className='updateform' comment={comment} edit={prop} />
+                        </div>
+                    )}
                     {comment.user_id == userId && (
                         <div className='editdel-button-box'>
                             <p
-                                
+                                onClick={() => setShowEdit(`${comment.id}`)}
                                 className='comment-update-button'>F</p>
                             <p
                                 onClick={() => (dispatch(deleteAComment(comment.id)))}

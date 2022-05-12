@@ -36,6 +36,28 @@ def add_comment(id):
 
     return {"error": form.errors}
 
+@comment_routes.route('/<int:id>/edit', methods=["POST"])
+# @login_required
+def update_comment(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    id = request.json["recipe_id"]
+    
+    if form.validate_on_submit():
+        comment = Comment.query.filter(Comment.id == id).one()
+        comment.content = form.data['content'];
+    #     comment = Comment(
+    #     content = form.data['content'],
+    #     recipe_id = id,
+    #     user_id = current_user.to_dict_no_rel_user()['id'],
+    #     created_at = datetime.datetime.now()
+    # )
+        db.session.add(comment)
+        db.session.commit()
+
+        return comment.to_dict_no_recipe()
+
+    return {"error": form.errors}
 
 
 

@@ -48,6 +48,24 @@ export const addAComment = (data) => async (dispatch) => {
   }
 };
 
+//////////////////////////////////////////
+export const updateAComment = (data) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${data.recipe_id}/edit`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const comment = await response.json();
+    dispatch(addComment(comment));
+    return comment;
+  }
+};
+///////////////////////////////////////////////////
+
+
+
 export const deleteAComment = (id) => async (dispatch) => {
   const response = await fetch(`/api/comments/${id}/delete`, {
     method: "GET"
