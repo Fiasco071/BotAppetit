@@ -84,7 +84,7 @@ export const deleteAComment = (id) => async (dispatch) => {
 const commentReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_COMMENTS: {
-      const newState = {...state};
+      const newState = {};
       action.payload.comments.forEach((comment) => newState[comment.id] = comment)
       return newState;
     }

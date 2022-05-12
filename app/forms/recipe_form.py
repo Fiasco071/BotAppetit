@@ -11,13 +11,6 @@ def recipe_exists(form, field):
     if recipe:
         raise ValidationError('Recipe exists already!')
 
-def dropdown_ingredients():
-    # return [(ingredient.to_dict_no_rel().id, ingredient.to_dict_no_rel().name) for ingredient in Ingredient.query.all()]
-    ingredients = Ingredient.query.all()
-    return [(ingredient.id, ingredient.name) for ingredient in Ingredient.query.all()]
-
-
-
 
 class RecipeForm(FlaskForm):
     name = StringField('name', validators=[DataRequired(), recipe_exists])
@@ -25,5 +18,6 @@ class RecipeForm(FlaskForm):
     servings = IntegerField("servings", validators=[DataRequired()])
     directions = StringField("directions", validators=[DataRequired()])
     cuisine = SelectField("cuisine", choices=[], validators=[DataRequired()])
-    imgURL = StringField('imgURL', validators=[DataRequired()])
-    ingredients = SelectField('ingredients', choices=[], validators=[DataRequired()])
+    imgURL = StringField('imgURL', validators=[])
+    ingredients = StringField('ingredients', validators=[DataRequired()])
+    

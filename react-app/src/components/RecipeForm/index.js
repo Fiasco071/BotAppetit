@@ -1,13 +1,14 @@
 import './index.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getAllIngredients } from "../../store/ingredient";
 import { addARecipe } from '../../store/recipe';
 
 const RecipeForm = () => {
-    const history = useHistory()
-    const dispatch = useDispatch()
+    const ref = useRef(null);
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -18,38 +19,20 @@ const RecipeForm = () => {
     const [cooking_time, setCT] = useState();
     const [servings, setServings] = useState();
     const [directions, setDirections] = useState();
-    const [cuisine, setCuisine] = useState();
+    const [cuisine, setCuisine] = useState('Italian');
     const [imgURL, setImgtags] = useState();
-    const [ingredients, setIngredients] = useState();
+    const [ingredients, setIngredients] = useState(1);
     //////////////////////////////////////////////////
     
 
     const userId = useSelector(state => state.session.user.id)
     const ingredientsListdata = useSelector(state => Object.values(state.ingredients)[0])
-    // const [ingredientsList, setIngreList] = useState([])
+    const [ingredientsList, setIngreList] = useState([])
 
-    const cuisineArr = [
-        'Italian',
-        'Thai',
-        'French',
-        'Japanese',
-        'Lebanese',
-        'Spanish',
-        'German',
-        'Korean',
-        'South African',
-        'Australian',
-        'Caribbean',
-        'Greek',
-        'Filipino',
-        'Scottish',
-        'Indian',
-        'Mexican',
-        'Indonesian',
-        'Brazilian',
-        'Chinese',
-        'American'
-    ]
+    const cuisineArr = ['Italian','Thai','French','Japanese','Lebanese','Spanish','German','Korean','South African','Australian','Caribbean','Greek','Filipino','Scottish','Indian','Mexican','Indonesian','Brazilian','Chinese','American']
+
+    // 
+    
 
     useEffect(() => {
         dispatch(getAllIngredients())
@@ -68,7 +51,7 @@ const RecipeForm = () => {
             directions,
             cuisine,
             imgURL,
-            ingredients,
+            ingredients : ingredientsList,
             author_id: userId,
         };
 
@@ -84,20 +67,10 @@ const RecipeForm = () => {
             }
         }
     };
-    // const addIngredients = () => {
-    //     if (ingredientsList.length === 0) {
-    //         let arr = [ingredients]
-    //         setIngreList([...arr])
-    //         console.log('-=-=---=-==-',ingredientsList)
-    //     } else {
-    //         let arr = [...ingredientsList, ingredients]
-    //         setIngreList(arr)
-    //         console.log('-=-=---=-==-',ingredientsList)
-    //     }
-    //     // arr.push(ingredients)
-    //     // setIngreList(arr)
-        
-    // }
+    const addIngredients = (e) => {
+        e.preventDefault();
+        setIngreList([...ingredientsList, ingredients])
+    }
 
     useEffect(() => {
         const errors = [];
@@ -178,7 +151,6 @@ const RecipeForm = () => {
                     name='ingredients'
                     className='ingredients'
                     value={ingredients}
-                    
                     onChange={(e) => (setIngredients(e.target.value))}
                 >
                     {ingredientsListdata?.map(ingredient => (
@@ -190,9 +162,11 @@ const RecipeForm = () => {
                     ))}
                 </select>
                 <button 
-                // onClick={addIngredients}
+                onClick={(e) => addIngredients(e)}
                 className='ing-add-button'>Add</button>
-
+                {ingredientsList.map(ingredient_id => (
+                    <div>{ingredient_id}</div>
+                ))}
                 <div>
                     {showErrors && hasSubmitted && (
                         <ul className="errors comment-error">

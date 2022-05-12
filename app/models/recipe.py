@@ -15,7 +15,7 @@ class Recipe(db.Model):
     author_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     created_at = db.Column('created_at', db.DateTime, default=datetime.datetime.now, nullable=False)
     
-    recipe = db.relationship('IngredientsInRecipe', back_populates='ingredients')
+    recipe = db.relationship('IngredientsInRecipe', back_populates='ingredients', cascade="all, delete")
     
     recipe_owner = db.relationship('User', back_populates='recipes')
     comments = db.relationship('Comment', back_populates='recipe')

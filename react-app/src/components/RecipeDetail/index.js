@@ -8,21 +8,26 @@ import { getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
+import { useParams } from "react-router-dom";
 
 
-
-const Home = () => {
-    const dispatch = useDispatch()
+const RecipeDetail = () => {
+    const { id } = useParams();
+    const dispatch = useDispatch();
     const ref = useRef(null);
 
     const ingredients = useSelector(state => Object.values(state.ingredients)[0])
     const recipes = useSelector(state => Object.values(state.recipes)[0])
-    
+    const recipes2 = useSelector(state => Object.values(state.recipes))
+
+    const recipe = recipes2[0]?.filter((recipe) => +recipe.id === +id)[0]
+
+    // console.log(recipe[0])
     //Recipe instruction break down
     let instructionArr;
 
     if (recipes) {
-        instructionArr = recipes[0]?.directions.split("$")
+        instructionArr = recipe?.directions.split("$")
     }
 
 
@@ -42,7 +47,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
-    }, [dispatch])
+    }, [dispatch, id])
 
 
 
@@ -53,7 +58,7 @@ const Home = () => {
                 <div className="ing-box">
                     <div className="ing-box-groc-icon"></div>
                     <div className="recipe-ing-box">
-                        {recipes && recipes[0]?.ingredients.map(ingredient => (
+                        {recipes && recipe?.ingredients.map(ingredient => (
                             <div key={`b${ingredient.id}`} className="rec-ing-single-info-container">
                                 <div
                                     key={`a${ingredient.id}`}
@@ -66,12 +71,12 @@ const Home = () => {
                 <div className="direc-box-1">
                     {recipes && (
                         <div className="quick-info-box">
-                            <h2 className="recipe-title">{recipes[0]?.name}</h2>
+                            <h2 className="recipe-title">{recipe?.name}</h2>
                             <div>
                                 <FontAwesomeIcon icon={faClock} className="cook-time-icon" />
-                                <p className="cooking-time-text">{recipes[0]?.cooking_time}m</p>
+                                <p className="cooking-time-text">{recipe?.cooking_time}m</p>
                                 <FontAwesomeIcon icon={faFlag} className="cook-time-icon" />
-                                <p className="cuisine-text">{recipes[0]?.cuisine}</p>
+                                <p className="cuisine-text">{recipe?.cuisine}</p>
                             </div>
                         </div>
                     )}
@@ -80,17 +85,17 @@ const Home = () => {
                     <h2>Instructions</h2>
                     {recipes && (
                         <div className="directions-box">
-                        {instructionArr && (
-                            instructionArr.map(direction => (
-                                <div key={instructionArr.indexOf(direction)}>{direction}</div>
-                            ))
-                        )}
+                            {instructionArr && (
+                                instructionArr.map(direction => (
+                                    <div key={instructionArr.indexOf(direction)}>{direction}</div>
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
 
                 <div className="direc-box-3">
-                   {/* <CommentBox /> */}
+                    <CommentBox id={id}/>
                 </div>
 
             </div>
@@ -112,4 +117,5 @@ const Home = () => {
     );
 }
 
-export default Home
+export default RecipeDetail
+

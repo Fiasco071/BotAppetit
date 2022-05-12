@@ -34,7 +34,7 @@ const UpdateForm = ({comment, edit}) => {
                 setValidationErrors([]);
                 setHasSubmitted(false);
                 edit.setShowEdit('');
-                history.push('/')
+              
             }
         }
     };

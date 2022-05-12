@@ -1,14 +1,13 @@
 import './index.css'
 import { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAComment, deleteAComment, getAllComments } from "../../store/comment";
 import UpdateForm from './UpdateForm';
 
 
 const CommentBox = () => {
-    // const { id } = useParams()
-    const id = 1;
+    const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -26,7 +25,7 @@ const CommentBox = () => {
 
     useEffect(() => {
         dispatch(getAllComments(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -46,7 +45,7 @@ const CommentBox = () => {
             setValidationErrors([]);
             setHasSubmitted(false);
             await dispatch(addAComment(data));
-            history.push('/')
+            history.push(`/recipes/${id}`)
             /////////////////////////
         }
     };

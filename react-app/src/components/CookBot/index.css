@@ -43,6 +43,7 @@
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 10px 10px 40px rgb(223, 238, 252), 10px 10px 70px rgb(189, 222, 253);
+    overflow: auto;
 }
 
 .bot-eyes {

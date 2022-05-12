@@ -12,7 +12,7 @@ class IngredientsInRecipe(db.Model):
     measurement = db.Column('measurement', db.Numeric(precision=5, scale=2), nullable=False)
     measurement_type = db.Column('measurement_type', db.String(20), nullable=False)
     
-    ingredients = db.relationship('Recipe', back_populates='recipe')
+    ingredients = db.relationship('Recipe', back_populates='recipe', cascade="all, delete")
     
     ingdata = db.relationship('Ingredient', back_populates='ing_in_recipe')
     
