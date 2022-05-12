@@ -10,7 +10,7 @@ const getRec = (recipes) => {
 
 
 export const getAllRecipes = () => async (dispatch) => {
-  const response = await fetch(`/api/recipes`);
+  const response = await fetch(`/api/recipes/`);
 
   if (response.ok) {
     const recipes = await response.json();

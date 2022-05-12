@@ -10,7 +10,7 @@ const getIng = (ingredients) => {
 
 
 export const getAllIngredients = () => async (dispatch) => {
-  const response = await fetch(`/api/ingredients`);
+  const response = await fetch(`/api/ingredients/`);
 
   if (response.ok) {
     const ingredients = await response.json();
