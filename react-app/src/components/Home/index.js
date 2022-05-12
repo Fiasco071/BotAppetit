@@ -8,7 +8,7 @@ import { getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
-
+import RecipeForm from "../RecipeForm";
 
 
 const Home = () => {

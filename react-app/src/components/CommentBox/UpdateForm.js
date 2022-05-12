@@ -28,8 +28,6 @@ const UpdateForm = ({comment, edit}) => {
         };
 
         if (validationErrors.length === 0) {
-
-            // lets fix below lines////////
             let update = await dispatch(updateAComment(data));
             if (update) {
                 setContent('')
@@ -38,7 +36,6 @@ const UpdateForm = ({comment, edit}) => {
                 edit.setShowEdit('');
                 history.push('/')
             }
-            /////////////////////////
         }
     };
 

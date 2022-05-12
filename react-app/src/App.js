@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
+import RecipeForm from './components/RecipeForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <Home />
+        </ProtectedRoute>
+        <ProtectedRoute path='/recipes/add' exact={true} >
+          <RecipeForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

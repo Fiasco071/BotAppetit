@@ -11,6 +11,7 @@ class Recipe(db.Model):
     servings = db.Column(db.Integer, nullable=False)
     directions = db.Column(db.String(10000), nullable=False)
     cuisine = db.Column(db.String(50), nullable=False)
+    imgURL = db.Column(db.String(2000))
     author_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     created_at = db.Column('created_at', db.DateTime, default=datetime.datetime.now, nullable=False)
     
@@ -27,6 +28,7 @@ class Recipe(db.Model):
             'servings' : self.servings,
             'directions' : self.directions,
             'cuisine' : self.cuisine,
+            'imgURL' : self.imgURL,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
             'ingredients' : [ingredient.to_dict() for ingredient in self.recipe],
@@ -41,6 +43,7 @@ class Recipe(db.Model):
             'servings' : self.servings,
             'directions' : self.directions,
             'cuisine' : self.cuisine,
+            'imgURL' : self.imgURL,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
         }
