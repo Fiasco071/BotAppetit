@@ -63,7 +63,7 @@ const RecipeForm = () => {
                 setValidationErrors([]);
                 setHasSubmitted(false);
                 await dispatch(getAllRecipes())
-                history.push(`/recipes/${recipe.pop()?.id + 1}`)
+                await history.push(`/recipes/${recipe?.pop()?.id + 1}`)
             }
         }
     };
