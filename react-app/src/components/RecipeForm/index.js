@@ -167,7 +167,7 @@ const RecipeForm = () => {
                         className='ing-add-button'>Add</button>
                     <div className='recipe-addeding-box'>
                         {ingredientsList.map(ingredient_id => (
-                            <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id - 1].name}.png`).default} />
+                            <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id - 1].name.includes("oil")? 'oil' : ingredientsListdata[ingredient_id - 1].name}.png`).default} />
                         ))}
                     </div>
                     <div>
