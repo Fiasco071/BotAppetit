@@ -8,6 +8,8 @@ import { getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
+import { updateUser } from "../../store/session";
+
 
 
 
@@ -18,6 +20,7 @@ const Home = () => {
     const ingredients = useSelector(state => Object.values(state.ingredients)[0])
     const recipes = useSelector(state => Object.values(state.recipes)[0])
     
+
     //Recipe instruction break down
     let instructionArr;
 
@@ -42,6 +45,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
+        dispatch(updateUser())
     }, [dispatch])
 
 

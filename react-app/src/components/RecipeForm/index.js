@@ -3,10 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getAllIngredients } from "../../store/ingredient";
-import { addARecipe } from '../../store/recipe';
+import { addARecipe, getAllRecipes } from '../../store/recipe';
 
 const RecipeForm = () => {
-    const ref = useRef(null);
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -28,6 +27,8 @@ const RecipeForm = () => {
     const userId = useSelector(state => state.session.user.id)
     const ingredientsListdata = useSelector(state => Object.values(state.ingredients)[0])
     const [ingredientsList, setIngreList] = useState([])
+    const recipe = useSelector(state => Object.values(state.recipes)[0])
+
 
     const cuisineArr = ['Italian','Thai','French','Japanese','Lebanese','Spanish','German','Korean','South African','Australian','Caribbean','Greek','Filipino','Scottish','Indian','Mexican','Indonesian','Brazilian','Chinese','American']
 
@@ -36,6 +37,7 @@ const RecipeForm = () => {
 
     useEffect(() => {
         dispatch(getAllIngredients())
+        dispatch(getAllRecipes())
     }, [dispatch])
 
     const submitUpdateForm = async (e) => {
@@ -58,12 +60,10 @@ const RecipeForm = () => {
         if (validationErrors.length === 0) {
             let update = await dispatch(addARecipe(data));
             if (update) {
-                //setContent('')
                 setValidationErrors([]);
                 setHasSubmitted(false);
-                //edit.setShowEdit('');
-                console.log(data)
-                history.push('/')
+                await dispatch(getAllRecipes())
+                history.push(`/recipes/${recipe.pop()?.id+1}`)
             }
         }
     };

@@ -14,7 +14,7 @@
 }
 
 .bot-side {
-    width:100px;
+    width: 100px;
     height: 400px;
     background-color: rgb(133, 132, 132);
     position: relative;
@@ -47,42 +47,37 @@
 }
 
 .bot-eyes {
-    width:35px;
-    height:30px;
+    width: 35px;
+    height: 30px;
     background-color: black;
     clip-path: ellipse(25% 40% at 50% 50%);
     position: absolute;
     margin-top: 45px;
-    left:calc(50% - 75px);
-}
-.bot-face-screen::before {
-    content: '';
-    width:35px;
-    height:30px;
-    background-color: black;
-    clip-path: ellipse(25% 40% at 50% 50%);
-    position: absolute;
-    margin-top: 45px;
-    left:calc(50% + 30px);
+    left: calc(50% - 75px);
 }
 
-.bot-face-screen::after {
-    content: '';
-    width:60px;
-    height:15px;
+.R {
+    position: absolute;
+    margin-top: 45px;
+    left: calc(50% + 30px);
+}
+
+.bot-mouth {
+    width: 60px;
+    height: 15px;
     background-color: black;
     position: absolute;
     margin-top: 105px;
     border-radius: 10px;
-    left:calc(50% - 37px);
+    left: calc(50% - 37px);
 }
 
 .left-arm {
     position: relative;
     left: calc(50% + 30px);
     top: -550px;
-    width:50px;
-    height:200px;
+    width: 50px;
+    height: 200px;
     background-color: rgb(48, 48, 48);
     clip-path: ellipse(28% 50% at 50% 50%);
     z-index: 1;
@@ -92,8 +87,8 @@
     position: relative;
     left: calc(-20px);
     top: -745px;
-    width:50px;
-    height:200px;
+    width: 50px;
+    height: 200px;
     background-color: rgb(48, 48, 48);
     clip-path: ellipse(28% 50% at 50% 50%);
     z-index: 0;
@@ -103,8 +98,8 @@
     position: relative;
     left: 227px;
     top: -1095px;
-    width:50px;
-    height:200px;
+    width: 50px;
+    height: 200px;
     background-color: rgb(48, 48, 48);
     clip-path: ellipse(28% 50% at 50% 50%);
     z-index: 0;
@@ -114,8 +109,8 @@
     position: relative;
     left: 70px;
     top: -875px;
-    width:50px;
-    height:200px;
+    width: 50px;
+    height: 200px;
     background-color: rgb(48, 48, 48);
     clip-path: ellipse(28% 50% at 50% 50%);
     z-index: 0;
@@ -146,7 +141,7 @@
 
 .logo {
     font-family: Arial, Helvetica, sans-serif;
-    position:relative;
+    position: relative;
     top: -1322px;
     left: 56px;
     font-size: 100px;
@@ -164,7 +159,7 @@
     top: 244px;
     left: 28px;
     border-radius: 10px;
-    transform: skew(0deg, 7deg) skew(0deg, 7deg) rotate(-13.5deg) 
+    transform: skew(0deg, 7deg) skew(0deg, 7deg) rotate(-13.5deg)
 }
 
 .bot-stomach-lid-side {
@@ -179,56 +174,149 @@
 
 
 p.bubble {
-	position: absolute;
-	width: 300px;
-    top:80px;
+    position: absolute;
+    width: 300px;
+    top: 80px;
     left: 1050px;
-	text-align: center;
-	line-height: 1.4em;
-	margin: 40px auto;
-	background-color: #fff;
-	border: 8px solid #333;
-	border-radius: 30px;
-	font-family: sans-serif;
-	padding: 20px;
-	font-size: large;
+    text-align: center;
+    line-height: 1.4em;
+    margin: 40px auto;
+    background-color: #fff;
+    border: 8px solid #333;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding: 20px;
+    font-size: large;
 }
 
 p.thought {
-	width: 300px;
-	border-radius: 200px;
-	padding: 30px;	
+    width: 300px;
+    border-radius: 200px;
+    padding: 30px;
     z-index: 3;
 }
 
 p.bubble:before,
 p.bubble:after {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
 }
 
 
 p.thought:before,
 p.thought:after {
-	left: 310px;
-	bottom: -30px;
-	width: 40px;
-	height: 40px;
-	background-color: #fff;
-	border: 8px solid #333;
-	-webkit-border-radius: 28px;
-	-moz-border-radius: 28px;
-	border-radius: 28px;
+    left: 310px;
+    bottom: -30px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 8px solid #333;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
 }
 
 p.thought:after {
-	width: 20px;
-	height: 20px;
-	left: 335px;
-	bottom: -40px;
-	-webkit-border-radius: 18px;
-	-moz-border-radius: 18px;
-	border-radius: 18px;
+    width: 20px;
+    height: 20px;
+    left: 335px;
+    bottom: -40px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+
+.disappear {
+    opacity: 0;
+}
+
+.progress {
+    position: absolute;
+    height: 10px;
+    width: 60%;
+    border: 10px solid #cccccb;
+    border-radius: 15px;
+    top: 80px;
+    left: 40px;
+}
+
+.progress .color {
+    position: absolute;
+    background-color: #181414;
+    width: 0px;
+    height: 10px;
+    border-radius: 15px;
+    animation: progres 2s infinite linear;
+}
+
+@keyframes progres {
+    0% {
+        width: 0%;
+    }
+
+    25% {
+        width: 60%;
+    }
+
+    50% {
+        width: 85%;
+    }
+
+    75% {
+        width: 100%;
+    }
+
+    100% {}
+}
+
+;
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        width: 60%;
+    }
+
+    50% {
+        width: 85%;
+    }
+
+    75% {
+        width: 100%;
+    }
+
+    100% {}
+}
+
+.recipe-list {
+    animation: appear 2s forwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.recipe-list > div {
+    margin: 2px 0 2px 5px;
+    padding: 2px 3px;
+    box-sizing: border-box;
+    width: 235px;
+    height: 20px;
+    font-size: 20px;
+    overflow: hidden;
+    font-weight: bolder;
 }

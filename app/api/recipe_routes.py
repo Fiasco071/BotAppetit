@@ -69,7 +69,19 @@ def add_recipe():
             db.session.add(ing)
             db.session.commit()
 
-        
         return recipe.to_dict()
 
     return {"error": form.errors}
+
+
+
+@recipe_routes.route('/<int:id>/delete', methods=['GET'])
+# @login_required
+def delete_comment(id):
+    
+    recipe = Recipe.query.filter(Recipe.id == id).one()
+    deletedRecord = recipe.to_dict()
+    db.session.delete(recipe)
+    db.session.commit()
+
+    return deletedRecord

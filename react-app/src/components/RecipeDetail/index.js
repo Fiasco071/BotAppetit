@@ -4,29 +4,31 @@ import './index.css'
 import { useEffect, useRef, useState } from "react";
 import { getAllIngredients } from "../../store/ingredient";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllRecipes } from "../../store/recipe";
+import { delARecipes, getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+
 
 
 const RecipeDetail = () => {
     const { id } = useParams();
+    const history = useHistory();
     const dispatch = useDispatch();
     const ref = useRef(null);
 
     const ingredients = useSelector(state => Object.values(state.ingredients)[0])
     const recipes = useSelector(state => Object.values(state.recipes)[0])
-    const recipes2 = useSelector(state => Object.values(state.recipes))
+    const userId = useSelector(state => state.session.user.id)
 
-    const recipe = recipes2[0]?.filter((recipe) => +recipe.id === +id)[0]
+    // const recipes3 = useSelector(state => state.recipes)
+    // console.log(recipes3)
+    let recipe =recipes?.filter((recipe) => +recipe.id === +id)[0]
 
-    // console.log(recipe[0])
-    //Recipe instruction break down
+
     let instructionArr;
-
-    if (recipes) {
+    if (recipe) {
         instructionArr = recipe?.directions.split("$")
     }
 
@@ -43,6 +45,10 @@ const RecipeDetail = () => {
         }
     }
 
+    const handleDelete = async() => {
+        await dispatch(delARecipes(id))
+        history.push('/')
+    }
 
     useEffect(() => {
         dispatch(getAllIngredients())
@@ -54,11 +60,16 @@ const RecipeDetail = () => {
     return (
         <div className="home-wrapper">
             <div className="recipe-box">
+                {userId == recipe?.author_id && (
+                    <p 
+                    onClick={handleDelete}
+                    className="comment-delete-button recipe">X</p>
+                )}
                 <div className="big-img-box"></div>
                 <div className="ing-box">
                     <div className="ing-box-groc-icon"></div>
                     <div className="recipe-ing-box">
-                        {recipes && recipe?.ingredients.map(ingredient => (
+                        {recipe && recipe?.ingredients.map(ingredient => (
                             <div key={`b${ingredient.id}`} className="rec-ing-single-info-container">
                                 <div
                                     key={`a${ingredient.id}`}
@@ -69,7 +80,7 @@ const RecipeDetail = () => {
                     </div>
                 </div>
                 <div className="direc-box-1">
-                    {recipes && (
+                    {recipe && (
                         <div className="quick-info-box">
                             <h2 className="recipe-title">{recipe?.name}</h2>
                             <div>
@@ -83,7 +94,7 @@ const RecipeDetail = () => {
                 </div>
                 <div className="direc-box-2">
                     <h2>Instructions</h2>
-                    {recipes && (
+                    {recipe && (
                         <div className="directions-box">
                             {instructionArr && (
                                 instructionArr.map(direction => (

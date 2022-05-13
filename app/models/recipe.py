@@ -18,7 +18,7 @@ class Recipe(db.Model):
     recipe = db.relationship('IngredientsInRecipe', back_populates='ingredients', cascade="all, delete")
     
     recipe_owner = db.relationship('User', back_populates='recipes')
-    comments = db.relationship('Comment', back_populates='recipe')
+    comments = db.relationship('Comment', back_populates='recipe', cascade="all, delete")
     
     def to_dict(self):
         return {
