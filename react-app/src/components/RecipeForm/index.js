@@ -5,7 +5,8 @@ import { useHistory } from 'react-router-dom'
 import { getAllIngredients } from "../../store/ingredient";
 import { addARecipe, getAllRecipes } from '../../store/recipe';
 import CookBot from '../CookBot';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeForm = () => {
     const history = useHistory();
@@ -34,7 +35,6 @@ const RecipeForm = () => {
 
     const cuisineArr = ['Italian', 'Thai', 'French', 'Japanese', 'Lebanese', 'Spanish', 'German', 'Korean', 'South African', 'Australian', 'Caribbean', 'Greek', 'Filipino', 'Scottish', 'Indian', 'Mexican', 'Indonesian', 'Brazilian', 'Chinese', 'American']
 
-    // 
 
 
     useEffect(() => {
@@ -65,7 +65,8 @@ const RecipeForm = () => {
                 setValidationErrors([]);
                 setHasSubmitted(false);
                 await dispatch(getAllRecipes())
-                await history.push(`/recipes/${recipe?.pop()?.id + 1}`)
+                console.log()
+                await history.push(`/recipes/${recipe[recipe.length-1]?.id + 1}`)
             }
         }
     };
@@ -85,90 +86,117 @@ const RecipeForm = () => {
 
     return (
         <div className='update-form-wrapper'>
+            <div className="write-recipe-icon"></div>
             <div className='recipe-form-wrapper'>
                 <div className='recipe-form-box'>
+                    <h2 className='form-title'>Create a new Recipe!</h2>
                     <form onSubmit={(e) => submitUpdateForm(e)}
                         className='recipe-form'
                     >
-                        <input
-                            name="name"
-                            type="text"
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                            placeholder="Name of the dish"
-                        ></input >
-                        <input
-                            name="cooking_time"
-                            type="number"
-                            onChange={(e) => setCT(e.target.value)}
-                            value={cooking_time}
-                            placeholder="30"
-                        ></input > mins
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Dish Name</p>
+                            <input
+                                name="name"
+                                type="text"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                                placeholder="Name of the dish"
+                            ></input >
+                        </div>
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Cook  ... mins</p>
+                            <FontAwesomeIcon icon={faClock} className="cook-time-icon" />
+                            <input
+                                name="cooking_time"
+                                type="number"
+                                onChange={(e) => setCT(e.target.value)}
+                                value={cooking_time}
+                                placeholder="30"
+                            ></input >
+                        </div>
 
-                        <p>serving size</p>
-                        <input
-                            name="servings"
-                            type="number"
-                            onChange={(e) => setServings(e.target.value)}
-                            value={servings}
-                            placeholder="1"
-                        ></input >
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Servings</p>
+                            <input
+                                name="servings"
+                                type="number"
+                                onChange={(e) => setServings(e.target.value)}
+                                value={servings}
+                                placeholder="1"
+                            ></input >
+                        </div>
 
-                        <p>Directions</p>
-                        <input
-                            name="directions"
-                            type="text"
-                            onChange={(e) => setDirections(e.target.value)}
-                            value={directions}
-                            placeholder="Direction goes here..."
-                        ></input >
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Directions</p>
+                            <button
+                                onClick={(e) => (e.preventDefault())}
+                                className='ing-add-button'>+</button>
+                            <input
+                                name="directions"
+                                type="text"
+                                onChange={(e) => setDirections(e.target.value)}
+                                value={directions}
+                                placeholder="Direction goes here..."
+                            ></input >
+                        </div>
 
-                        <p>Cuisine</p>
-                        <select
-                            name='cuisine'
-                            className='cuisine'
-                            value={cuisine}
-                            onChange={(e) => (setCuisine(e.target.value))}
-                        >
-                            {cuisineArr?.map((cuisine, idx) => (
-                                <option
-                                    key={idx}
-                                    value={cuisine}
-                                >{cuisine} Cuisine
-                                </option>
-                            ))}
-                        </select>
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Cuisine</p>
+                            <div className='cuisine-flag-marker'>
+                                <img className='cuisine-flag-uf' src={require(`../../assets/img/flagicon/${cuisine.split(" ").join('').toLowerCase()}.png`).default} />
+                            </div>
+                            <select
+                                name='cuisine'
+                                className='cuisine'
+                                value={cuisine}
+                                onChange={(e) => (setCuisine(e.target.value))}
+                            >
+                                {cuisineArr?.map((cuisine, idx) => (
+                                    <option
+                                        key={idx}
+                                        value={cuisine}
+                                    >
+                                        {cuisine} Cuisine
+                                    </option>
+                                ))}
+                            </select>
+
+                        </div>
 
 
-                        <p>Image URL</p>
-                        <input
-                            name="imgURL"
-                            type="text"
-                            onChange={(e) => setImgtags(e.target.value)}
-                            value={imgURL}
-                            placeholder="Img URL goes here..."
-                        ></input >
+                        <div className='input-box-wrapper'>
+                            <p className='input-title-label'> Images</p>
+                            <input
+                                name="imgURL"
+                                type="text"
+                                onChange={(e) => setImgtags(e.target.value)}
+                                value={imgURL}
+                                placeholder="Img URL goes here..."
+                            ></input >
+                        </div>
 
-                        <p>Ingredients</p>
-
-                        <select
-                            name='ingredients'
-                            className='ingredients'
-                            value={ingredients}
-                            onChange={(e) => (setIngredients(e.target.value))}
-                        >
-                            {ingredientsListdata?.map(ingredient => (
-                                <option
-                                    // onClick={addIngredients}
-                                    key={ingredient.id}
-                                    value={ingredient.id}
-                                >{ingredient.name}</option>
-                            ))}
-                        </select>
-                        <button
-                            onClick={(e) => addIngredients(e)}
-                            className='ing-add-button'>Add</button>
+                        <div className='ingredients-add-box-wrapper'>
+                            <p>Ingredients</p>
+                            <select
+                                name='ingredients'
+                                className='ingredients'
+                                value={ingredients}
+                                onChange={(e) => (setIngredients(e.target.value))}
+                            >
+                                {ingredientsListdata?.map(ingredient => (
+                                    <option
+                                        // onClick={addIngredients}
+                                        key={ingredient.id}
+                                        value={ingredient.id}
+                                    >{ingredient.name}</option>
+                                ))}
+                            </select>
+                            <button
+                                onClick={(e) => addIngredients(e)}
+                                className='ing-add-button'>+</button>
+                        </div>
                         <div className='recipe-addeding-box'>
+                            <div className='blankblock'></div>
                             {ingredientsList.map(ingredient_id => (
                                 <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id - 1].name.includes("oil") ? 'oil' : ingredientsListdata[ingredient_id - 1].name}.png`).default} />
                             ))}
@@ -182,7 +210,7 @@ const RecipeForm = () => {
                                 </ul>
                             )}
                         </div>
-                        <button type="submit" className="">
+                        <button type="submit" className="recipe-submit-button">
                             SUBMIT
                         </button>
                     </form>

@@ -249,3 +249,32 @@ div.bot-container > div > p.bubble {
     top: -60px;
     left: 126px;
 }
+
+/* 
+.cuisine-flag-marker {
+    width: 51px;
+    height: 46px;
+    position: absolute;
+    top: -66px;
+    left: 172px;
+    border-radius: 20%;
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid rgb(83, 83, 82);
+    z-index: 1;
+} */
+
+.cuisine-flag-rd {
+    width: 50px;
+    position: relative;
+    top: -15px;
+}
+
+.clock-icon-rd {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: -8px;
+}

@@ -6,7 +6,7 @@ import { getAllIngredients } from "../../store/ingredient";
 import { useDispatch, useSelector } from 'react-redux';
 import { delARecipes, getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const RecipeDetail = () => {
 
     // const recipes3 = useSelector(state => state.recipes)
     // console.log(recipes3)
-    let recipe =recipes?.filter((recipe) => +recipe.id === +id)[0]
+    let recipe = recipes?.filter((recipe) => +recipe.id === +id)[0]
 
 
     let instructionArr;
@@ -45,7 +45,7 @@ const RecipeDetail = () => {
         }
     }
 
-    const handleDelete = async() => {
+    const handleDelete = async () => {
         await dispatch(delARecipes(id))
         history.push('/')
     }
@@ -61,9 +61,9 @@ const RecipeDetail = () => {
         <div className="home-wrapper">
             <div className="recipe-box">
                 {userId == recipe?.author_id && (
-                    <p 
-                    onClick={handleDelete}
-                    className="comment-delete-button recipe">X</p>
+                    <p
+                        onClick={handleDelete}
+                        className="comment-delete-button recipe">X</p>
                 )}
                 <div className="big-img-box"></div>
                 <div className="ing-box">
@@ -75,10 +75,10 @@ const RecipeDetail = () => {
                                 <div
                                     key={`a${ingredient.id}`}
                                     className="ingredient-icon-box-recipe">
-                                      <img className='recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil")? 'oil' : ingredient.ingdata.name}.png`).default} />      
+                                    <img className='recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil") ? 'oil' : ingredient.ingdata.name}.png`).default} />
                                 </div>
-                                <div key={ingredient.id}> {ingredient.ingdata.name} 
-                                {/* {ingredient.measurement} {ingredient.measurement_type} */}
+                                <div key={ingredient.id}> {ingredient.ingdata.name}
+                                    {/* {ingredient.measurement} {ingredient.measurement_type} */}
                                 </div>
                             </div>
                         ))}
@@ -90,9 +90,10 @@ const RecipeDetail = () => {
                             <h2 className="recipe-title">{recipe?.name}</h2>
                             <div className="box-one-dish-icon"></div>
                             <div>
-                                <FontAwesomeIcon icon={faClock} className="cook-time-icon" />
+                                <img className='clock-icon-rd' src={require(`../../assets/img/clock.png`).default} />
                                 <p className="cooking-time-text">{recipe?.cooking_time}m</p>
-                                <FontAwesomeIcon icon={faFlag} className="cook-time-icon" />
+
+                                <img className='cuisine-flag-rd' src={require(`../../assets/img/flagicon/${recipe?.cuisine.split(" ").join('').toLowerCase()}.png`).default} />
                                 <p className="cuisine-text">{recipe?.cuisine}</p>
                             </div>
                         </div>
@@ -114,8 +115,8 @@ const RecipeDetail = () => {
                 <h2 className="comment-box-title">Comments</h2>
                 <div></div>
                 <div className="direc-box-3">
-                    
-                    <CommentBox id={id}/>
+
+                    <CommentBox id={id} />
                 </div>
 
             </div>

@@ -13,7 +13,7 @@ class Comment(db.Model):
     
     
     comment_owner = db.relationship('User', back_populates='comments')
-    recipe = db.relationship('Recipe', back_populates='comments', cascade="all, delete")
+    recipe = db.relationship('Recipe', back_populates='comments')
     
     def to_dict_no_recipe(self):
         return {
