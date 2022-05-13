@@ -1,5 +1,5 @@
 .recipe-box {
-    height: 100vh;
+    height: 840px;
     width: 790px;
     background: linear-gradient(90deg, white, rgb(247, 247, 247) );
     margin-left: 150px;
@@ -9,10 +9,9 @@
 
 .home-wrapper::before {
     content: '';
-    height: 100vh;
+    height: 840px;
     width: 790px;
     border-radius: 5px;
-    
     position: absolute;
     z-index: -1;
     top: 80px;
@@ -37,76 +36,7 @@ border: 9px solid black;
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 5px 5px 0 0;
-}
-
-.ing-box {
-    width: 259px;
-    height: 310px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 12px rgb(177 177 177);
-    position: relative;
-    top: -51px;
-    left: 488px;
-    border-top: 60px solid rgb(82, 64, 60);
-}
-
-.direc-box-1 {
-    width: 430px;
-    height: 170px;
-    border-radius: 5px;
-    background-color: rgb(248, 215, 185);
-    position: relative;
-    top: -323px;
-    left: 28px;
-}
-
-.direc-box-2 {
-    width: 428px;
-    height: 395px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 12px rgb(177 177 177);
-    position: relative;
-    top: -300px;
-    left: 28px;
-    overflow-y: auto;
-}
-
-.direc-box-2 > h2 {
-    margin: 0;
-    padding: 10px 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
-
-.directions-box {
-    width: 95%;
-    height: 95%;
-    padding: 5px 10px; 
-}
-
-.directions-box > div{
-    border-radius: 10px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    padding: 5px 10px;
-    box-shadow: 2px 2px 4px grey;
-}
-
-.ing-box-groc-icon {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    top: -35px;
-    left: 96px;
-    border-radius: 100%;
-    background-image: url(../../assets/img/groceryicon.JPG);
-    background-position: center;
-    background-size: 50px 50px;
-    background-repeat: no-repeat;
-    background-color: white;
-    border: 3px rgb(0, 0, 0) solid;
+    border-bottom: 8px solid rgb(121, 121, 121);
 }
 
 .ingredient-dnd-box {
@@ -159,97 +89,4 @@ border: 9px solid black;
 .ing-dnd-icons-box {
     display: flex;
     flex-wrap: wrap;
-}
-
-
-.ingredient-icon-box-recipe {
-    margin: 0 5px 5px 0;
-    padding: 2px 3px;
-    background-color: white;
-    border-radius: 15px;
-    border: solid black 2px;
-    height: 20px;
-    width: 60px;
-    text-align: center;
-}
-
-.recipe-ing-box {
-    position: relative;
-    top: -30px;
-    display: flex;
-    flex-direction: column;
-    height: 240px;
-    padding: 10px 20px;
-    overflow-y: auto;
-}
-
-.recipe-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin: 0;
-    padding: 10px 0px 5px 15px;
-    z-index: 0;
-    color: rgb(255, 255, 255);
-    font-weight: bolder;
-    text-shadow: 1px 1px rgb(214, 214, 214), 1px -1px rgb(214, 214, 214), -1px 1px rgb(214, 214, 214), -1px -1px rgb(214, 214, 214);
-}
-
-.rec-ing-single-info-container {
-    display: flex;
-}
-
-.rec-ing-single-info-container > div {
-
-}
-
-.quick-info-box {
-    display: flex;
-    flex-direction: column;
-}
-
-.quick-info-box > div:nth-child(2) {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    font-size: 20px;
-    margin: 15px 20px;
-    gap: 10px;
-}
-
-.quick-info-box > div:nth-child(2) > .cook-time-icon {
-    color:rgb(173, 173, 173);
-    margin: 0 10px 0 15px;
-}
-
-.quick-info-box > div:nth-child(2) > p:nth-child(2) {
-    color: white;
-    font-weight: bolder;
-    margin: 0 20px 0 0;
-}
-
-.quick-info-box > div:nth-child(2) > p:nth-child(4) {
-    color: white;
-    font-weight: bolder;
-    margin: 0;
-}
-
-.direc-box-3 {
-    width: 260px;
-    height: 292px;
-    overflow-y: auto;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 12px rgb(177 177 177);
-    position: relative;
-    top: -593px;
-    left: 490px;
-    padding: 10px 10px;
-    box-sizing: border-box;
-}
-
-.comment-indv-box {
-    border-radius: 10px;
-    padding: 2px 3px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 12px rgb(177 177 177);
-    margin-bottom: 10px;
 }

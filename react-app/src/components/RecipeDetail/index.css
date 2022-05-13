@@ -3,3 +3,249 @@
     left: 920px;
     top: 150px;
 }
+
+.ingredient-icon-box-recipe > img.recipe-ing-icon {
+    width: 30px;
+    position: relative;
+    left: -10px;
+}
+
+.ingredient-icon-box-recipe {
+    margin: 0 5px 5px 0;
+    padding: 2px 3px;
+    height: 20px;
+    width: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.ing-box {
+    width: 259px;
+    height: 310px;
+    border-radius: 10px;
+    padding: 15px 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -51px;
+    left: 488px;
+    border-top: 45px solid rgb(84, 110, 145);
+    border-left: 6px solid rgb(84, 110, 145);
+    border-right: 6px solid rgb(84, 110, 145);
+    border-bottom: 6px solid rgb(84, 110, 145);
+    box-sizing: border-box;
+}
+
+.direc-box-1 {
+    border-top: 45px solid rgb(236, 86, 66);
+    border-left: 6px solid rgb(236, 86, 66);
+    border-right: 6px solid rgb(236, 86, 66);
+    border-bottom: 6px solid rgb(236, 86, 66);
+    box-sizing: border-box;
+    width: 430px;
+    height: 170px;
+    border-radius: 5px;
+    background-color: rgb(253, 208, 182);
+    position: relative;
+    top: -333px;
+    left: 28px;
+}
+
+.direc-box-2 {
+    width: 428px;
+    height: 395px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -300px;
+    left: 28px;
+    overflow-y: auto;
+}
+
+.direc-box-2 > h2 {
+    margin: 0;
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.directions-box {
+    width: 95%;
+    height: 95%;
+    padding: 5px 10px; 
+}
+
+.directions-box > div{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+
+.ing-box-groc-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: -100px;
+    left: 163px;
+    border-radius: 20%;
+    background-image: url(../../assets/img/grocery.png);
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid rgb(84, 110, 145);
+}
+
+
+.recipe-ing-box {
+    position: relative;
+    top: -80px;
+    display: flex;
+    flex-direction: column;
+    height: 220px;
+    padding: 10px 20px;
+    overflow-y: auto;
+}
+
+.ing-box-title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    position: absolute;
+    top: -35px;
+    font-size: 23px;
+    font-weight: bolder;
+    color: white;
+    margin-left: 8px;
+}
+
+.rec-ing-single-info-container {
+    display: flex;
+}
+
+.rec-ing-single-info-container > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(78, 78, 78);
+}
+
+
+.quick-info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-info-box > div:nth-child(3) {
+    display: flex;
+    font-size: 20px;
+    margin: 15px 20px;
+    gap: 10px;
+}
+
+.quick-info-box > div:nth-child(3) > .cook-time-icon {
+    color:rgb(173, 173, 173);
+    margin: 0 10px 0 15px;
+}
+
+.quick-info-box > div:nth-child(3) > p:nth-child(2) {
+    color: white;
+    font-weight: bolder;
+    margin: 0 20px 0 0;
+}
+
+.quick-info-box > div:nth-child(3) > p:nth-child(4) {
+    color: white;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.direc-box-3 {
+    width: 260px;
+    height: 292px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    position: relative;
+    top: -593px;
+    left: 490px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-top: 45px solid rgb(165, 197, 138);
+    border-left: 6px solid rgb(165, 197, 138);
+    border-right: 6px solid rgb(165, 197, 138);
+    border-bottom: 6px solid rgb(165, 197, 138);
+}
+
+.comment-indv-box {
+    border-radius: 10px;
+    padding: 2px 3px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 12px rgb(177 177 177);
+    margin-bottom: 10px;
+}
+
+
+.recipe-title {
+    position: relative;
+    top: -42px;
+    font-size: 22px;
+    margin: 0;
+    padding: 10px 0px 5px 11px;
+    z-index: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+
+.box-one-dish-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: -98px;
+    left: 6px;
+    border-radius: 20%;
+    background-image: url(../../assets/img/meat.png);
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid rgb(236, 86, 66);
+}
+
+.comment-box-title{
+    position: absolute;
+    top: 686px;
+    left: 676px;
+    z-index: 1;
+    font-size: 22px;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.comment-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 637px;
+    left: 832px;
+    border-radius: 20%;
+    background-image: url(../../assets/img/chat.png);
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid rgb(165, 197, 138);
+    z-index: 1;
+}
+ 
+div.bot-container > div > p.bubble {
+    position: absolute;
+    top: -60px;
+    left: 126px;
+}

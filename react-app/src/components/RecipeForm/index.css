@@ -55,3 +55,14 @@ border: 9px solid black;
     border: 1px solid black;
     width: 700px;
 }
+
+.update-form-wrapper {
+    display: flex;
+}
+
+
+.bot-container {
+    position: absolute;
+    top: -21px;
+    left: 1060px;
+}

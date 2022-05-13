@@ -68,13 +68,18 @@ const RecipeDetail = () => {
                 <div className="big-img-box"></div>
                 <div className="ing-box">
                     <div className="ing-box-groc-icon"></div>
+                    <h2 className="ing-box-title">Ingredients</h2>
                     <div className="recipe-ing-box">
                         {recipe && recipe?.ingredients.map(ingredient => (
                             <div key={`b${ingredient.id}`} className="rec-ing-single-info-container">
                                 <div
                                     key={`a${ingredient.id}`}
-                                    className="ingredient-icon-box-recipe">{ingredient.ingdata.name}</div>
-                                <div key={ingredient.id}>{ingredient.measurement} {ingredient.measurement_type}</div>
+                                    className="ingredient-icon-box-recipe">
+                                      <img className='recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil")? 'oil' : ingredient.ingdata.name}.png`).default} />      
+                                </div>
+                                <div key={ingredient.id}> {ingredient.ingdata.name} 
+                                {/* {ingredient.measurement} {ingredient.measurement_type} */}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -83,6 +88,7 @@ const RecipeDetail = () => {
                     {recipe && (
                         <div className="quick-info-box">
                             <h2 className="recipe-title">{recipe?.name}</h2>
+                            <div className="box-one-dish-icon"></div>
                             <div>
                                 <FontAwesomeIcon icon={faClock} className="cook-time-icon" />
                                 <p className="cooking-time-text">{recipe?.cooking_time}m</p>
@@ -104,8 +110,11 @@ const RecipeDetail = () => {
                         </div>
                     )}
                 </div>
-
+                <div className="comment-icon"></div>
+                <h2 className="comment-box-title">Comments</h2>
+                <div></div>
                 <div className="direc-box-3">
+                    
                     <CommentBox id={id}/>
                 </div>
 
