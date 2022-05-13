@@ -48,8 +48,21 @@ def seed_ingredients():
         name='cooking spray', ing_type='oil') 
     
     
+    bellpepper = Ingredient(
+        name='bellpepper', ing_type='vegetable')
+    cheese = Ingredient(
+        name='cheese', ing_type='dairy')
+    chili = Ingredient(
+        name='chili', ing_type='vegetable')
+    milk = Ingredient(
+        name='milk', ing_type='dairy')
+    pepper = Ingredient(
+        name='pepper', ing_type='pepper')
+    water = Ingredient(
+        name='water', ing_type='water')
     
-    db.session.add_all([apple,carrot,potato,tomato,onion,lettuce,garlic,rice,spinach,chicken,beef,pork,sugar,salt,flour,olive_oil,vege_oil,cano_oil,cooking_spray])
+    
+    db.session.add_all([apple,carrot,potato,tomato,onion,lettuce,garlic,rice,spinach,chicken,beef,pork,sugar,salt,flour,olive_oil,vege_oil,cano_oil,cooking_spray,bellpepper,cheese,chili,milk,pepper,water])
     db.session.commit()
 
 def undo_ingredients():
