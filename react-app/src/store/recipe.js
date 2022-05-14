@@ -36,7 +36,7 @@ export const getAllRecipes = () => async (dispatch) => {
 };
 
 export const addARecipe = (data) => async (dispatch) => {
-  const response = await fetch(`/api/recipes/add`, {
+  const response = await fetch(`/api/recipes/add/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -58,7 +58,7 @@ export const addARecipe = (data) => async (dispatch) => {
 }
 
 export const updateARecipe = (id,data) => async (dispatch) => {
-  const response = await fetch(`/api/recipes/${id}/edit`, {
+  const response = await fetch(`/api/recipes/${id}/edit/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

@@ -138,7 +138,7 @@ const RecipeForm = () => {
 
     return (
         <div className='update-form-wrapper'>
-            {errors.length != 0 && (
+            {errors.length != 0 && hasSubmitted && (
                 <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
                     <div className='angry-bot-eye l'></div>
                     <div className='angry-bot-eye r'></div>
