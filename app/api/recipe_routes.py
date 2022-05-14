@@ -20,6 +20,7 @@ def add_recipe():
     
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     form.ingredients.choices = [(ingredient.id, ingredient.name) for ingredient in Ingredient.query.all()]
     form.cuisine.choices = [('Italian', 'Italian'),
         ('Thai','Thai'),
@@ -72,6 +73,68 @@ def add_recipe():
         return recipe.to_dict()
 
     return {"error": form.errors}
+
+
+
+@recipe_routes.route('/<int:id>/edit', methods=["PUT"])
+# @login_required
+def update_recipe(id):
+    
+    form = RecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    form.ingredients.choices = [(ingredient.id, ingredient.name) for ingredient in Ingredient.query.all()]
+    form.cuisine.choices = [('Italian', 'Italian'),
+        ('Thai','Thai'),
+        ('French','French'),
+        ('Japanese','Japanese'),
+        ('Lebanese','Lebanese'),
+        ('Spanish','Spanish'),
+        ('German','German'),
+        ('Korean','Korean'),
+        ('South African','South African'),
+        ('Australian','Australian'),
+        ('Caribbean','Caribbean'),
+        ('Greek','Greek'),
+        ('Filipino','Filipino'),
+        ('Scottish','Scottish'),
+        ('Indian','Indian'),
+        ('Mexican','Mexican'),
+        ('Indonesian','Indonesian'),
+        ('Brazilian','Brazilian'),
+        ('Chinese','Chinese'),
+        ('American','American')]
+    
+    if form.validate_on_submit():
+        
+        recipe = Recipe.query.filter(Recipe.id == id).first()
+        recipe.name = form.data['name']
+        recipe.cooking_time = form.data['cooking_time'],
+        recipe.servings = form.data['servings'],
+        recipe.directions = form.data['directions'],
+        recipe.cuisine =  request.json["cuisine"],
+        recipe.imgURL = form.data['imgURL'],
+        
+        db.session.add(recipe)
+        db.session.commit()
+        
+        
+        #TRICKY
+        #I will have to grab all ingredients indvidiually check the db for their existence and if they do, i dont do anything, else, i add. actually this doesnt sound too bad at all
+        for ingredient in set(request.json["ingredients"]):
+            ing = IngredientsInRecipe.query.filter(IngredientsInRecipe.recipe_id == recipe.id, IngredientsInRecipe.ing_id == ingredient).first()
+            if ing == None :
+                ing2 = IngredientsInRecipe(
+                    recipe_id = recipe.id,
+                    ing_id = ingredient,
+                    measurement = 1.00,
+                    measurement_type = 'Tbsp'
+                )
+                db.session.add(ing2)
+                db.session.commit()
+        return recipe.to_dict()
+
+    return {"error": form.errors}
+
 
 
 
