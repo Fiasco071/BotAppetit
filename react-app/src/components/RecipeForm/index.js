@@ -111,28 +111,12 @@ const RecipeForm = () => {
                     await history.push(`/recipes/${id}`)
                 }
             } else {
-                console.log('-=-=-==-==-=-=-=-=-= create ruote -=-===-====')
-                dispatch(addARecipe(data))
-                .then((value) => {
+                let update = await dispatch(addARecipe(data));
+                if (update) {
                     setValidationErrors([]);
                     setHasSubmitted(false);
-                    history.push(`/recipes/${value.id}`)
-                })
-                .catch(
-                  async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) {
-                        setErrors2(data.errors);
-                    }}
-                );
-
-
-                // let update = await dispatch(addARecipe(data));
-                // if (update) {
-                //     setValidationErrors([]);
-                //     setHasSubmitted(false);
-                //     history.push(`/recipes/${getnewId}`)
-                // }
+                    history.push(`/recipes/${update.id}`)
+                }
             }
         }
     };
@@ -168,7 +152,6 @@ const RecipeForm = () => {
                         {id ? 'Update this Recipe' : 'Create a new Recipe'}
                     </h2>
                     <form onSubmit={(e) => submitUpdateForm(e)}
-                      
                         className='recipe-form'
                     >
 

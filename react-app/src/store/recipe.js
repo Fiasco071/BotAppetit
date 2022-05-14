@@ -59,7 +59,7 @@ export const addARecipe = (data) => async (dispatch) => {
 
 export const updateARecipe = (id,data) => async (dispatch) => {
   const response = await fetch(`/api/recipes/${id}/edit`, {
-    method: "POST",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
