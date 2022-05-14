@@ -31,12 +31,12 @@ export const getAllRecipes = () => async (dispatch) => {
   if (response.ok) {
     const recipes = await response.json();
     dispatch(getRec(recipes));
-    return response;
+    return recipes;
   }
 };
 
 export const addARecipe = (data) => async (dispatch) => {
-  const response = await fetch(`/api/recipes/add/`, {
+  const response = await fetch(`/api/recipes/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -45,7 +45,7 @@ export const addARecipe = (data) => async (dispatch) => {
   if (response.ok) {
     const recipe = await response.json();
     dispatch(addRec(recipe));
-    return response;
+    return recipe;
   }  else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -58,7 +58,7 @@ export const addARecipe = (data) => async (dispatch) => {
 }
 
 export const updateARecipe = (id,data) => async (dispatch) => {
-  const response = await fetch(`/api/recipes/${id}/edit/`, {
+  const response = await fetch(`/api/recipes/${id}/edit`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -67,7 +67,7 @@ export const updateARecipe = (id,data) => async (dispatch) => {
   if (response.ok) {
     const recipe = await response.json();
     dispatch(addRec(recipe));
-    return response;
+    return recipe;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -85,7 +85,7 @@ export const delARecipes = (id) => async (dispatch) => {
   if (response.ok) {
     const recipe = await response.json();
     dispatch(delRec(recipe));
-    return response;
+    return recipe;
   }
 };
 

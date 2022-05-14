@@ -22,9 +22,12 @@ const RecipeForm = () => {
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
+    const [getnewId, setNewId] = useState()
 
     //backend errors
     const [errors, setErrors] = useState([]);
+
+    const [errors2, setErrors2] = useState([]);
     ////Below are state variables for controlled inputs
     const [name, setName] = useState(filteredResult ? filteredResult?.name : '');
     const [cooking_time, setCT] = useState(filteredResult ? filteredResult?.cooking_time : '');
@@ -79,7 +82,7 @@ const RecipeForm = () => {
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
-
+        setNewId(Object.values(recipe)[Object.values(recipe).length - 1]?.id)
     }, [dispatch])
 
     const submitUpdateForm = async (e) => {
@@ -108,21 +111,34 @@ const RecipeForm = () => {
                     await history.push(`/recipes/${id}`)
                 }
             } else {
-                let update = await dispatch(addARecipe(data));
-                if (update) {
+                console.log('-=-=-==-==-=-=-=-=-= create ruote -=-===-====')
+                dispatch(addARecipe(data))
+                .then((value) => {
                     setValidationErrors([]);
                     setHasSubmitted(false);
-                    await dispatch(getAllRecipes())
-                    await history.push(`/recipes/${Object.values(recipe).pop()?.id}`)
-                }
+                    history.push(`/recipes/${value.id}`)
+                })
+                .catch(
+                  async (res) => {
+                    const data = await res.json();
+                    if (data && data.errors) {
+                        setErrors2(data.errors);
+                    }}
+                );
+
+
+                // let update = await dispatch(addARecipe(data));
+                // if (update) {
+                //     setValidationErrors([]);
+                //     setHasSubmitted(false);
+                //     history.push(`/recipes/${getnewId}`)
+                // }
             }
         }
     };
     const addIngredients = (e) => {
         e.preventDefault();
         setIngreList([...ingredientsList, ingredients])
-        console.log(ingredientsList)
-        console.log('-=-=-=-=-==-=',)
     }
 
     useEffect(() => {
@@ -138,7 +154,7 @@ const RecipeForm = () => {
 
     return (
         <div className='update-form-wrapper'>
-            {errors.length != 0 && hasSubmitted && (
+            {errors.length != 0 && hasSubmitted === true && (
                 <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
                     <div className='angry-bot-eye l'></div>
                     <div className='angry-bot-eye r'></div>
@@ -152,6 +168,7 @@ const RecipeForm = () => {
                         {id ? 'Update this Recipe' : 'Create a new Recipe'}
                     </h2>
                     <form onSubmit={(e) => submitUpdateForm(e)}
+                      
                         className='recipe-form'
                     >
 
