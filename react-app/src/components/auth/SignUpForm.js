@@ -39,11 +39,14 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form 
+    className='sign-up-form'
+    onSubmit={onSignUp}>
+      <h2 className='sign-up-title'>Sign Up</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>

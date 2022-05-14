@@ -12,7 +12,7 @@ const CookBot = () => {
     const ref = useRef(null)
     const history = useHistory()
     const [showList, setShowList] = useState(false)
-    const recipes = useSelector(state => Object.values(state.recipes)[0])
+    const recipes = useSelector(state => Object.values(state.recipes))
 
     const updateFormlink = () => {
         history.push('/recipes/add')

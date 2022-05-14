@@ -27,17 +27,32 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
+  
   return (
-    <form onSubmit={onLogin}>
-      <div>
+    <form 
+    className='log-in-form'
+    onSubmit={onLogin}>
+      {errors.length != 0 && (
+          <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
+              <div className='angry-bot-eye l'></div>
+              <div className='angry-bot-eye r'></div>
+              <div className='angry-bot-mouth'></div>
+          </div>
+        )}
+      <div className='log-in-error-box'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
+        {errors.length == 0 && (
+          <p className='bubble-speech-login'>Let's Log In!</p>
+        )}
       </div>
-      <div>
+      <h1 className='log-in-title'>Log In</h1>
+      
+      <div className='log-in-input-box'>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
@@ -47,7 +62,7 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div className='log-in-input-box'>
         <label htmlFor='password'>Password</label>
         <input
           name='password'
@@ -56,7 +71,7 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button type='submit' className='log-in-button'>Login</button>
       </div>
     </form>
   );

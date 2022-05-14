@@ -103,7 +103,7 @@ const CommentBox = () => {
                                     onClick={() => setShowEdit(`${comment.id}`)}
                                     className='comment-update-button'>F</p>
                                 <p
-                                    onClick={() => (dispatch(deleteAComment(comment.id)))}
+                                    onClick={async() => (await dispatch(deleteAComment(comment.id)))}
                                     className='comment-delete-button'>X</p>
                             </div>
                         )}

@@ -6,7 +6,7 @@ import { getAllIngredients } from "../../store/ingredient";
 import { useDispatch, useSelector } from 'react-redux';
 import { delARecipes, getAllRecipes } from "../../store/recipe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -18,14 +18,10 @@ const RecipeDetail = () => {
     const dispatch = useDispatch();
     const ref = useRef(null);
 
-    const ingredients = useSelector(state => Object.values(state.ingredients)[0])
-    const recipes = useSelector(state => Object.values(state.recipes)[0])
+    const ingredients = useSelector(state => Object.values(state.ingredients))
+    const recipes = useSelector(state => state.recipes)
     const userId = useSelector(state => state.session.user.id)
-
-    // const recipes3 = useSelector(state => state.recipes)
-    // console.log(recipes3)
-    let recipe = recipes?.filter((recipe) => +recipe.id === +id)[0]
-
+    let recipe = recipes[id]
 
     let instructionArr;
     if (recipe) {
@@ -58,12 +54,18 @@ const RecipeDetail = () => {
 
 
     return (
-        <div className="home-wrapper">
+        <div className="detail-wrapper">
             <div className="recipe-box">
                 {userId == recipe?.author_id && (
-                    <p
-                        onClick={handleDelete}
-                        className="comment-delete-button recipe">X</p>
+                    <>
+                        <FontAwesomeIcon
+                        onClick={() => history.push(`/recipes/${recipe?.id}/edit`)} 
+                        icon={faEdit} 
+                        className="edit-icon" />
+                        <p
+                            onClick={handleDelete}
+                            className="comment-delete-button recipe">X</p>
+                    </>
                 )}
                 <div className="big-img-box"></div>
                 <div className="ing-box">
@@ -119,8 +121,10 @@ const RecipeDetail = () => {
                     <CommentBox id={id} />
                 </div>
 
+            </div><div
+                className="cook-bot-container">
+                <CookBot />
             </div>
-            <CookBot />
             <div ref={ref} className="ingredient-dnd-box">
                 <p onClick={slidein} className="ing-dnd-box-tab">Ingredients</p>
                 <div className="ing-dnd-icons-box">

@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import Home from './components/Home';
 import RecipeForm from './components/RecipeForm';
 import RecipeDetail from './components/RecipeDetail';
+import LogInPage from './components/LogInPage';
+import Test from './components/test';
 
 
 
@@ -19,7 +21,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -31,21 +33,24 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        <Route path='/' exact={true}>
+        <LogInPage />
+        </Route>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
+          <NavBar/>
           <Home />
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/add' exact={true} >
@@ -53,6 +58,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/:id' exact={true} >
           <RecipeDetail />
+        </ProtectedRoute>
+        <ProtectedRoute path='/recipes/:id/edit' exact={true} >
+          <RecipeForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/test' exact={true} >
+          <Test />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

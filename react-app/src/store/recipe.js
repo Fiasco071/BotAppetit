@@ -46,8 +46,38 @@ export const addARecipe = (data) => async (dispatch) => {
     const recipe = await response.json();
     dispatch(addRec(recipe));
     return response;
+  }  else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
   }
-};
+
+}
+
+export const updateARecipe = (id,data) => async (dispatch) => {
+  const response = await fetch(`/api/recipes/${id}/edit`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const recipe = await response.json();
+    dispatch(addRec(recipe));
+    return response;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+
+}
 
 export const delARecipes = (id) => async (dispatch) => {
   const response = await fetch(`/api/recipes/${id}/delete`);
@@ -59,13 +89,13 @@ export const delARecipes = (id) => async (dispatch) => {
   }
 };
 
+const initialState = { };
 
-
-const recipeReducer = (state = {}, action) => {
+const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_RECIPES: {
       const newState = {};
-      Object.values(action.payload).forEach(recipe => newState[recipe.id] = recipe)
+      action.payload.recipes.forEach(recipe => newState[recipe.id] = recipe)
       return newState;
     }
     case ADD_RECIPE: {

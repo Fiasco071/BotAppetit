@@ -86,7 +86,7 @@
 
 .bot-container {
     position: absolute;
-    top: 0px;
+    top: 70px;
     left: 958px;
 }
 
@@ -207,53 +207,52 @@
     z-index: 3;
 }
 
-.input-box-wrapper:nth-child(4) {
+.input-box-wrapper:nth-child(6) {
     position: absolute;
     height: 320px;
     margin-top:20px;
-    
-}
-.input-box-wrapper:nth-child(4) > .input-title-label {
-    top: -29px;
-    left: -2px;
-}
-
-.input-box-wrapper:nth-child(4) > button {
-    top: -50px;
-    left: 323px;
-}
-
-.input-box-wrapper:nth-child(5) {
-    position: absolute;
-    height: 54px;
-    top: 333px;
-    left: 482px;
-    width: 241px;
-    
-}
-.input-box-wrapper:nth-child(5) > .input-title-label {
-    top: -29px;
-    left: -2px;
-}
-
-.input-box-wrapper:nth-child(5) > select {
-    width: 241px;
-    height:55px;
-    font-size: 22px;
-}
-
-.input-box-wrapper:nth-child(6) {
-    position: absolute;
-    top: 439px;
-    left: 482px;
-    width: 239px;
+    overflow-y: auto;
 }
 .input-box-wrapper:nth-child(6) > .input-title-label {
     top: -29px;
     left: -2px;
 }
 
-.input-box-wrapper:nth-child(6) > input {
+.input-box-wrapper:nth-child(6) > button {
+    top: -50px;
+    left: 323px;
+}
+
+.input-box-wrapper:nth-child(7) {
+    position: absolute;
+    height: 54px;
+    top: 333px;
+    left: 482px;
+    width: 241px;
+}
+.input-box-wrapper:nth-child(7) > .input-title-label {
+    top: -29px;
+    left: -2px;
+}
+
+.input-box-wrapper:nth-child(7) > select {
+    width: 241px;
+    height:55px;
+    font-size: 22px;
+}
+
+.input-box-wrapper:nth-child(8) {
+    position: absolute;
+    top: 439px;
+    left: 482px;
+    width: 239px;
+}
+.input-box-wrapper:nth-child(8) > .input-title-label {
+    top: -29px;
+    left: -2px;
+}
+
+.input-box-wrapper:nth-child(8) > input {
     width: 232px;
 }
 .recipe-submit-button {
@@ -305,4 +304,119 @@
     background-color: white;
     border: 5px solid rgb(83, 83, 82);
     z-index: 1;
+}
+
+.multiaddbox {
+    display: flex;
+}
+
+.multiaddbox > input {
+    width: 342px;
+    height: 45px;
+    font-size: 20px;
+    padding-top: 2px;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+
+.multiaddbox > input:focus {
+    outline: none;
+}
+
+.multiaddbox > label {
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(156, 156, 156);
+}
+
+.multibox-remove {
+    position: relative;
+    left: 320px;
+    top: -10px;
+    color: crimson;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.input-title-label {
+    margin: 0;
+    position: absolute;
+    top: 339px;
+    left: 83px;
+    font-size: 23px;
+    font-weight: bolder;
+    color: white;
+    margin-left: 8px;
+    z-index: 2;
+}
+
+.ing-add-button.directionsbutton {
+    position: absolute;
+    top: 315px;
+    left: 391px;
+    z-index: 2;
+}
+
+.hidden-input-box {
+    position: absolute;
+    visibility: hidden;
+}
+
+.recipe-validation-error-box {
+    position: absolute;
+    width: 325px;
+    height: 173px;
+    background-color: white;
+    top: 3px;
+    left: 1104px;
+    z-index: 4;
+    border-radius: 40% 40% 40% 40%;
+}
+
+#root > div > div.bot-container > div > p {
+    height: 130px;
+    top: -128px;
+}
+
+.recipe-validation-error-box > div  {
+    margin-left: 43px;
+    margin-top: 10px;
+}
+
+.recipe-validation-error-box > div > div {
+    font-size: 20px;
+    color: crimson;
+    padding: 5px 10px;
+    border: 2px solid crimson;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.error-validation-title {
+    margin: 0;
+    color: crimson;
+    position: relative;
+    left: 30px;
+    top: 10px;
+    animation: blink linear infinite 5s;
+    font-size: 30px;
+}
+
+.recipe-create-greetmsg {
+    margin: 0;
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top:35px;
+    left: 50px;
+}
+
+.update-form-wrapper > .angry-bot-face {
+    left: 1137px;
+    top: 334px;
 }

@@ -1,36 +1,75 @@
 import './index.css'
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { getAllIngredients } from "../../store/ingredient";
-import { addARecipe, getAllRecipes } from '../../store/recipe';
+import { addARecipe, getAllRecipes, updateARecipe } from '../../store/recipe';
 import CookBot from '../CookBot';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+
 
 const RecipeForm = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    const { id } = useParams();
+    const recipe = useSelector(state => state.recipes)
+    const filteredResult = recipe[id]
+
+    const saved_ing_list = filteredResult?.ingredients?.map(ing => ing.ingdata.id)
+
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
 
+    //backend errors
+    const [errors, setErrors] = useState([]);
     ////Below are state variables for controlled inputs
-    const [name, setName] = useState();
-    const [cooking_time, setCT] = useState();
-    const [servings, setServings] = useState();
-    const [directions, setDirections] = useState();
-    const [cuisine, setCuisine] = useState('Italian');
-    const [imgURL, setImgtags] = useState();
+    const [name, setName] = useState(filteredResult ? filteredResult?.name : '');
+    const [cooking_time, setCT] = useState(filteredResult ? filteredResult?.cooking_time : '');
+    const [servings, setServings] = useState(filteredResult ? filteredResult?.servings : '');
+    const [directions, setDirections] = useState(filteredResult ? filteredResult?.directions : '');
+    const [cuisine, setCuisine] = useState(filteredResult ? filteredResult?.cuisine : 'Italian');
+    const [imgURL, setImgtags] = useState(filteredResult ? filteredResult?.imgURL : '');
     const [ingredients, setIngredients] = useState(1);
     //////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////
+    const testArr = []
+    const directions_list = filteredResult?.directions?.split("$")
+    directions_list?.forEach(direction => {
+        testArr.push({ direction })
+    })
+    const [valueList, setValueList] = useState(testArr?.length > 0 ? testArr : [{ direction: '' }])
+
+
+    const handleChange = (i, e) => {
+        let newFormValues = [...valueList];
+        newFormValues[i][e.target.name] = e.target.value;
+        setValueList(newFormValues);
+        setDirections(valueList.map(value => value.direction).join('$'))
+    }
+
+    const addFormFields = (e) => {
+        e.preventDefault()
+        setValueList([...valueList, { direction: "" }])
+    }
+
+
+    const removeFormFields = (i) => {
+        let newFormValues = [...valueList];
+        newFormValues.splice(i, 1);
+        setValueList(newFormValues)
+    }
+    ///////////////////////////////////////////////////
 
     const userId = useSelector(state => state.session.user.id)
-    const ingredientsListdata = useSelector(state => Object.values(state.ingredients)[0])
-    const [ingredientsList, setIngreList] = useState([])
-    const recipe = useSelector(state => Object.values(state.recipes)[0])
+    const ingredientsListdata = useSelector(state => state.ingredients)
+    const [ingredientsList, setIngreList] = useState(saved_ing_list ? saved_ing_list : [])
+
+
+
 
 
     const cuisineArr = ['Italian', 'Thai', 'French', 'Japanese', 'Lebanese', 'Spanish', 'German', 'Korean', 'South African', 'Australian', 'Caribbean', 'Greek', 'Filipino', 'Scottish', 'Indian', 'Mexican', 'Indonesian', 'Brazilian', 'Chinese', 'American']
@@ -40,6 +79,7 @@ const RecipeForm = () => {
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
+
     }, [dispatch])
 
     const submitUpdateForm = async (e) => {
@@ -59,40 +99,62 @@ const RecipeForm = () => {
             author_id: userId,
         };
 
-        if (validationErrors.length === 0) {
-            let update = await dispatch(addARecipe(data));
-            if (update) {
-                setValidationErrors([]);
-                setHasSubmitted(false);
-                await dispatch(getAllRecipes())
-                console.log()
-                await history.push(`/recipes/${recipe[recipe.length-1]?.id + 1}`)
+        if (validationErrors.length === 0 && errors.length === 0) {
+            if (id) {
+                let update = await dispatch(updateARecipe(id, data));
+                if (update) {
+                    setValidationErrors([]);
+                    setHasSubmitted(false);
+                    await history.push(`/recipes/${id}`)
+                }
+            } else {
+                let update = await dispatch(addARecipe(data));
+                if (update) {
+                    setValidationErrors([]);
+                    setHasSubmitted(false);
+                    await dispatch(getAllRecipes())
+                    await history.push(`/recipes/${Object.values(recipe).pop()?.id}`)
+                }
             }
         }
     };
     const addIngredients = (e) => {
         e.preventDefault();
         setIngreList([...ingredientsList, ingredients])
+        console.log(ingredientsList)
+        console.log('-=-=-=-=-==-=',)
     }
 
     useEffect(() => {
-        const errors = [];
-        // if (content.length <= 0) errors.push("We may need to think of what to write first...");
-        // if (content.length >= 250) errors.push("Gather your thoughts, It's way too long...")
-        setValidationErrors(errors);
-    }, []);
-
+        const errorslist = []
+        if (name.length === 0 || name.length >= 100) errorslist.push({ 'name': 'We need a title and 100 characters or less!' })
+        if (cooking_time === '') errorslist.push({ 'cooking time': 'Cooking time needs a number!' })
+        if (servings === '') errorslist.push({ "servings": "Let's provide a serving size for this." })
+        if (directions === '') errorslist.push({ "directions": "MISSING DIRECTIONS for the fleshlings." })
+        if (ingredientsList.length <= 0) errorslist.push({ 'ingredients': "Maybe some ingredients for the recipe?" })
+        setErrors(errorslist)
+    }, [name, cooking_time, servings, directions, cuisine, ingredientsList])
 
 
     return (
         <div className='update-form-wrapper'>
+            {errors.length != 0 && (
+                <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
+                    <div className='angry-bot-eye l'></div>
+                    <div className='angry-bot-eye r'></div>
+                    <div className='angry-bot-mouth'></div>
+                </div>
+            )}
             <div className="write-recipe-icon"></div>
             <div className='recipe-form-wrapper'>
                 <div className='recipe-form-box'>
-                    <h2 className='form-title'>Create a new Recipe!</h2>
+                    <h2 className='form-title'>
+                        {id ? 'Update this Recipe' : 'Create a new Recipe'}
+                    </h2>
                     <form onSubmit={(e) => submitUpdateForm(e)}
                         className='recipe-form'
                     >
+
                         <div className='input-box-wrapper'>
                             <p className='input-title-label'> Dish Name</p>
                             <input
@@ -126,18 +188,33 @@ const RecipeForm = () => {
                             ></input >
                         </div>
 
+
+                        <p className='input-title-label'> Directions</p>
+                        <button
+                            onClick={(e) => addFormFields(e)}
+                            className='ing-add-button directionsbutton'>+</button>
+
+
                         <div className='input-box-wrapper'>
-                            <p className='input-title-label'> Directions</p>
-                            <button
-                                onClick={(e) => (e.preventDefault())}
-                                className='ing-add-button'>+</button>
                             <input
+                                className='hidden-input-box'
                                 name="directions"
                                 type="text"
                                 onChange={(e) => setDirections(e.target.value)}
                                 value={directions}
                                 placeholder="Direction goes here..."
                             ></input >
+
+                            {/* multi add */}
+                            {valueList.map((ele, idx) => (
+                                <div className="multiaddbox" key={idx}>
+                                    <label>{`Step ${idx + 1}`}</label>
+                                    {idx ? <p className="multibox-remove" onClick={() => removeFormFields(idx)}>-</p> : null}
+                                    <input type="text" name="direction" value={ele.direction || ""} onChange={e => handleChange(idx, e)} />
+                                </div>
+                            ))}
+
+
                         </div>
 
                         <div className='input-box-wrapper'>
@@ -183,7 +260,7 @@ const RecipeForm = () => {
                                 value={ingredients}
                                 onChange={(e) => (setIngredients(e.target.value))}
                             >
-                                {ingredientsListdata?.map(ingredient => (
+                                {Object.values(ingredientsListdata)?.map(ingredient => (
                                     <option
                                         // onClick={addIngredients}
                                         key={ingredient.id}
@@ -197,8 +274,8 @@ const RecipeForm = () => {
                         </div>
                         <div className='recipe-addeding-box'>
                             <div className='blankblock'></div>
-                            {ingredientsList.map(ingredient_id => (
-                                <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id - 1].name.includes("oil") ? 'oil' : ingredientsListdata[ingredient_id - 1].name}.png`).default} />
+                            {ingredientsList && ingredientsList?.map(ingredient_id => (
+                                <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id]?.name?.includes("oil") ? 'oil' : ingredientsListdata[ingredient_id]?.name}.png`).default} />
                             ))}
                         </div>
                         <div>
@@ -211,9 +288,19 @@ const RecipeForm = () => {
                             )}
                         </div>
                         <button type="submit" className="recipe-submit-button">
-                            SUBMIT
+                            {id ? 'UPDATE' : 'SUBMIT'}
                         </button>
                     </form>
+                </div>
+            </div>
+            <div className='recipe-validation-error-box'>
+                {errors.length > 0 && hasSubmitted ?
+                    <h2 className='error-validation-title'>C@*NOT C0MPutE</h2> : <h2 className='recipe-create-greetmsg'>What are we making??</h2>
+                }
+                <div>
+                    {errors.length > 0 && hasSubmitted && errors.map(error => (
+                        <div>{Object.keys(error)}</div>
+                    ))}
                 </div>
             </div>
             <div className='bot-container'>

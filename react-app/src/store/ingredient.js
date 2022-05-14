@@ -24,7 +24,7 @@ const ingredientReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_INGREDIENTS: {
       const newState = { ...state };
-      Object.values(action.payload).forEach((ingredient) => newState[ingredient.id] = ingredient)
+      action.payload.ingredients.forEach((ingredient) => newState[ingredient.id] = ingredient)
       return newState;
     }
     default:
