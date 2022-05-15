@@ -13,6 +13,7 @@ import RecipeForm from './components/RecipeForm';
 import RecipeDetail from './components/RecipeDetail';
 import LogInPage from './components/LogInPage';
 import Test from './components/test';
+import MenuBar from './components/MenuBar';
 
 
 
@@ -33,9 +34,10 @@ function App() {
 
   return (
     <BrowserRouter>
+      <MenuBar />
       <Switch>
         <Route path='/' exact={true}>
-        <LogInPage />
+          <LogInPage />
         </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
@@ -50,7 +52,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
-          <NavBar/>
           <Home />
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/add' exact={true} >

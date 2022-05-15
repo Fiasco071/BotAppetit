@@ -13,7 +13,7 @@ from app.models import Recipe, Ingredient
     
 def invalid_length_name(form, field):
     name = field.data
-    if len(name) >= 100:
+    if len(name) > 100:
         raise ValidationError('Name cannot be longer than 100 characters.')
 
 

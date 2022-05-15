@@ -32,9 +32,15 @@ const CookBot = () => {
 
     return (
         <div className='bot-wrapper'>
-            <p className="bubble thought"
-                onClick={updateFormlink}
-            >Maybe display some ingredients icons here?</p>
+            <div 
+            onClick={updateFormlink}
+            className='create-recipe-speech-bubble'>
+                <img className='light-bulb-icon' src={require(`../../assets/img/lightbulb.png`).default} />
+                <p>An idea for a new recipe?</p>
+            </div>
+            <p className="bubble thought main"
+                
+            ></p>
             <div className='bot-head'></div>
             <div className='bot-side'></div>
             <div className='bot-face'>
@@ -52,15 +58,15 @@ const CookBot = () => {
                                 <div className="color"></div>
                             </div>
 
-                    <div className='recipe-list'>
-                        {showList && recipes?.map(recipe => (
-                            <div
-                                key={recipe.id}
-                                onClick={() => history.push(`/recipes/${recipe.id}`)}
-                            >{recipe.name.length > 23 ? `${recipe.name.slice(0,23)}...` : recipe.name}</div>
-                        ))}
-                    </div>
-                        
+                            <div className='recipe-list'>
+                                {showList && recipes?.map(recipe => (
+                                    <div
+                                        key={recipe.id}
+                                        onClick={() => history.push(`/recipes/${recipe.id}`)}
+                                    >{recipe.name.length > 23 ? `${recipe.name.slice(0, 23)}...` : recipe.name}</div>
+                                ))}
+                            </div>
+
                         </>
 
                     )}

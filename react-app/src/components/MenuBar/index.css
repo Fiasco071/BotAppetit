@@ -1,0 +1,21 @@
+.menubar-wrapper {
+    width: 200px;
+    height: calc(100%);
+    background-color: aquamarine;
+    position: absolute;
+    left: calc(100% - 200px);
+    z-index: 4;
+}
+
+.menubar-list > ul {
+    list-style: none;
+}
+
+.menubar-list > ul > li {
+    background-color: white;
+    font-size: 22px;
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: solid rgb(241, 179, 86) 5px;
+}

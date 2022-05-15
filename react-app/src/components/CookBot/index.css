@@ -2,7 +2,7 @@
     width: 600px;
     height: 500px;
     margin-left: 150px;
-    margin-top: 200px;
+    margin-top: 233px;
 }
 
 .bot-head {
@@ -208,8 +208,8 @@ p.bubble:after {
 
 p.thought:before,
 p.thought:after {
-    left: 310px;
-    bottom: -30px;
+    left: 305px;
+    bottom: -20px;
     width: 40px;
     height: 40px;
     background-color: #fff;
@@ -222,7 +222,7 @@ p.thought:after {
 p.thought:after {
     width: 20px;
     height: 20px;
-    left: 335px;
+    left: 330px;
     bottom: -40px;
     -webkit-border-radius: 18px;
     -moz-border-radius: 18px;
@@ -320,4 +320,38 @@ p.thought:after {
     font-size: 20px;
     overflow: hidden;
     font-weight: bolder;
+}
+
+#root > div > div.bot-wrapper > p {
+    height:110px;
+    top: 44px;
+    left: 1003px;
+    background-color: #e2e2e2;
+}
+
+.create-recipe-speech-bubble > p {
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+    text-shadow: -2px 2px rgb(148, 148, 148), 2px 2px rgb(148, 148, 148), -2px -2px rgb(148, 148, 148), 2px -2px rgb(148, 148, 148);
+    margin-top: -20px;
+    position: relative;
+    top: -55px;
+    left: 115px;
+    
+}
+
+.create-recipe-speech-bubble > img {
+    width: 80px;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.create-recipe-speech-bubble {
+    width: 300px;
+    height: 130px;
+    position: absolute;
+    top: 125px;
+    left: 1025px;
+    z-index: 4;
 }

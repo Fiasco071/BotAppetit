@@ -49,7 +49,7 @@ export const addARecipe = (data) => async (dispatch) => {
   }  else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
-      return data.errors;
+      return data;
     }
   } else {
     return ['An error occurred. Please try again.']
@@ -71,7 +71,7 @@ export const updateARecipe = (id,data) => async (dispatch) => {
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
-      return data.errors;
+      return data;
     }
   } else {
     return ['An error occurred. Please try again.']

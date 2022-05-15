@@ -120,17 +120,31 @@ def update_recipe(id):
         
         #TRICKY
         #I will have to grab all ingredients indvidiually check the db for their existence and if they do, i dont do anything, else, i add. actually this doesnt sound too bad at all
+        ings = IngredientsInRecipe.query.filter(IngredientsInRecipe.recipe_id == recipe.id).all()
+        
+        for individualIng in ings:
+            db.session.delete(individualIng)
+            db.session.commit()
         for ingredient in set(request.json["ingredients"]):
-            ing = IngredientsInRecipe.query.filter(IngredientsInRecipe.recipe_id == recipe.id, IngredientsInRecipe.ing_id == ingredient).first()
-            if ing == None :
-                ing2 = IngredientsInRecipe(
+            # ing = IngredientsInRecipe.query.filter(IngredientsInRecipe.recipe_id == recipe.id, IngredientsInRecipe.ing_id == ingredient).first()
+            # if ing == None :
+            #     ing2 = IngredientsInRecipe(
+            #         recipe_id = recipe.id,
+            #         ing_id = ingredient,
+            #         measurement = 1.00,
+            #         measurement_type = 'Tbsp'
+            #     )
+            #     db.session.add(ing2)
+            #     db.session.commit()
+            ing2 = IngredientsInRecipe(
                     recipe_id = recipe.id,
                     ing_id = ingredient,
                     measurement = 1.00,
                     measurement_type = 'Tbsp'
                 )
-                db.session.add(ing2)
-                db.session.commit()
+            db.session.add(ing2)
+            db.session.commit()    
+                
         return recipe.to_dict()
 
     return {"error": form.errors}

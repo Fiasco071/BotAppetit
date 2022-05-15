@@ -1,56 +1,84 @@
 .recipe-box {
-    height: 840px;
+    height: 750px;
     width: 790px;
-    background: linear-gradient(90deg, white, rgb(247, 247, 247) );
-    margin-left: 150px;
+    background: linear-gradient(90deg, white, rgb(247, 247, 247));
+    margin-left: 160px;
     border-radius: 5px;
     border: 9px solid black;
 }
 
+#root>div.detail-wrapper>div.recipe-box {
+    height: 840px;
+}
+
+.detail-wrapper {
+    position: relative;
+    top: 25px;
+    left: 0px;
+}
+
+#root>div.home-wrapper>div.recipe-box {
+    height: 750px;
+    width: 790px;
+}
+
+#root>div.update-form-wrapper>div.recipe-form-wrapper::before {
+    background-color: #0064A9;
+    opacity: 0.8;
+    background: repeating-linear-gradient(-45deg, #e1b6f3, #e1b6f3 5px, #0064A9 5px, #0064A9 25px);
+}
+
+#root>div.update-form-wrapper>div.recipe-form-wrapper::before {
+    background-color: #666768;
+opacity: 0.8;
+background-image:  linear-gradient(135deg, #f78e51 25%, transparent 25%), linear-gradient(225deg, #f78e51 25%, transparent 25%), linear-gradient(45deg, #f78e51 25%, transparent 25%), linear-gradient(315deg, #f78e51 25%, #666768 25%);
+background-position:  10px 0, 10px 0, 0 0, 0 0;
+background-size: 20px 20px;
+background-repeat: repeat;
+}
+
+#root > div.detail-wrapper::before {
+    top: 45px;
+    background-color: #f1e973;
+opacity: 0.8;
+background-image:  linear-gradient(135deg, #F47B7B 25%, transparent 25%), linear-gradient(225deg, #F47B7B 25%, transparent 25%), linear-gradient(45deg, #F47B7B 25%, transparent 25%), linear-gradient(315deg, #F47B7B 25%, #f1e973 25%);
+background-position:  10px 0, 10px 0, 0 0, 0 0;
+background-size: 20px 20px;
+background-repeat: repeat;
+}
+
 .home-wrapper::before {
     content: '';
-    height: 840px;
+    height: 750px;
     width: 790px;
     border-radius: 5px;
     position: absolute;
     z-index: -1;
-    top: 80px;
-    left: 100px;
+    top: 55px;
+    left: 108px;
     background-color: #0064a9;
-opacity: 0.8;
-background: repeating-linear-gradient( 45deg, #e1b6f3, #e1b6f3 5px, #0064a9 5px, #0064a9 25px );
-border: 9px solid black;
+    opacity: 0.8;
+    background: repeating-linear-gradient(45deg, #e1b6f3, #e1b6f3 5px, #0064a9 5px, #0064a9 25px);
+    border: 9px solid black;
 }
 
 .home-wrapper {
     height: 100vh;
-    width: 100vw;
+    width: 3000px;
     display: flex;
+    padding-top: 100px;
+
 }
 
 .big-img-box {
     height: 250px;
     width: 790px;
     background-image: url(../../assets/img/bg-recipebox.jpg);
-    background-position:center;
+    background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 5px 5px 0 0;
     border-bottom: 8px solid rgb(121, 121, 121);
-}
-
-.ingredient-dnd-box {
-    width: 280px;
-    height: 400px;
-    background-color: rgb(251, 255, 226);
-    position: absolute;
-    left: calc(100%);
-    display: flex;
-    align-items: flex-start;
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: 5px solid black;
-    
 }
 
 .ing-dnd-box-tab {
@@ -61,8 +89,7 @@ border: 9px solid black;
     border: 3px solid black;
     transform: rotate(270deg);
     position: absolute;
-    left: -75px;
-    top: 16px;
+    left: calc(90%);
 }
 
 .slideanimation {
@@ -71,10 +98,10 @@ border: 9px solid black;
 
 @keyframes move {
     100% {
-      transform: translate(-300px);
-      z-index: 1;
+        transform: translate(-300px);
+        z-index: 1;
     }
-  }
+}
 
 
 .ingredient-icon-box {
@@ -83,10 +110,19 @@ border: 9px solid black;
     background-color: white;
     border-radius: 15px;
     border: solid black 2px;
-    height: 20px;
+    opacity: 1;
 }
 
 .ing-dnd-icons-box {
     display: flex;
     flex-wrap: wrap;
+    opacity: 0;
+    width: 300px;
+    height: 200px;
+    z-index: -2;
+}
+
+.showingtab {
+    opacity: 1;
+    z-index: 1;
 }

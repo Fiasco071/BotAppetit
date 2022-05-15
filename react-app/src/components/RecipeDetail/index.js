@@ -96,13 +96,15 @@ const RecipeDetail = () => {
                                 <p className="cooking-time-text">{recipe?.cooking_time}m</p>
 
                                 <img className='cuisine-flag-rd' src={require(`../../assets/img/flagicon/${recipe?.cuisine.split(" ").join('').toLowerCase()}.png`).default} />
-                                <p className="cuisine-text">{recipe?.cuisine}</p>
+                                <p className="cuisine-text">{recipe?.cuisine} Cuisine</p>
+                                <p className="serving-text">{recipe?.servings}</p>
                             </div>
                         </div>
                     )}
                 </div>
+                    <div className="box-two-direct-icon"></div>
+                    <h2 className="instructions-title">Instructions</h2>
                 <div className="direc-box-2">
-                    <h2>Instructions</h2>
                     {recipe && (
                         <div className="directions-box">
                             {instructionArr && (
@@ -125,7 +127,7 @@ const RecipeDetail = () => {
                 className="cook-bot-container">
                 <CookBot />
             </div>
-            <div ref={ref} className="ingredient-dnd-box">
+            {/* <div ref={ref} className="ingredient-dnd-box">
                 <p onClick={slidein} className="ing-dnd-box-tab">Ingredients</p>
                 <div className="ing-dnd-icons-box">
                     {ingredients?.map((ingredient) => (
@@ -137,7 +139,7 @@ const RecipeDetail = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

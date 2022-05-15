@@ -1,7 +1,15 @@
 .recipe-box.main-login {
     position: relative;
-    top: 120px;
-    width: 780px;
+    top: 100px;
+    width: 790px;
+    height: 750px;
+}
+
+.login-wrapper.loginpage::before {
+    height: 750px;
+    width: 790px;
+    top:55px;
+    left:108px;
 }
 
 .log-in-form {
@@ -10,10 +18,10 @@
     height: 450px;
     padding: 80px 145px;
     box-sizing: border-box;
-    border-top: 55px solid rgb(255, 235, 185);
-    border-left: 8px solid rgb(255, 235, 185);
-    border-right: 8px solid rgb(255, 235, 185);
-    border-bottom: 8px solid rgb(255, 235, 185);
+    border-top: 55px solid rgb(210, 184, 224);
+    border-left: 8px solid rgb(210, 184, 224);
+    border-right: 8px solid rgb(210, 184, 224);
+    border-bottom: 8px solid rgb(210, 184, 224);
     border-radius: 5px;
     z-index: 1;
 }
@@ -32,10 +40,10 @@
     height: 50px;
     padding: 20px 25px;
     box-sizing: border-box;
-    border-top: 30px solid rgb(82, 82, 82);
-    border-left: 8px solid rgb(82, 82, 82);
-    border-right: 8px solid rgb(82, 82, 82);
-    border-bottom: 8px solid rgb(82, 82, 82);
+    border-top: 30px solid rgb(131, 104, 146);
+    border-left: 8px solid rgb(131, 104, 146);
+    border-right: 8px solid rgb(131, 104, 146);
+    border-bottom: 8px solid rgb(131, 104, 146);
     border-radius: 5px;
     margin-bottom: 25px;
 }
@@ -62,11 +70,11 @@
 
 .log-in-error-box {
     background-color: white;
-    width: 278px;
+    width: 266px;
     height: 120px;
     position: absolute;
-    top: 26px;
-    left: 888px;
+    top: 3px;
+    left: 871px;
     z-index: 4;
 }
 
@@ -81,8 +89,8 @@
     width: 200px;
     height: 50px;
     border-radius: 5px;
-    border: 5px solid rgb(233, 212, 159);
-    background-color: rgb(255, 235, 185);
+    border: 5px solid rgb(103, 76, 117);
+    background-color: rgb(131, 104, 146);
     font-size: 25px;
     font-weight: bold;
     color: rgb(65, 65, 65);
@@ -100,12 +108,12 @@
 
 .log-in-icon {
     width: 70px;
-    border: 5px solid rgb(255, 235, 185);
+    border: 5px solid rgb(210, 184, 224);
     border-radius: 5px;
     padding: 2px 5px 0 5px;
-    background-color: rgb(252, 243, 220);
+    background-color: rgb(242, 238, 245);
     position: absolute;
-    top: 220px;
+    top: 196px;
     left: 753px;
     z-index: 2;
 }
@@ -117,7 +125,7 @@
     padding: 2px 5px 0 5px;
     background-color: rgb(236, 240, 239);
     position: absolute;
-    top: 220px;
+    top: 196px;
     left: 654px;
     z-index: 2;
 }
@@ -257,4 +265,15 @@ border: 9px solid black;
     background: rgb(212, 212, 212);
     z-index: 0;
     border: 5px solid rgb(179, 179, 179);
+    top: 220px;
+}
+#root > div.login-wrapper.loginpage > div.cookbot-container-login > div > p {
+    top: -115px;
+    height: 110px;
+    left: 4px;
+}
+
+#root > div.login-wrapper.loginpage > div.cookbot-container-login > div {
+    margin-top: 182px;
+    margin-left: 127px;
 }

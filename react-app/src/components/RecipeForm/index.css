@@ -86,8 +86,8 @@
 
 .bot-container {
     position: absolute;
-    top: 70px;
-    left: 958px;
+    top: 8px;
+    left: 968px;
 }
 
 .form-title {
@@ -370,15 +370,16 @@
     width: 325px;
     height: 173px;
     background-color: white;
-    top: 3px;
-    left: 1104px;
+    top: 0px;
+    left: 1029px;
     z-index: 4;
     border-radius: 40% 40% 40% 40%;
 }
 
 #root > div > div.bot-container > div > p {
     height: 130px;
-    top: -128px;
+    top: -65px;
+    left: 29px;
 }
 
 .recipe-validation-error-box > div  {
@@ -419,4 +420,18 @@
 .update-form-wrapper > .angry-bot-face {
     left: 1137px;
     top: 334px;
+}
+
+.clear-button {
+    position: absolute;
+    background-color: rgb(228, 226, 226);
+    top: -13px;
+    left: 188px;
+    padding: 2px 3px;
+    border: solid 2px crimson;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: crimson;
 }
