@@ -173,13 +173,14 @@ border: 9px solid black;
 
 .angry-bot-face {
     position: absolute;
-    top: 281px;
-    left: 1013px;
+    top: 285px;
+    left: 977px;
     width: 240px;
     height: 170px;
     background-color: rgb(18, 43, 54);
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: -13px;
+    margin-left: 12px;
     box-shadow: -5px -5px 20px rgb(255, 84, 62),10px -10px 40px rgb(255, 84, 62), -5px 10px 20px rgb(253, 87, 65), 10px 10px 70px rgb(255, 91, 79);
     z-index: 0;
 }
