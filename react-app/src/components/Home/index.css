@@ -20,6 +20,7 @@
 #root>div.home-wrapper>div.recipe-box {
     height: 750px;
     width: 790px;
+    
 }
 
 #root>div.update-form-wrapper>div.recipe-form-wrapper::before {
@@ -125,4 +126,59 @@ background-repeat: repeat;
 .showingtab {
     opacity: 1;
     z-index: 1;
+}
+
+.smallv-recipe-inglist {
+    display: flex;
+    justify-content: flex-start;
+    width: 170px;
+    overflow-x: auto;
+   background-color: rgb(238, 219, 206);
+    border-radius: 5px;
+    padding: 7px 3px;
+    box-sizing: border-box;
+    gap: 4px;
+}
+
+.smallv-recipe-ing-icon {
+    width: 20px;
+}
+
+.smallv-recipe-name {
+    margin: 0;
+    font-size: 20px;
+    background-color:rgb(221, 175, 141);
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 5px;
+    color:white;
+}
+
+.smallv-cuisine-flag {
+    width:25px;
+    position: relative;
+    top: -2px;
+    left: 142px;
+}
+.smallv-cuisine-clock {
+    width: 20px;
+}
+
+.smallv-ctime-text {
+    margin: 0;
+}
+
+.smallv-clock-box {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -90px;
+    left: 78%;
+    margin: 0;
+    font-size: 15px;
+    background-color:rgb(221, 175, 141);
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 5px;
+    color:white;
 }

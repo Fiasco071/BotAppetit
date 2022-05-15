@@ -73,14 +73,16 @@
 
 .comment-update-form {
     position: absolute;
-    top: -55px;
+    top: -144px;
     left: -152px;
+    
 }
 
 .comment-input {
     width: 233px;
     height: 94px;
     border-radius: 10px;
+    box-shadow: 1px 3px 3px black;
 }
 
 .update-form-wrapper {
@@ -91,7 +93,7 @@
 .update-button {
     position: relative;
     top: -25px;
-    left: 158px;
+    left: 167px;
 }
 
 .comment-owner-info {

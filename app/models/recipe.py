@@ -46,4 +46,5 @@ class Recipe(db.Model):
             'imgURL' : self.imgURL,
             'author_id' : self.author_id,
             'created_at' : self.created_at,
+            'ingredients' : [ingredient.to_dict() for ingredient in self.recipe]
         }

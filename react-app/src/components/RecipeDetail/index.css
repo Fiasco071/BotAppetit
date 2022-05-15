@@ -227,7 +227,7 @@
 
 .comment-box-title {
     position: absolute;
-    top: 589px;
+    top: 560px;
     left: 676px;
     z-index: 1;
     font-size: 22px;
@@ -240,7 +240,7 @@
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 541px;
+    top: 510px;
     left: 840px;
     border-radius: 20%;
     background-image: url(../../assets/img/chat.png);
@@ -375,7 +375,7 @@ div.bot-container>div>p.bubble {
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 430px;
+    top: 395px;
     left: 537px;
     border-radius: 20%;
     background-image: url(../../assets/img/cooking.png);

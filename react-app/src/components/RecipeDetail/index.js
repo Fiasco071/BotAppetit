@@ -89,7 +89,7 @@ const RecipeDetail = () => {
                 <div className="direc-box-1">
                     {recipe && (
                         <div className="quick-info-box">
-                            <h2 className="recipe-title">{recipe?.name}</h2>
+                            <h2 className="recipe-title">{recipe?.name.length > 31? `${recipe?.name.slice(0,31)} ...` : recipe?.name}</h2>
                             <div className="box-one-dish-icon"></div>
                             <div>
                                 <img className='clock-icon-rd' src={require(`../../assets/img/clock.png`).default} />
