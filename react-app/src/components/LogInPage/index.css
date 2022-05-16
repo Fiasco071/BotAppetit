@@ -178,8 +178,8 @@ border: 9px solid black;
 
 .angry-bot-face {
     position: absolute;
-    top: 285px;
-    left: 977px;
+    top: 318px;
+    left: 965px;
     width: 240px;
     height: 170px;
     background-color: rgb(18, 43, 54);
@@ -354,4 +354,8 @@ border: 9px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button:hover {
+    transform:translate(0px, -2px) ;
 }
