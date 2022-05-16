@@ -3,7 +3,7 @@
 <h5 align="center">  By: <a href="https://github.com/Fiasco071">Steve Choi</a> - <a href="https://bot-apppetit.herokuapp.com/"><i>Live site</i></h5>
 
 <h2> About </h2>
-To The Moon is a clone of Robinhood. To The Moon is a site where you can buy and sell stock shares!
+Bot-appetit is an original application where you can share your cooking recipes with others!
 
    - [Features](#features)
    - [Technologies Used](#tech)
@@ -14,11 +14,10 @@ To The Moon is a clone of Robinhood. To The Moon is a site where you can buy and
 <h2> Features </h2> <a name="features"></a>
  
 With our application, you can simulate stock datas on different real stocks at a current value.
-   * You can add funds to your wallet.
-   * With sufficient funds in your wallet, you are able to browse through and select stocks you want to "purchase".
-   * You can see a projection of the said data set in a projection of a year. 
-   * You can view all your assets that you have
-   * You can view your history of all the transactions made in the application.
+   * You can view recipes that others have posted
+   * You can post comments to express what you think about the recipe.
+   * You can post and edit recipes that you know! 
+   * You can search for all the recipes on the application.
 
 <h2>Technologies Used</h2> <a name="tech"></a>
    
@@ -39,7 +38,7 @@ With our application, you can simulate stock datas on different real stocks at a
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/Fiasco071/ToTheMoon.git
+   git clone https://github.com/Fiasco071/botappetit.git
    ```
 
 2. Install dependencies
