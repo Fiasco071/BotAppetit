@@ -107,9 +107,9 @@ const RecipeForm = () => {
                 let update = await dispatch(updateARecipe(id, data));
                 if (update.errors) {
                     setErrors2(update.errors)
-                    console.log('-=-=-=-=--=-=-=-=-=-hit error')
+                    // console.log('-=-=-=-=--=-=-=-=-=-hit error')
                 } else if (update && !update.errors) {
-                    console.log('-=-=-=-=--=-=-=-=-==-=-=--=-=-=-=-=--=-update route')
+                    // console.log('-=-=-=-=--=-=-=-=-==-=-=--=-=-=-=-=--=-update route')
                     setValidationErrors([]);
                     setHasSubmitted(false);
                     await history.push(`/recipes/${id}`)
@@ -118,7 +118,7 @@ const RecipeForm = () => {
                 let update = await dispatch(addARecipe(data));
                 if (update) {
                     setValidationErrors([]);
-                    console.log('-=-=-=-=--=-=-=-=-==-=-=--=-=-=-=-=--=-create')
+                    // console.log('-=-=-=-=--=-=-=-=-==-=-=--=-=-=-=-=--=-create')
                     setHasSubmitted(false);
                     history.push(`/recipes/${update.id}`)
                 }

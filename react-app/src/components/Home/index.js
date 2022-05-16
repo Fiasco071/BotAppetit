@@ -30,21 +30,20 @@ const Home = () => {
         instructionArr = recipes[0]?.directions.split("$")
     }
 
-        console.log(user.recipes[0])
 
     const [sliderFlag, setSliderFlag] = useState(false)
 
-    const slidein = () => {
-        if (!sliderFlag) {
-            ref.current.classList.add("slideanimation");
-            ref2.current.classList.add('showingtab')
-            setSliderFlag(true)
-        } else {
-            ref.current.classList.remove("slideanimation");
-            ref2.current.classList.remove('showingtab')
-            setSliderFlag(false)
-        }
-    }
+    // const slidein = () => {
+    //     if (!sliderFlag) {
+    //         ref.current.classList.add("slideanimation");
+    //         ref2.current.classList.add('showingtab')
+    //         setSliderFlag(true)
+    //     } else {
+    //         ref.current.classList.remove("slideanimation");
+    //         ref2.current.classList.remove('showingtab')
+    //         setSliderFlag(false)
+    //     }
+    // }
 
 
     useEffect(() => {

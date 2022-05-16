@@ -39,7 +39,7 @@ const Test = () => {
             <div className='testroom'
               ref={provided.innerRef}
             >
-              {ingList?.map((ing, idx) => (
+              {ingredients?.map((ing, idx) => (
                 <Draggable
                   draggableId={`${ing.id}`}
                   key={ing.id}
