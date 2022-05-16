@@ -155,6 +155,7 @@ background-repeat: repeat;
     color:white;
     max-width: 121px;
     height: 27px;
+    white-space: nowrap; 
 }
 
 .smallv-cuisine-flag {

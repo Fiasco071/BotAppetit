@@ -8,7 +8,7 @@ import './index.css'
 const Test = () => {
   const dispatch = useDispatch();
   const ingredients = useSelector(state => Object.values(state.ingredients))
-  const [ingList, setIngList ] = useState()
+  const [ingList, setIngList ] = useState(ingredients)
 
   const onEnd = (result) => {
     console.log(result)
@@ -26,7 +26,7 @@ const Test = () => {
   useEffect(() => {
     dispatch(getAllIngredients())
     setIngList(ingredients)
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='testroom'>
