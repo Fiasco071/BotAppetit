@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../CommentBox";
 import { useHistory, useParams } from "react-router-dom";
-
+import { updateUser } from "../../store/session";
 
 
 const RecipeDetail = () => {
@@ -17,15 +17,44 @@ const RecipeDetail = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ref = useRef(null);
-
+    const ref2 = useRef(null);
     const ingredients = useSelector(state => Object.values(state.ingredients))
     const recipes = useSelector(state => state.recipes)
     const userId = useSelector(state => state.session.user.id)
+    const user = useSelector(state => state.session.user)
     let recipe = recipes[id]
 
     let instructionArr;
     if (recipe) {
         instructionArr = recipe?.directions.split("$")
+    }
+
+    const [cookcount, setCC] = useState();
+
+    const getCookCount = async (id) => {
+        const response = await fetch(`/api/recipes/${id}/cooked`);
+        const count = await response.json();
+        setCC(count.cook_count)
+    }
+
+    const adjustCookCount = async () => {
+        if (user.user_cc?.filter(cc => cc.recipe_id == id).length > 0) {
+            const response = await fetch(`/api/recipes/${id}/cooked/delete`);
+            const count = await response.json();
+            setCC(count.cook_count)
+            ref2.current.classList.add('blinking')
+            const timeOut = setTimeout(() => {
+                ref2.current.classList.remove('blinking')
+            }, 500)
+        } else {
+            const response = await fetch(`/api/recipes/${id}/cooked/add`);
+            const count = await response.json();
+            setCC(count.cook_count)
+            ref2.current.classList.add('blinking')
+            const timeOut = setTimeout(() => {
+                ref2.current.classList.remove('blinking')
+            }, 500)
+        }
     }
 
 
@@ -46,12 +75,47 @@ const RecipeDetail = () => {
         history.push('/home')
     }
 
+    ////// Handle Hearts /////////////////
+    const [heartAvg, setHeartAvg] = useState(0)
+
+    const getAllHearts = async () => {
+        const response = await fetch(`/api/recipes/${id}/hearts`);
+        const data = await response.json();
+        setHeartAvg(data.heart_avg)
+    }
+
+    const adjustHearts = async () => {
+        if (recipe.recipe_hearts?.filter(heart => heart.user_id == userId).length > 0) {
+            const response = await fetch(`/api/recipes/${id}/hearts/update`);
+            const data = await response.json();
+            setHeartAvg(data.heart_avg)
+            // ref2.current.classList.add('blinking')
+            // const timeOut = setTimeout(() => {
+            //     ref2.current.classList.remove('blinking')
+            // }, 500)
+        } else {
+            const response = await fetch(`/api/recipes/${id}/hearts/add`);
+            const data = await response.json();
+            setHeartAvg(data.heart_avg)
+
+            // ref2.current.classList.add('blinking')
+            // const timeOut = setTimeout(() => {
+            //     ref2.current.classList.remove('blinking')
+            // }, 500)
+        }
+    }
+
+
+
+
+
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
-    }, [dispatch, id])
-
-
+        getCookCount(id)
+        getAllHearts(id)
+        dispatch(updateUser())
+    }, [dispatch, cookcount, heartAvg, id])
 
     return (
         <div className="detail-wrapper">
@@ -59,9 +123,9 @@ const RecipeDetail = () => {
                 {userId == recipe?.author_id && (
                     <>
                         <FontAwesomeIcon
-                        onClick={() => history.push(`/recipes/${recipe?.id}/edit`)} 
-                        icon={faEdit} 
-                        className="edit-icon" />
+                            onClick={() => history.push(`/recipes/${recipe?.id}/edit`)}
+                            icon={faEdit}
+                            className="edit-icon" />
                         <p
                             onClick={handleDelete}
                             className="comment-delete-button recipe">X</p>
@@ -89,7 +153,7 @@ const RecipeDetail = () => {
                 <div className="direc-box-1">
                     {recipe && (
                         <div className="quick-info-box">
-                            <h2 className="recipe-title">{recipe?.name.length > 31? `${recipe?.name.slice(0,31)} ...` : recipe?.name}</h2>
+                            <h2 className="recipe-title">{recipe?.name.length > 31 ? `${recipe?.name.slice(0, 31)} ...` : recipe?.name}</h2>
                             <div className="box-one-dish-icon"></div>
                             <div>
                                 <img className='clock-icon-rd' src={require(`../../assets/img/clock.png`).default} />
@@ -102,8 +166,8 @@ const RecipeDetail = () => {
                         </div>
                     )}
                 </div>
-                    <div className="box-two-direct-icon"></div>
-                    <h2 className="instructions-title">Instructions</h2>
+                <div className="box-two-direct-icon"></div>
+                <h2 className="instructions-title">Instructions</h2>
                 <div className="direc-box-2">
                     {recipe && (
                         <div className="directions-box">
@@ -127,19 +191,38 @@ const RecipeDetail = () => {
                 className="cook-bot-container">
                 <CookBot />
             </div>
-            {/* <div ref={ref} className="ingredient-dnd-box">
-                <p onClick={slidein} className="ing-dnd-box-tab">Ingredients</p>
-                <div className="ing-dnd-icons-box">
-                    {ingredients?.map((ingredient) => (
-                        <div key={ingredient.id}>
-                            <div
-                                key={ingredient?.id}
-                                className={`ingredient-icon-box ${ingredient?.id}`}
-                            >{ingredient.name}</div>
-                        </div>
-                    ))}
-                </div>
-            </div> */}
+            <p
+                ref={ref2}
+                className="cookcount-text">{cookcount} humans have tried this</p>
+
+            {user.user_cc?.filter(cc => cc.recipe_id == id).length > 0 ?
+                <>
+                    <p className="helper-text">Thanks for letting us know!</p>
+                    <img
+                        onClick={() => adjustCookCount()}
+                        className='click-pan-icon' src={require(`../../assets/img/panon.png`).default} />
+
+                </>
+                :
+                <>
+                    <p className="helper-text">Have you tried this dish?</p>
+                    <img
+                        onClick={() => adjustCookCount()}
+                        className='click-pan-icon' src={require(`../../assets/img/panoff.png`).default} />
+
+                </>
+            }
+            <div className="heart-box">
+                {heartAvg == 0 
+                ? <img 
+                onClick={() => adjustHearts()}
+                className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />
+                : <img
+                onClick={() => adjustHearts()} 
+                className='heart-icon' src={require(`../../assets/img/heart.png`).default} />
+                }
+                <p>{heartAvg}</p>
+            </div>
         </div>
     );
 }

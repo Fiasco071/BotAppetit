@@ -17,6 +17,10 @@ class User(db.Model, UserMixin):
     
     comments = db.relationship('Comment', back_populates='comment_owner')
     recipes = db.relationship('Recipe', back_populates='recipe_owner')
+    ## User -> CookCount
+    user_cc = db.relationship('CookCount', back_populates='cook_count_u')
+    ## User -> Heart
+    user_hearts = db.relationship('Heart', back_populates='heart_u')
     
 
     @property
@@ -37,6 +41,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'cuisine_pref': self.cuisine_pref,
             'cook_proficiency' : self.cook_proficiency,
+            'user_cc' : [cc.to_dict_cc() for cc in self.user_cc],
             'recipes' : [recipe.to_dict_no_rel() for recipe in self.recipes]
         }
         

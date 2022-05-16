@@ -1,7 +1,8 @@
+from random import random
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms.recipe_form import RecipeForm
-from app.models import db, Recipe, IngredientsInRecipe, Ingredient
+from app.models import db, Recipe, IngredientsInRecipe, Ingredient, CookCount, Heart
 import datetime
 
 
@@ -9,13 +10,13 @@ recipe_routes = Blueprint('recipes', __name__)
 
 
 @recipe_routes.route('/')
-# @login_required
+@login_required
 def get_all_recipes():
     recipes = Recipe.query.all()
     return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
 @recipe_routes.route('/add', methods=['GET', "POST"])
-# @login_required
+@login_required
 def add_recipe():
     
     form = RecipeForm()
@@ -77,7 +78,7 @@ def add_recipe():
 
 
 @recipe_routes.route('/<int:id>/edit', methods=["PUT"])
-# @login_required
+@login_required
 def update_recipe(id):
     
     form = RecipeForm()
@@ -150,10 +151,8 @@ def update_recipe(id):
     return {"error": form.errors}
 
 
-
-
 @recipe_routes.route('/<int:id>/delete', methods=['GET'])
-# @login_required
+@login_required
 def delete_comment(id):
     
     recipe = Recipe.query.filter(Recipe.id == id).one()
@@ -162,3 +161,96 @@ def delete_comment(id):
     db.session.commit()
 
     return deletedRecord
+
+
+###################### COOKED COUNT ROUTES####################################
+
+@recipe_routes.route('/<int:id>/cooked')
+@login_required
+def getAllCC(id):
+    cooked_count = CookCount.query.filter(CookCount.recipe_id == id).count()
+    return {'cook_count': cooked_count }
+
+@recipe_routes.route('/<int:id>/cooked/add')
+@login_required
+def addACC(id):
+    add = CookCount(
+        recipe_id = id,
+        user_id = current_user.to_dict_no_rel_user()['id'],
+    )
+    db.session.add(add)
+    db.session.commit()
+    cooked_count = CookCount.query.filter(CookCount.recipe_id == id).count()
+    return {'cook_count': cooked_count }
+
+@recipe_routes.route('/<int:id>/cooked/delete')
+@login_required
+def removeACC(id):
+    deletes = CookCount.query.filter(CookCount.recipe_id == id, CookCount.user_id == current_user.to_dict_no_rel_user()['id']).all()
+    deleteRecord = deletes[0]
+    for cc in deletes:
+            db.session.delete(cc)
+            db.session.commit()
+    cooked_count = CookCount.query.filter(CookCount.recipe_id == id).count()
+    return {'cook_count': cooked_count }
+
+##############################################################################
+
+@recipe_routes.route('/<int:id>/hearts')
+@login_required
+def getAllHearts(id):
+    hearts = Heart.query.filter(Heart.recipe_id == id).all()
+    acc = 0
+    for heart in hearts:
+        acc += int(heart.heart_num)
+    if acc == 0:
+        return {'heart_avg' : 0}
+    else:     
+        return {'heart_avg': round(acc / len(hearts), 2) }
+    
+@recipe_routes.route('/<int:id>/hearts/my')
+@login_required
+def getMyHearts(id):
+    update = Heart.query.filter(Heart.recipe_id == id, Heart.user_id == current_user.to_dict_no_rel_user()['id']).first()
+    if update :
+        return {'my_hearts': update.to_dict_heart() }
+    else:
+        return 'none Found!'
+
+@recipe_routes.route('/<int:id>/hearts/add')
+@login_required
+def addHearts(id):
+    ## need to send some values thru POST request body and extract and update below
+    add = Heart(
+        heart_num = 5,
+        recipe_id = id,
+        user_id = current_user.to_dict_no_rel_user()['id'],
+    )
+    db.session.add(add)
+    db.session.commit()
+    hearts = Heart.query.filter(Heart.recipe_id == id).all()
+    acc = 0
+    for heart in hearts:
+        acc += int(heart.heart_num)
+    if acc == 0:
+        return {'heart_avg' : 0}
+    else:     
+        return {'heart_avg': round(acc / len(hearts), 2) }
+
+@recipe_routes.route('/<int:id>/hearts/update')
+@login_required
+def updateHearts(id):
+    update = Heart.query.filter(Heart.recipe_id == id, Heart.user_id == current_user.to_dict_no_rel_user()['id']).first()
+    
+    ## need to send some values thru POST request body and extract and update below
+    update.heart_num = 2
+    db.session.add(update)
+    db.session.commit()
+    hearts = Heart.query.filter(Heart.recipe_id == id).all()
+    acc = 0
+    for heart in hearts:
+        acc += int(heart.heart_num)
+    if acc == 0:
+        return {'heart_avg' : 0}
+    else:     
+        return {'heart_avg': round(acc / len(hearts), 2) }

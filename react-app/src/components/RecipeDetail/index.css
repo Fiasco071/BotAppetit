@@ -389,3 +389,49 @@ div.bot-container>div>p.bubble {
     border: 5px solid rgb(243, 188, 7);
     z-index: 1;
 }
+
+.click-pan-icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 292px;
+    left: 363px;
+    border-radius: 100%;
+    padding: 2px 2px;
+    background-color: white;
+    border: 5px solid rgb(218, 108, 77);
+}
+
+.cookcount-text {
+    position: absolute;
+    top: 282px;
+    left: 400px;
+    border-radius: 5px;
+    padding: 4px 4px 4px 10px;
+    background-color: rgb(219, 137, 115);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.helper-text {
+    position: absolute;
+    top: 310px;
+    left: 410px;
+    font-size: 12px;
+    font-weight: 900;
+    background-color: white;
+    padding: 1px 2px;
+    border-radius: 5px;
+}
+
+.heart-box {
+    width: 100px;
+    height: 100px;
+    background-color: #e1b6f3;
+    position: absolute;
+}
+
+.heart-icon {
+    width: 50px;
+}

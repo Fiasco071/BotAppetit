@@ -23,20 +23,26 @@
     0% {
         opacity: 0;
     }
-    25% {
+    20% {
         opacity: 1;
     }
-    50% {
+    40% {
         opacity: 0;
     }
-    75% {
+    60% {
         opacity: 1;
+    }
+    80% {
+        opacity: 0;
     }
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
+.blinking {
+    animation: errorblinking 0.5s linear forwards;
+}
 
 .comment-delete-button {
     color: white;

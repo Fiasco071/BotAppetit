@@ -20,6 +20,12 @@ class Recipe(db.Model):
     recipe_owner = db.relationship('User', back_populates='recipes')
     comments = db.relationship('Comment', back_populates='recipe', cascade="all, delete")
     
+    ##Recipe -> CookCounter relationship
+    recipe_cc = db.relationship('CookCount', back_populates='cook_count_r', cascade="all, delete")
+    ##Recipe -> Heart
+    recipe_hearts = db.relationship('Heart', back_populates='heart_r', cascade="all, delete")
+    
+    
     def to_dict(self):
         return {
             'id' : self.id,
@@ -30,6 +36,8 @@ class Recipe(db.Model):
             'cuisine' : self.cuisine,
             'imgURL' : self.imgURL,
             'author_id' : self.author_id,
+            'recipe_cc' : [cc.to_dict_cc() for cc in self.recipe_cc],
+            'recipe_hearts' : [heart.to_dict_heart() for heart in self.recipe_hearts],
             'created_at' : self.created_at,
             'ingredients' : [ingredient.to_dict() for ingredient in self.recipe],
             # 'recipe_owner' : self.recipe_owner.to_dict_no_rel_user(),

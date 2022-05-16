@@ -21,7 +21,7 @@ const Home = () => {
     const user = useSelector(state => state.session.user);
     const ingredients = useSelector(state => Object.values(state.ingredients))
     const recipes = useSelector(state => Object.values(state.recipes))
-    
+
 
     //Recipe instruction break down
     let instructionArr;
@@ -89,25 +89,35 @@ const Home = () => {
                     <div className="my-recipe-list">
                         {recipes.filter(recipe => recipe.author_id == user.id).map((recipe) => (
                             <div className="recipes-small-box"
-                            onClick={()=>history.push(`/recipes/${recipe.id}`)}
+                                onClick={() => history.push(`/recipes/${recipe.id}`)}
                             >
-                                <h2 className="smallv-recipe-name">{recipe.name.length > 9 ? `${recipe.name.slice(0,9)}...`: recipe.name}</h2>
+                                <h2 className="smallv-recipe-name">{recipe.name.length > 9 ? `${recipe.name.slice(0, 9)}...` : recipe.name}</h2>
                                 <div>
                                     <img className='smallv-cuisine-flag' src={require(`../../assets/img/flagicon/${recipe?.cuisine.split(" ").join('').toLowerCase()}.png`).default} />
 
                                 </div>
                                 <div className="smallv-recipe-inglist">
                                     {recipe?.ingredients.map(ingredient => (
-                                                <img className='smallv-recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil") ? 'oil' : ingredient.ingdata.name}.png`).default} />
+                                        <img className='smallv-recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil") ? 'oil' : ingredient.ingdata.name}.png`).default} />
                                     ))}
                                 </div>
                                 <div className="smallv-clock-box">
-                                      {recipe.cooking_time} m
+                                    {recipe.cooking_time} m
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
+
+                <div className="cook-count">
+                    <img
+                        className='click-pan-icon-profile' src={require(`../../assets/img/panon.png`).default} />
+                    <p className="cc-tag-text"># of Recipes Tried</p>
+                    <p className="cc-tag-value">{user.user_cc?.length}</p>
+
+                </div>
+
+
                 <div>
                     <div className='profile-icon' />
                     <div className='recipes-icon' />
