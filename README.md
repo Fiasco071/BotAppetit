@@ -1,6 +1,6 @@
 <h1 align="center"> 🤖👨‍🍳: Bot-Appetit 🤖👨‍🍳</h1> <a name="top"> </a>
 
-<h5 align="center">  By: <a href="https://github.com/Fiasco071">Steve Choi</a> - <a href="https://bot-apppetit.herokuapp.com/"><i>Live site</i></h5>
+<h5 align="center">  By: <a href="https://github.com/Fiasco071">Steve Choi</a> - <a href="https:///"><i>Live site</i></h5>
 
 <h2> About </h2>
 Bot-appetit is an original application where you can share your cooking recipes with others!
