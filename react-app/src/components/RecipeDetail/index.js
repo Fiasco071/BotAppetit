@@ -43,7 +43,7 @@ const RecipeDetail = () => {
 
     const handleDelete = async () => {
         await dispatch(delARecipes(id))
-        history.push('/')
+        history.push('/home')
     }
 
     useEffect(() => {
@@ -67,7 +67,7 @@ const RecipeDetail = () => {
                             className="comment-delete-button recipe">X</p>
                     </>
                 )}
-                <div className={`big-img-box bg-${recipe.cuisine.split(" ").join('').toLowerCase()}`}></div>
+                <div className={`big-img-box bg-${recipe?.cuisine.split(" ").join('').toLowerCase()}`}></div>
                 <div className="ing-box">
                     <div className="ing-box-groc-icon"></div>
                     <h2 className="ing-box-title">Ingredients</h2>
