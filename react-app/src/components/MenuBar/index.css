@@ -4,7 +4,9 @@
     background-color: aquamarine;
     position: absolute;
     left: calc(100% - 200px);
-    z-index: 4;
+    top: calc(0% + 70px);
+    opacity: 0;
+    z-index: 5;
 }
 
 .menubar-list > ul {
@@ -18,4 +20,50 @@
     padding: 3px 5px;
     border-radius: 5px;
     border: solid rgb(241, 179, 86) 5px;
+}
+
+.menu-collapse-button {
+    position: absolute;
+    left: calc(96.5%);
+    top: calc(0% + 20px);
+    z-index: 4;
+}
+
+.menu-collapse-button > div{
+    background-color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 5px solid #1c1c1c;
+    border-radius: 5px;
+    font-size: 25px;
+    position: relative;
+    left: -14px;
+    top: -3px;
+    z-index:3;
+    background-color: #b35799;
+    color: #1c1c1c;
+}
+
+.menu-collapse-button::before {
+    content: '';
+    width: 52px;
+    height: 47px;
+    position: absolute;
+    background-color: green;
+    top: -14px;
+    left: -4px;
+    border-radius: 5px;
+    z-index: 2;
+    background-color: #1c1c1c;
+    box-sizing: border-box;
+    border: 5px solid black;
+    background-color: #1c1c1c;
+    opacity: 0.8;
+    background: repeating-linear-gradient( -45deg, #a9458d, #a9458d 5px, #1c1c1c 5px, #1c1c1c 25px );
+}
+
+
+
+.show-menu {
+    opacity: 1;
 }

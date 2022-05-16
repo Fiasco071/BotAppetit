@@ -55,7 +55,7 @@ const Home = () => {
 
     return (
         <div className="home-wrapper">
-            <div className="recipe-box">
+            <div className="recipe-box profile-page">
                 <div className="website-title-back"></div>
                 <h1 className="website-title">Bot-Appetit</h1>
                 <div className="user-info-box">
@@ -92,7 +92,7 @@ const Home = () => {
                             <div className="recipes-small-box"
                             onClick={()=>history.push(`/recipes/${recipe.id}`)}
                             >
-                                <h2 className="smallv-recipe-name">{recipe.name.length > 9 ? `${recipe.name.slice(0,9)} ...`: recipe.name}</h2>
+                                <h2 className="smallv-recipe-name">{recipe.name.length > 9 ? `${recipe.name.slice(0,9)}...`: recipe.name}</h2>
                                 <div>
                                     <img className='smallv-cuisine-flag' src={require(`../../assets/img/flagicon/${recipe?.cuisine.split(" ").join('').toLowerCase()}.png`).default} />
 

@@ -96,7 +96,7 @@ div.my-recipe-list::-webkit-scrollbar {
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 221px;
+    top: 241px;
     left: 553px;
     border-radius: 20%;
     background-image: url(../../assets/img/ai.png);
@@ -112,7 +112,7 @@ div.my-recipe-list::-webkit-scrollbar {
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 407px;
+    top: 424px;
     left: 232px;
     border-radius: 20%;
     background-image: url(../../assets/img/recipe.png);
@@ -124,7 +124,7 @@ div.my-recipe-list::-webkit-scrollbar {
 }
 
 .website-title {
-    background-color: rgb(112, 141, 131);
+    background-color: rgb(155, 190, 178);
     display: inline-block;
     padding: 10px 25px;
     font-size: 35px;
@@ -134,12 +134,12 @@ div.my-recipe-list::-webkit-scrollbar {
     color: white;
     z-index: 2;
     position: relative;
-    top: 15px;
-    left: 25px;
+    top: 12px;
+    left: 2px;
 }
 
 .website-title-back {
-    background-color: rgb(112, 141, 131);
+    background-color: rgb(148, 189, 174);
     display: inline-block;
     width: 240px;
     height: 57px;
@@ -148,8 +148,8 @@ div.my-recipe-list::-webkit-scrollbar {
     margin-left: 32px;
     color: white;
     position: absolute;
-    top: 133px;
-    left: 172px;
+    top: 176px;
+    left: 200px;
     z-index: 1;
     background-color: #2f2f2e;
     opacity: 0.8;
@@ -158,5 +158,9 @@ div.my-recipe-list::-webkit-scrollbar {
 
 .user-info-box {
     position: relative;
-    top: -30px;
+    top: -10px;
+}
+
+.profile-page {
+    background-color: rgb(226, 226, 226);
 }

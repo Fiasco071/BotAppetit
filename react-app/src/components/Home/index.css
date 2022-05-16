@@ -138,6 +138,7 @@ background-repeat: repeat;
     padding: 7px 3px;
     box-sizing: border-box;
     gap: 4px;
+    min-height: 37px;
 }
 
 .smallv-recipe-ing-icon {
@@ -152,6 +153,8 @@ background-repeat: repeat;
     padding: 2px 4px;
     border-radius: 5px;
     color:white;
+    max-width: 121px;
+    height: 27px;
 }
 
 .smallv-cuisine-flag {
