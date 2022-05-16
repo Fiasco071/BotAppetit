@@ -58,6 +58,7 @@ const RecipeForm = () => {
     const addFormFields = (e) => {
         e.preventDefault()
         setValueList([...valueList, { direction: "" }])
+        setDirections(valueList.map(value => value.direction).join('$'))
     }
 
 
@@ -65,6 +66,11 @@ const RecipeForm = () => {
         let newFormValues = [...valueList];
         newFormValues.splice(i, 1);
         setValueList(newFormValues)
+
+        //deconstruct directions and update the directions with last $ removed
+        const test = directions.split("$")
+        test.splice(i,1)
+        setDirections(test.join('$'))
     }
     ///////////////////////////////////////////////////
 
