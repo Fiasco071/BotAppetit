@@ -79,7 +79,7 @@
 }
 
 .comment-input {
-    width: 233px;
+    width: 228px;
     height: 94px;
     border-radius: 10px;
     box-shadow: 1px 3px 3px black;
@@ -130,5 +130,10 @@
 .comment-submit-button {
     position: relative;
     top: -25px;
-    left: 157px;
+    left: 170px;
+    background-color: rgb(33, 105, 33);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 7px;
 }

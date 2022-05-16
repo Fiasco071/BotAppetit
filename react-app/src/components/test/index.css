@@ -1,11 +1,14 @@
 .testroom {
-    width: 500px;
-    height: 400px;
-    background-color: aquamarine;
+    width: 130px;
+    height: 500px;
+    background-color: rgb(253, 255, 127);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-radius: 5px;
 }
 
-.robot-pocket-rec {
-    width: 500px;
-    height: 400px;
-    background-color: rgb(228, 182, 182)
+
+.dnd-ing-icons {
+    width: 50px;
 }

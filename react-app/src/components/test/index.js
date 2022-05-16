@@ -12,7 +12,7 @@ const Test = () => {
 
   const onEnd = (result) => {
     console.log(result)
-    setIngList(reorder(ingList, result.source.index, result.destination.index))
+    setIngList(reorder(ingList, result.source?.index, result.destination?.index))
   }
 
   const reorder = (list, startIdx, endIdx) => {
@@ -26,7 +26,7 @@ const Test = () => {
   useEffect(() => {
     dispatch(getAllIngredients())
     setIngList(ingredients)
-  }, [dispatch])
+  }, [])
 
   return (
     <div className='testroom'>
@@ -36,7 +36,7 @@ const Test = () => {
           droppableId='ingInventory'
         >
           {(provided, snapshot) => (
-            <div
+            <div className='testroom'
               ref={provided.innerRef}
             >
               {ingList?.map((ing, idx) => (
@@ -51,7 +51,8 @@ const Test = () => {
                       {...provided.dragHandleProps}
                     >
                       <div>
-                        {ing.name}
+
+                      <img className='dnd-ing-icons' src={require(`../../assets/img/ingIcons/${ing?.name.includes("oil") ? 'oil' : ing?.name}.png`).default} />
                       </div>
                     </div>
                   )}

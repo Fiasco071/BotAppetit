@@ -4,6 +4,7 @@ import LogoutButton from '../auth/LogoutButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from 'react';
+import Test from '../test';
 
 
 const MenuBar = () => {
@@ -46,7 +47,7 @@ const MenuBar = () => {
                 </ul>
             </div>
             <div className='menubar-contentbox'>
-
+                <Test />
             </div>
 
         </div>

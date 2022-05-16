@@ -13,25 +13,25 @@ const LogInPage = () => {
     return (
         <div className="login-wrapper loginpage">
             <div className="recipe-box main-login">
-                <p>Log In</p>
-                <p>Sign Up</p>
+            <div className="website-title-back loginpage-title-back"></div>
+                <h1 className="website-title">Bot-Appetit</h1>
                 {flag == 'login' && (
-                <div>
-                    <LoginForm />
-                </div>
+                    <div>
+                        <LoginForm />
+                    </div>
                 )}
                 {flag == 'signup' && (
-                <div>
-                    <SignUpForm />
-                </div>
+                    <div>
+                        <SignUpForm />
+                    </div>
                 )}
             </div>
-            <img 
-            onClick={() => setFlag('login')}
-            className={`log-in-icon ${flag == 'signup' ? 'unselected': null}`} src={require(`../../assets/img/login.png`).default} />
-            <img 
-            onClick={() => setFlag('signup')}
-            className={`sign-up-icon ${flag == 'login' ? 'unselected': null}`} src={require(`../../assets/img/signup.png`).default} />
+            <div
+                onClick={() => setFlag('login')}
+                className={`log-in-icon ${flag == 'signup' ? 'unselected' : null}`}> Log In</div>
+            <div
+                onClick={() => setFlag('signup')}
+                className={`sign-up-icon ${flag == 'login' ? 'unselected' : null}`}>Sign Up</div>
             <div className="cookbot-container-login">
                 <CookBot />
             </div>
