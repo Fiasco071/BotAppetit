@@ -74,13 +74,13 @@ background-repeat: repeat;
 .big-img-box {
     height: 250px;
     width: 790px;
-    background-image: url(../../assets/img/bg-recipebox.jpg);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 8px solid rgb(121, 121, 121);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    border-radius: 5px 5px 0 0;
-    border-bottom: 8px solid rgb(121, 121, 121);
 }
+
 
 .ing-dnd-box-tab {
     font-size: 20px;
@@ -186,3 +186,88 @@ background-repeat: repeat;
     border-radius: 5px;
     color:white;
 }
+
+
+/* bg img set */
+
+.bg-mexican{
+    background-image: url(../../assets/img/bgimgs/mexican.png);
+
+}
+
+.bg-american{
+    background-image: url(../../assets/img/bgimgs/american.png);
+}
+
+.bg-italian{
+    background-image: url(../../assets/img/bgimgs/italian.png);
+}
+
+.bg-thai{
+    background-image: url(../../assets/img/bgimgs/thai.png);
+}
+
+.bg-french{
+    background-image: url(../../assets/img/bgimgs/french.png);
+}
+
+.bg-japanese{
+    background-image: url(../../assets/img/bgimgs/japanese.png);
+}
+
+.bg-lebanese{
+    background-image: url(../../assets/img/bgimgs/lebanese.png);
+}
+
+.bg-spanish{
+    background-image: url(../../assets/img/bgimgs/spanish.png);
+}
+
+.bg-german{
+    background-image: url(../../assets/img/bgimgs/german.png);
+}
+
+.bg-korean{
+    background-image: url(../../assets/img/bgimgs/korean.png);
+}
+
+.bg-australian{
+    background-image: url(../../assets/img/bgimgs/australian.png);
+}
+
+.bg-southafrican{
+    background-image: url(../../assets/img/bgimgs/southafrican.png);
+}
+
+.bg-caribbean{
+    background-image: url(../../assets/img/bgimgs/caribbean.png);
+}
+
+.bg-greek{
+    background-image: url(../../assets/img/bgimgs/greek.png);
+}
+
+.bg-filipino{
+    background-image: url(../../assets/img/bgimgs/filipino.png);
+}
+
+.bg-scottish{
+    background-image: url(../../assets/img/bgimgs/scottish.png);
+}
+
+.bg-indian{
+    background-image: url(../../assets/img/bgimgs/indian.png);
+}
+
+.bg-indonesian{
+    background-image: url(../../assets/img/bgimgs/indonesian.png);
+}
+
+.bg-brazilian{
+    background-image: url(../../assets/img/bgimgs/brazilian.png);
+}
+
+.bg-chinese{
+    background-image: url(../../assets/img/bgimgs/chinese.png);
+}
+
