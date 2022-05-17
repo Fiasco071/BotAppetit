@@ -84,8 +84,8 @@ const RecipeDetail = () => {
         setHeartAvg(data.heart_avg)
     }
 
-    console.log(recipe?.recipe_hearts?.filter(heart => heart.user_id == userId).length > 0)
-    const adjustHearts = async (num) => {
+    const adjustHearts = async (e, num) => {
+        e?.stopPropagation();
         if (recipe.recipe_hearts?.filter(heart => heart.user_id == userId).length > 0) {
             const response = await fetch(`/api/recipes/${id}/hearts/update`, {
                 method: "PUT",
@@ -112,15 +112,11 @@ const RecipeDetail = () => {
             //     ref2.current.classList.remove('blinking')
             // }, 500)
         }
+        setSHM(false)
     }
 
+    const [showHeartMenu, setSHM] = useState(false)
 
-    const hoverEffect = () => {
-        ref.current.classList.add('heartOn')
-    }
-    const hoverExitEffect = () => {
-        ref.current.classList.remove('heartOn')
-    }
 
     useEffect(() => {
         dispatch(getAllIngredients())
@@ -229,34 +225,34 @@ const RecipeDetail = () => {
                 <div>
                     {heartAvg == 0
                         ? <img
-                            onClick={() => adjustHearts()}
+                            onClick={() => setSHM(!showHeartMenu)}
                             className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />
                         : <img
-                            onClick={() => adjustHearts()}
+                            onClick={() => setSHM(!showHeartMenu)}
                             className='heart-icon' src={require(`../../assets/img/heart.png`).default} />
                     }
                     <p className="heart-avg-text">{heartAvg}</p>
                 </div>
-                <div className="heart-selector-box">
-                    <div
-                        ref={ref}
-                        onMouseEnter={() => hoverEffect()}
-                        onMouseLeave={() => hoverExitEffect()}
-                        onClick={() => adjustHearts(1)}
-                        className="heart-container one"></div>
-                    <div 
-                    onClick={() => adjustHearts(2)}
-                    className="heart-container two"></div>
-                    <div 
-                    onClick={() => adjustHearts(3)}
-                    className="heart-container three"></div>
-                    <div 
-                    onClick={() => adjustHearts(4)}
-                    className="heart-container four"></div>
-                    <div 
-                    onClick={() => adjustHearts(5)}
-                    className="heart-container five"></div>
-                </div>
+                {showHeartMenu && (
+                    <div className="heart-selector-box">
+                        <div
+                            onClick={(e) => (
+                                adjustHearts(e, 5))}
+                            className="heart-container one"></div>
+                        <div
+                            onClick={(e) => adjustHearts(e, 4)}
+                            className="heart-container two"></div>
+                        <div
+                            onClick={(e) => adjustHearts(e, 3)}
+                            className="heart-container three"></div>
+                        <div
+                            onClick={(e) => adjustHearts(e, 2)}
+                            className="heart-container four"></div>
+                        <div
+                            onClick={(e) => adjustHearts(e, 1)}
+                            className="heart-container five"></div>
+                    </div>
+                )}
             </div>
         </div>
     );
