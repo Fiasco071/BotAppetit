@@ -3,11 +3,21 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Test from '../test';
+import { getAllIngredients } from '../../store/ingredient';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const MenuBar = () => {
+
+    const dispatch = useDispatch();
+    const ingredients = useSelector(state => Object.values(state.ingredients))
+
+
+  useEffect(() => {
+    dispatch(getAllIngredients())
+  }, [dispatch])
 
     const [showMenu, setShowMenu] = useState(false)
     const ref = useRef(null)
@@ -47,7 +57,7 @@ const MenuBar = () => {
                 </ul>
             </div>
             <div className='menubar-contentbox'>
-                <Test />
+                <Test ingredients={ingredients}/>
             </div>
 
         </div>

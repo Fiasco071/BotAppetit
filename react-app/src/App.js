@@ -11,6 +11,7 @@ import RecipeDetail from './components/RecipeDetail';
 import LogInPage from './components/LogInPage';
 import Test from './components/test';
 import MenuBar from './components/MenuBar';
+import Test2 from './components/test/test';
 
 
 
@@ -55,7 +56,7 @@ function App() {
           <RecipeForm />
         </ProtectedRoute>
         <ProtectedRoute path='/test' exact={true} >
-          <Test />
+          <Test2 />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

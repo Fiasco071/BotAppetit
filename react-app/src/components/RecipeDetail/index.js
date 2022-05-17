@@ -202,11 +202,11 @@ const RecipeDetail = () => {
             </div>
             <p
                 ref={ref2}
-                className="cookcount-text">{cookcount} humans have tried this</p>
+                className="cookcount-text">{cookcount > 1 ? `${cookcount} humans have tried this` : `${cookcount} human has tried this`} </p>
 
             {user.user_cc?.filter(cc => cc.recipe_id == id).length > 0 ?
                 <>
-                    <p className="helper-text">Thanks for letting us know!</p>
+                    <p className="helper-text">You've tried this recipe!</p>
                     <img
                         onClick={() => adjustCookCount()}
                         className='click-pan-icon' src={require(`../../assets/img/panon.png`).default} />
@@ -223,7 +223,7 @@ const RecipeDetail = () => {
             }
             <div className="heart-box">
                 <div>
-                    {heartAvg == 0
+                    {recipe.recipe_hearts?.filter(heart => heart.user_id == userId).length <= 0
                         ? <img
                             onClick={() => setSHM(!showHeartMenu)}
                             className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />

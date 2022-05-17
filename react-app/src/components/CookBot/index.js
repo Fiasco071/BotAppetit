@@ -72,7 +72,7 @@ const CookBot = () => {
                     )}
                 </div>
                 <div className='ing-dnd'>
-                    <div className='bot-stomach-lid'></div>
+                    <div className='bot-stomach-lid'>FEED ME</div>
                     <div className='bot-stomach-lid-side'></div>
                 </div>
             </div>

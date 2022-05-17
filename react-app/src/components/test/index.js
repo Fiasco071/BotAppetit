@@ -1,83 +1,137 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllRecipes } from '../../store/recipe'
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { getAllIngredients } from '../../store/ingredient';
 import './index.css'
 
-const Test = () => {
-  const dispatch = useDispatch();
-  const ingredients = useSelector(state => Object.values(state.ingredients))
-  const [ingList, setIngList ] = useState(ingredients)
+const Test = ({ingredients}) => {
+  // const dispatch = useDispatch();
+  // const ingredients = useSelector(state => Object.values(state.ingredients))
 
-  const onEnd = (result) => {
-    console.log(result)
-    setIngList(reorder(ingList, result.source?.index, result.destination?.index))
-  }
 
-  const reorder = (list, startIdx, endIdx) => {
-    const result = Array.from(list)
-    const [removed] = result.splice(startIdx, 1);
-    result.splice(endIdx, 0 ,removed)
+  // useEffect(() => {
+  //   dispatch(getAllIngredients())
+  // }, [dispatch])
 
-    return result
-  }
+  const columnsFromBackend = {
+    ["box1"]: {
+      name: "IngBox",
+      items: ingredients.map(ing => {
+        return { id: `${ing.id}`, name: ing.name }
+      })
+    },
+    ["box2"]: {
+      name: "RobotPouch",
+      items: []
+    }
+  };
 
-  useEffect(() => {
-    dispatch(getAllIngredients())
-    setIngList(ingredients)
-  }, [dispatch])
+  const onDragEnd = (result, columns, setColumns) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+    if (destination.droppableId == "box2") console.log(columns.box2.items);
+
+    if (source.droppableId !== destination.droppableId) {
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.items];
+      const destItems = [...destColumn.items];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...sourceColumn,
+          items: sourceItems
+        },
+        [destination.droppableId]: {
+          ...destColumn,
+          items: destItems
+        }
+      });
+    } else {
+      const column = columns[source.droppableId];
+      const copiedItems = [...column.items];
+      const [removed] = copiedItems.splice(source.index, 1);
+      copiedItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...column,
+          items: copiedItems
+        }
+      });
+    }
+  };
+
+  const [columns, setColumns] = useState(columnsFromBackend);
 
   return (
-    <div className='testroom'>
-
-      <DragDropContext onDragEnd={onEnd}>
-      <Droppable
-          droppableId='ingInventory'
-        >
-          {(provided, snapshot) => (
-            <div className='testroom'
-              ref={provided.innerRef}
-            >
-              {ingredients?.map((ing, idx) => (
-                <Draggable
-                  draggableId={`${ing.id}`}
-                  key={ing.id}
-                  index={idx}>
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <div>
-
-                      <img className='dnd-ing-icons' src={require(`../../assets/img/ingIcons/${ing?.name.includes("oil") ? 'oil' : ing?.name}.png`).default} />
-                      </div>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-
-        <Droppable
-          droppableId='robot-pocket'
-        >
-          {(provided, snapshot) => (
+    <>
+    <div className='bubble-thought-search'>
+      {columns.box2.items.map(ing => (
+        <img className='dnd-ing-icons' src={require(`../../assets/img/ingIcons/${ing.name.toLowerCase().includes("oil") ? 'oil' : ing.name}.png`).default} />
+      ))}
+    </div>
+    <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+      <DragDropContext
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
+      >
+        {Object.entries(columns).map(([columnId, column], index) => {
+          return (
             <div
-              className='robot-pocket-rec'
-              ref={provided.innerRef}
+              className='dnd-box-wrapper'
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+              }}
+              key={columnId}
             >
-              {provided.placeholder}
+              <div className='dnd-box'>
+                <Droppable droppableId={columnId} key={columnId}>
+                  {(provided, snapshot) => {
+                    return (
+                      <div
+                        className='dnd-active-box'
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                      >
+                        {column.items.map((item, index) => {
+                          return (
+                            <Draggable
+                              key={item.id}
+                              draggableId={item.id}
+                              index={index}
+                            >
+                              {(provided, snapshot) => {
+                                return (
+                                  <div className='individual-ing-dnd-icon'
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+
+                                  >
+                                    <img className='dnd-ing-icons' src={require(`../../assets/img/ingIcons/${item.name.toLowerCase().includes("oil") ? 'oil' : item.name}.png`).default} />
+                                  </div>
+                                );
+                              }}
+                            </Draggable>
+                          );
+                        })}
+                        {provided.placeholder}
+                      </div>
+                    );
+                  }}
+                </Droppable>
+              </div>
             </div>
-          )}
-        </Droppable>
+          );
+        })}
       </DragDropContext>
     </div>
-  )
+    </>
+  );
 }
 
-export default Test
+export default Test;

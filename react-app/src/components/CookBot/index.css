@@ -160,7 +160,14 @@
     top: 244px;
     left: 28px;
     border-radius: 10px;
-    transform: skew(0deg, 7deg) skew(0deg, 7deg) rotate(-13.5deg)
+    transform: skew(0deg, 7deg) skew(0deg, 7deg) rotate(-13.5deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(216, 216, 216);
+    z-index: 3;
 }
 
 .bot-stomach-lid-side {

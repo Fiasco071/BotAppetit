@@ -10,6 +10,7 @@ import { updateUser } from "../../store/session";
 import Test from "../test";
 import './profile.css';
 import { useHistory } from "react-router-dom";
+import Test2 from "../test/test";
 
 
 const Home = () => {
