@@ -32,7 +32,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MenuBar />
+
       <Switch>
         <Route path='/' exact={true}>
           <LogInPage />
@@ -44,18 +44,23 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
+          <MenuBar />
           <Home />
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/add' exact={true} >
+        <MenuBar />
           <RecipeForm />
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/:id' exact={true} >
+        <MenuBar />
           <RecipeDetail />
         </ProtectedRoute>
         <ProtectedRoute path='/recipes/:id/edit' exact={true} >
+        <MenuBar />
           <RecipeForm />
         </ProtectedRoute>
         <ProtectedRoute path='/test' exact={true} >
+        <MenuBar />
           <Test2 />
         </ProtectedRoute>
       </Switch>

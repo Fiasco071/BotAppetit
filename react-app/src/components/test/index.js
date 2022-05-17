@@ -4,14 +4,14 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { getAllIngredients } from '../../store/ingredient';
 import './index.css'
 
-const Test = ({ingredients}) => {
-  // const dispatch = useDispatch();
-  // const ingredients = useSelector(state => Object.values(state.ingredients))
+const Test = ({}) => {
+  const dispatch = useDispatch();
+  const ingredients = useSelector(state => Object.values(state.ingredients))
 
 
-  // useEffect(() => {
-  //   dispatch(getAllIngredients())
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllIngredients())
+  }, [dispatch])
 
   const columnsFromBackend = {
     ["box1"]: {
