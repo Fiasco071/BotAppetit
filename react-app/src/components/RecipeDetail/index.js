@@ -84,9 +84,15 @@ const RecipeDetail = () => {
         setHeartAvg(data.heart_avg)
     }
 
-    const adjustHearts = async () => {
+    console.log(recipe?.recipe_hearts?.filter(heart => heart.user_id == userId).length > 0)
+    const adjustHearts = async (num) => {
         if (recipe.recipe_hearts?.filter(heart => heart.user_id == userId).length > 0) {
-            const response = await fetch(`/api/recipes/${id}/hearts/update`);
+            const response = await fetch(`/api/recipes/${id}/hearts/update`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "heart_num": num }),
+            });
+
             const data = await response.json();
             setHeartAvg(data.heart_avg)
             // ref2.current.classList.add('blinking')
@@ -94,10 +100,13 @@ const RecipeDetail = () => {
             //     ref2.current.classList.remove('blinking')
             // }, 500)
         } else {
-            const response = await fetch(`/api/recipes/${id}/hearts/add`);
+            const response = await fetch(`/api/recipes/${id}/hearts/add`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "heart_num": num }),
+            });
             const data = await response.json();
             setHeartAvg(data.heart_avg)
-
             // ref2.current.classList.add('blinking')
             // const timeOut = setTimeout(() => {
             //     ref2.current.classList.remove('blinking')
@@ -106,8 +115,12 @@ const RecipeDetail = () => {
     }
 
 
-
-
+    const hoverEffect = () => {
+        ref.current.classList.add('heartOn')
+    }
+    const hoverExitEffect = () => {
+        ref.current.classList.remove('heartOn')
+    }
 
     useEffect(() => {
         dispatch(getAllIngredients())
@@ -213,15 +226,37 @@ const RecipeDetail = () => {
                 </>
             }
             <div className="heart-box">
-                {heartAvg == 0 
-                ? <img 
-                onClick={() => adjustHearts()}
-                className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />
-                : <img
-                onClick={() => adjustHearts()} 
-                className='heart-icon' src={require(`../../assets/img/heart.png`).default} />
-                }
-                <p>{heartAvg}</p>
+                <div>
+                    {heartAvg == 0
+                        ? <img
+                            onClick={() => adjustHearts()}
+                            className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />
+                        : <img
+                            onClick={() => adjustHearts()}
+                            className='heart-icon' src={require(`../../assets/img/heart.png`).default} />
+                    }
+                    <p className="heart-avg-text">{heartAvg}</p>
+                </div>
+                <div className="heart-selector-box">
+                    <div
+                        ref={ref}
+                        onMouseEnter={() => hoverEffect()}
+                        onMouseLeave={() => hoverExitEffect()}
+                        onClick={() => adjustHearts(1)}
+                        className="heart-container one"></div>
+                    <div 
+                    onClick={() => adjustHearts(2)}
+                    className="heart-container two"></div>
+                    <div 
+                    onClick={() => adjustHearts(3)}
+                    className="heart-container three"></div>
+                    <div 
+                    onClick={() => adjustHearts(4)}
+                    className="heart-container four"></div>
+                    <div 
+                    onClick={() => adjustHearts(5)}
+                    className="heart-container five"></div>
+                </div>
             </div>
         </div>
     );

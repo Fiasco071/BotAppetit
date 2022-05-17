@@ -435,3 +435,17 @@ div.bot-container>div>p.bubble {
 .heart-icon {
     width: 50px;
 }
+
+.heart-container {
+    width: 60px;
+    height: 60px;
+    background-image: url(../../assets/img/noheart.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.heartOn {
+    background-image: url(../../assets/img/heart.png);
+}

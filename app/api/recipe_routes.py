@@ -217,12 +217,13 @@ def getMyHearts(id):
     else:
         return 'none Found!'
 
-@recipe_routes.route('/<int:id>/hearts/add')
+@recipe_routes.route('/<int:id>/hearts/add', methods=['POST'])
 @login_required
 def addHearts(id):
     ## need to send some values thru POST request body and extract and update below
+    num = request.json["heart_num"]
     add = Heart(
-        heart_num = 5,
+        heart_num = num,
         recipe_id = id,
         user_id = current_user.to_dict_no_rel_user()['id'],
     )
@@ -237,13 +238,14 @@ def addHearts(id):
     else:     
         return {'heart_avg': round(acc / len(hearts), 2) }
 
-@recipe_routes.route('/<int:id>/hearts/update')
+@recipe_routes.route('/<int:id>/hearts/update', methods=['PUT'])
 @login_required
 def updateHearts(id):
     update = Heart.query.filter(Heart.recipe_id == id, Heart.user_id == current_user.to_dict_no_rel_user()['id']).first()
     
     ## need to send some values thru POST request body and extract and update below
-    update.heart_num = 2
+    num = request.json["heart_num"]
+    update.heart_num = num
     db.session.add(update)
     db.session.commit()
     hearts = Heart.query.filter(Heart.recipe_id == id).all()
