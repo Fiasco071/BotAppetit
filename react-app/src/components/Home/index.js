@@ -87,7 +87,9 @@ const Home = () => {
                     <h2 className="my-recipe-list-title">My Recipes</h2>
                     <div className="my-recipe-list">
                         {recipes.filter(recipe => recipe.author_id == user.id).map((recipe) => (
-                            <div className="recipes-small-box"
+                            <div 
+                            key={recipe.id}
+                            className="recipes-small-box"
                                 onClick={() => history.push(`/recipes/${recipe.id}`)}
                             >
                                 <h2 className="smallv-recipe-name">{recipe.name.length > 9 ? `${recipe.name.slice(0, 9)}...` : recipe.name}</h2>
@@ -97,7 +99,9 @@ const Home = () => {
                                 </div>
                                 <div className="smallv-recipe-inglist">
                                     {recipe?.ingredients.map(ingredient => (
-                                        <img className='smallv-recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil") ? 'oil' : ingredient.ingdata.name}.png`).default} />
+                                        <img 
+                                        key={`sil${ingredient.id}`}
+                                        className='smallv-recipe-ing-icon' src={require(`../../assets/img/ingIcons/${ingredient.ingdata.name.includes("oil") ? 'oil' : ingredient.ingdata.name}.png`).default} />
                                     ))}
                                 </div>
                                 <div className="smallv-clock-box">

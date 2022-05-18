@@ -42,6 +42,7 @@ background-repeat: repeat;
     top: 45px;
     background-color: #f1e973;
 opacity: 0.8;
+height: 760px;
 background-image:  linear-gradient(135deg, #F47B7B 25%, transparent 25%), linear-gradient(225deg, #F47B7B 25%, transparent 25%), linear-gradient(45deg, #F47B7B 25%, transparent 25%), linear-gradient(315deg, #F47B7B 25%, #f1e973 25%);
 background-position:  10px 0, 10px 0, 0 0, 0 0;
 background-size: 20px 20px;

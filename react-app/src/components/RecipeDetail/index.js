@@ -58,17 +58,17 @@ const RecipeDetail = () => {
     }
 
 
-    const [sliderFlag, setSliderFlag] = useState(false)
+    // const [sliderFlag, setSliderFlag] = useState(false)
 
-    const slidein = () => {
-        if (!sliderFlag) {
-            ref.current.classList.add("slideanimation");
-            setSliderFlag(true)
-        } else {
-            ref.current.classList.remove("slideanimation");
-            setSliderFlag(false)
-        }
-    }
+    // const slidein = () => {
+    //     if (!sliderFlag) {
+    //         ref.current.classList.add("slideanimation");
+    //         setSliderFlag(true)
+    //     } else {
+    //         ref.current.classList.remove("slideanimation");
+    //         setSliderFlag(false)
+    //     }
+    // }
 
     const handleDelete = async () => {
         await dispatch(delARecipes(id))
@@ -170,6 +170,7 @@ const RecipeDetail = () => {
 
                                 <img className='cuisine-flag-rd' src={require(`../../assets/img/flagicon/${recipe?.cuisine.split(" ").join('').toLowerCase()}.png`).default} />
                                 <p className="cuisine-text">{recipe?.cuisine} Cuisine</p>
+                                <img className='dish-icon-rd' src={require(`../../assets/img/dish.png`).default} />
                                 <p className="serving-text">{recipe?.servings}</p>
                             </div>
                         </div>

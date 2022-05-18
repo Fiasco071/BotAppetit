@@ -1,5 +1,5 @@
 import './index.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAComment, deleteAComment, getAllComments } from "../../store/comment";
@@ -21,7 +21,20 @@ const CommentBox = () => {
     const [showEdit, setShowEdit] = useState('');
     const prop = { showEdit, setShowEdit };
 
+    const escFunction = useCallback((event) => {
+        if (event.keyCode === 27) {
+            setShowEdit('')
+        }
 
+      }, []);
+    
+      useEffect(() => {
+        document.addEventListener("keydown", escFunction);
+    
+        return () => {
+          document.removeEventListener("keydown", escFunction);
+        };
+      }, [escFunction]);
 
     useEffect(() => {
         dispatch(getAllComments(id))
@@ -50,8 +63,6 @@ const CommentBox = () => {
         }
     };
 
-
-
     useEffect(() => {
         const errors = [];
         if (content.length <= 0) errors.push("We may need to think of what to write first...");
@@ -62,7 +73,7 @@ const CommentBox = () => {
     return (
         <>
             <div className='comment-form-wrapper'>
-                {!showEdit && (
+                
                     <form onSubmit={(e) => submitForm(e)}>
                         <textarea
                             name="content"
@@ -84,7 +95,7 @@ const CommentBox = () => {
                             SUBMIT
                         </button>
                     </form>
-                )}
+             
             </div >
             {comments.slice(0).reverse()?.map(comment => (
                 <div className="comment-indv-box" key={comment.id}>
@@ -93,8 +104,10 @@ const CommentBox = () => {
                         <p>{comment.comment_owner?.username}</p>
                         <p>{comment.created_at.split(" ")[2]} {comment.created_at.split(" ")[1]} {comment.created_at.split(" ")[3]}</p>
                         {showEdit !== '' && +showEdit === +comment.id && (
-                            <div className='comment-edit-form'>
-                                <UpdateForm className='updateform' comment={comment} edit={prop} />
+                            <div className='comment-edit-form-wrapper'>
+                                <div className='comment-edit-form'>
+                                    <UpdateForm className='updateform' comment={comment} edit={prop} />
+                                </div>
                             </div>
                         )}
                         {comment.user_id == userId && (
@@ -103,7 +116,7 @@ const CommentBox = () => {
                                     onClick={() => setShowEdit(`${comment.id}`)}
                                     className='comment-update-button'>F</p>
                                 <p
-                                    onClick={async() => (await dispatch(deleteAComment(comment.id)))}
+                                    onClick={async () => (await dispatch(deleteAComment(comment.id)))}
                                     className='comment-delete-button'>X</p>
                             </div>
                         )}

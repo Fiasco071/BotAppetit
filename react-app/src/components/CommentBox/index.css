@@ -77,13 +77,22 @@
     margin-right: 15px;
 }
 
-.comment-update-form {
+/* .comment-update-form {
     position: absolute;
     top: -144px;
     left: -152px;
-    
+} */
+
+
+.comment-edit-form-wrapper {
+    position: relative;
 }
 
+.comment-edit-form {
+    position: absolute;
+    top: -154px;
+    left: -151px;
+}
 .comment-input {
     width: 228px;
     height: 94px;

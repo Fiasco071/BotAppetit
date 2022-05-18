@@ -301,7 +301,9 @@ const RecipeForm = () => {
                             <p className='clear-button' onClick={clearIngBasket}>clear</p>
                             <div ref={ref} className='blankblock'></div>
                             {ingredientsList && ingredientsList?.map(ingredient_id => (
-                                <img className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id]?.name?.includes("oil") ? 'oil' : ingredientsListdata[ingredient_id]?.name}.png`).default} />
+                                <img 
+                                key={ingredient_id}
+                                className='add-ing-icon' src={require(`../../assets/img/ingIcons/${ingredientsListdata[ingredient_id]?.name?.includes("oil") ? 'oil' : ingredientsListdata[ingredient_id]?.name}.png`).default} />
                             ))}
                         </div>
                         <div>

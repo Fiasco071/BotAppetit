@@ -1,7 +1,7 @@
 .comment-delete-button.recipe {
     position: absolute;
     left: 899px;
-    top: 46px;
+    top: 16px;
     font-size: 30px;
     padding: 4px 15px;
     height: 40px;
@@ -173,13 +173,13 @@
 
 .direc-box-3 {
     width: 271px;
-    height: 292px;
+    height: 287px;
     overflow-y: auto;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     box-shadow: 2px 2px 12px rgb(177 177 177);
     position: relative;
-    top: -636px;
+    top: -640px;
     left: 490px;
     padding: 10px 10px;
     box-sizing: border-box;
@@ -227,8 +227,13 @@
 
 .comment-box-title {
     position: absolute;
-    top: 560px;
+    top: 556px;
     left: 676px;
+    z-index: 1;
+    font-size: 22px;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
     z-index: 1;
     font-size: 22px;
     margin: 0;
@@ -303,10 +308,29 @@ div.bot-container>div>p.bubble {
 
 
 .serving-text {
-    margin: 0;
-    font-size: 21px;
-    font-weight: bold;
     color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 4px 10px 4px 15px;
+    background-color: rgb(219, 137, 115);
+    position: absolute;
+    top: 45px;
+    left: 338px;
+    z-index: 0;
+}
+
+.dish-icon-rd {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 54px;
+    left: 306px;
+    padding: 2px 2px;
+    border: 5px solid rgb(218, 108, 77);
+    border-radius: 100%;
+    background-color: white;
+    z-index: 1;
 }
 
 .cooking-time-text {
@@ -314,7 +338,7 @@ div.bot-container>div>p.bubble {
     font-size: 17px;
     font-weight: bold;
     border-radius: 5px;
-    padding: 4px 4px 4px 15px;
+    padding: 4px 10px 4px 15px;
     background-color: rgb(219, 137, 115);
     position: relative;
     top: -10px;
@@ -327,7 +351,7 @@ div.bot-container>div>p.bubble {
     font-size: 17px;
     font-weight: bold;
     border-radius: 5px;
-    padding: 4px 4px 4px 15px;
+    padding: 4px 10px 4px 15px;
     background-color: rgb(219, 137, 115);
     position: relative;
     top: -10px;
@@ -392,7 +416,7 @@ div.bot-container>div>p.bubble {
 .edit-icon {
     font-size: 30px;
     position: absolute;
-    top: 46px;
+    top: 16px;
     left: 848px;
     padding: 10px 10px;
     background-color: #0064a9;

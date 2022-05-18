@@ -1,4 +1,4 @@
-from random import random
+from random import randint, random
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms.recipe_form import RecipeForm
@@ -24,9 +24,8 @@ def get_all_recipes():
 @recipe_routes.route('/searchlist', methods=["GET","POST"])
 @login_required
 def get_filtered_recipes():
-    
-    recipes = db.session.query(Recipe).join(IngredientsInRecipe, Recipe.id == IngredientsInRecipe.recipe_id).filter(IngredientsInRecipe.ing_id.in_(request.json["searchlist"])).first()
-    
+    recipes = db.session.query(Recipe).join(IngredientsInRecipe, Recipe.id == IngredientsInRecipe.recipe_id).filter(IngredientsInRecipe.ing_id.in_(request.json["searchlist"])).all()
+    # print('-=-=-=-=---=-=--==--=--=-=----=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=',recipe)
     # recipes = Recipe.query.all()
     # recipes2 = [recipe.to_dict() for recipe in recipes]
     # filter_result = []
@@ -41,8 +40,12 @@ def get_filtered_recipes():
     #         # filter_result.append(*result)
     #         print(filter_result)
     #         print(len(filter_result))
+    
+    #### additoinoal search conditions here after recipe queries
     if recipes != None:
-        return {'recipe': recipes.to_dict() }
+        result = [rec.to_dict()  for rec in recipes]
+        randint(0, (len(result) - 1))
+        return {'recipe':  result[randint(0, len(result) - 1)] }
     else:
         return {'error' : 'Not Found!'}
 
