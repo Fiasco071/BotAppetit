@@ -71,5 +71,23 @@
     background-color:#e2e2e2;
     position: absolute;
     top: -100px;
-    left: -682px;
+    left: -687px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-fail-message {
+    position: absolute;
+    left: -564px;
+    top: 194px;
+    height: 169px;
+    width: 241px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    font-size: 30px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

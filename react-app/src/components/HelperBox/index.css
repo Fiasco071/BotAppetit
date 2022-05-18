@@ -1,0 +1,146 @@
+.instruction-image-box {
+    width: 400px;
+    height: 350px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: 400px 350px;
+    background-repeat: no-repeat;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid rgb(206, 98, 98);
+    border-top: 45px solid rgb(206, 98, 98);
+    z-index: 2;
+}
+
+.inst1 {
+    background-image: url(../../assets/img/instructions/inst1.PNG);
+}
+
+
+.inst2 {
+    background-image: url(../../assets/img/instructions/inst2.PNG);
+}
+
+
+.inst3 {
+    background-image: url(../../assets/img/instructions/inst3.PNG);
+}
+
+
+.inst4 {
+    background-image: url(../../assets/img/instructions/inst4.PNG);
+}
+
+.helper-hand-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    background-image: url(../../assets/img/cursor.png);
+    background-position: center;
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid #000000; 
+    z-index: 2;
+    animation: blinking 1s infinite linear;
+
+}
+
+@keyframes blinking {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes fadeIn {
+    0% {
+       opacity: 0; 
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.instruction-image-box.inst2 {
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+}
+
+.instruction-image-box.inst4 {
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+}
+
+.instruction-image-box.inst3 {
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+}
+
+.helper-hand-box.inst1 {
+    position:relative;
+    left: 350px;
+}
+
+.helper-hand-box.inst2 {
+    position:relative;
+    left: 350px;
+    top: 117px;
+}
+
+.helper-hand-box.inst3 {
+    position: relative;
+    left: 107px;
+    top: 257px;
+}
+
+.helper-hand-box.inst4 {
+    position: relative;
+    left: 87px;
+    top: 47px;
+}
+
+.slider-button {
+    background-color: white;
+    border: 5px solid black;
+    width: 50px;
+    height :50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 3;
+}
+
+.slider-button:first-child {
+    top: 160px;
+    left: 40px;
+}
+
+.slider-button:nth-child(2) {
+    top: 160px;
+    left: 445px;
+}
+
+.helper-box {
+    padding: 10px;
+    margin-left: 50px;
+
+}
+
+.inst-step-text {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: rgb(233, 80, 33);
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    top: -134px;
+}

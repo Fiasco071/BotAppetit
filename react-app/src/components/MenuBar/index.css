@@ -3,17 +3,17 @@
     height: calc(100%);
     background-color: aquamarine;
     position: absolute;
-    left: calc(100% - 200px);
+    left: 1720px;
     top: calc(0% + 70px);
     opacity: 0;
     z-index: 0;
 }
 
-.menubar-list > ul {
+.menubar-list>ul {
     list-style: none;
 }
 
-.menubar-list > ul > li {
+.menubar-list>ul>li {
     background-color: white;
     font-size: 22px;
     display: inline-block;
@@ -29,7 +29,7 @@
     z-index: 4;
 }
 
-.menu-collapse-button > div{
+.menu-collapse-button>div {
     background-color: white;
     display: inline-block;
     padding: 5px 10px;
@@ -39,8 +39,8 @@
     position: relative;
     left: -14px;
     top: -3px;
-    z-index:3;
-    background-color: #b35799;
+    z-index: 3;
+    background-color: #f38dd6;
     color: #1c1c1c;
 }
 
@@ -59,7 +59,7 @@
     border: 5px solid black;
     background-color: #1c1c1c;
     opacity: 0.8;
-    background: repeating-linear-gradient( -45deg, #a9458d, #a9458d 5px, #1c1c1c 5px, #1c1c1c 25px );
+    background: repeating-linear-gradient(-45deg, #f38dd6, #f38dd6 5px, #525252 5px, #525252 25px);
 }
 
 
@@ -76,4 +76,85 @@
 
 .menubar-contentbox {
     position: relative;
+}
+
+.explain-box {
+    border-radius: 5px;
+    border: 7px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 290px;
+    height: 240px;
+    padding: 15px 10px;
+    position: absolute;
+    left: 1450px;
+    top: 50px;
+    z-index: 1;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.explain-box-back {
+    border-radius: 5px;
+    border: 7px solid black;
+    width: 280px;
+    height: 240px;
+    position: absolute;
+    left: 1480px;
+    top: 66px;
+    background-color: #eaf129;
+opacity: 0.8;
+background-image:  linear-gradient(135deg, #69d578 25%, transparent 25%), linear-gradient(225deg, #69d578 25%, transparent 25%), linear-gradient(45deg, #69d578 25%, transparent 25%), linear-gradient(315deg, #69d578 25%, #eaf129 25%);
+background-position:  10px 0, 10px 0, 0 0, 0 0;
+background-size: 20px 20px;
+background-repeat: repeat;
+    z-index: 0;
+}
+
+.explain-box > h1 {
+    margin: 0;
+    font-size: 25px;
+    padding: 5px 10px 2px 10px;
+    background-color: #29c03d;
+    border-radius: 5px 5px 0 0;
+    color: white;
+}
+
+.explain-box > div > p {
+    margin: 0;
+}
+
+.explain-box > div {
+    border: 5px solid #29c03d;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+div.robot-helper-icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 2px;
+    left: 211px;
+    border-radius: 5px;
+    background-image: url(../../assets/img/ask.png);
+    background-position: center;
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid #29c03d;
+    z-index: 2;
+}
+
+
+div.helperbox-holder {
+    position: absolute;
+    top: 200px;
+    left: -850px;
+    z-index: 20;
+    border: none;
+    padding: 20px;
+    box-sizing: border-box;
 }

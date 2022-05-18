@@ -10,6 +10,7 @@ import RecipeForm from './components/RecipeForm';
 import RecipeDetail from './components/RecipeDetail';
 import LogInPage from './components/LogInPage';
 import MenuBar from './components/MenuBar';
+import HelperBox from './components/HelperBox';
 
 
 
@@ -59,7 +60,7 @@ function App() {
           <RecipeForm />
         </ProtectedRoute>
         <ProtectedRoute path='/test' exact={true} >
-        <MenuBar />
+        <HelperBox />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

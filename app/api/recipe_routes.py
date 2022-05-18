@@ -42,12 +42,13 @@ def get_filtered_recipes():
     #         print(len(filter_result))
     
     #### additoinoal search conditions here after recipe queries
-    if recipes != None:
+    try:
         result = [rec.to_dict()  for rec in recipes]
         randint(0, (len(result) - 1))
         return {'recipe':  result[randint(0, len(result) - 1)] }
-    else:
-        return {'error' : 'Not Found!'}
+    except ValueError as error:
+        print(str(error))
+        return {'error' : str(error)}
 
 
 

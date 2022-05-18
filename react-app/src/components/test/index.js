@@ -15,7 +15,7 @@ const Test = () => {
   // Race conditions is confirmed, JSX renders before dispatch calls on refresh
 
   const [columns, setColumns] = useState({});
-
+  const [searchError, setSearchError] = useState(false)
 
   /// understand this to resolve race condition with jsx vs useEfefect
   /// useEffect is put in to a queue and held while the remainder of codes are ran
@@ -94,8 +94,34 @@ const Test = () => {
       const data = await response.json();
       // console.log(data.recipe.id)
       if (data.error) {
-        console.log(data.error)
+        setSearchError(true)
+        
+        setColumns({
+          ["box1"]: {
+            name: "IngBox",
+            items: ingredients.length > 0 ? ingredients.map(ing => {
+              return { id: `${ing.id}`, name: ing.name }
+            }) : [{ id: '123', name: 'apple' }, { id: '123456', name: 'pork' }]
+          },
+          ["box2"]: {
+            name: "RobotPouch",
+            items: []
+          }
+        })
       } else {
+        setColumns({
+          ["box1"]: {
+            name: "IngBox",
+            items: ingredients.length > 0 ? ingredients.map(ing => {
+              return { id: `${ing.id}`, name: ing.name }
+            }) : [{ id: '123', name: 'apple' }, { id: '123456', name: 'pork' }]
+          },
+          ["box2"]: {
+            name: "RobotPouch",
+            items: []
+          }
+        })
+        setSearchError(false)
         history.push(`/recipes/${data.recipe?.id}`)
       }
     }
@@ -104,6 +130,9 @@ const Test = () => {
 
   return (
     <>
+     {searchError && (
+        <p className='search-fail-message'>No Result Found!</p>
+      )}
       <div 
       onClick={handleSearch}
       className='bubble-thought-search'>
@@ -168,6 +197,7 @@ const Test = () => {
           }) : null}
         </DragDropContext>
       </div>
+     
     </>
   );
 }
