@@ -118,13 +118,13 @@
 }
 
 .slider-button:first-child {
-    top: 160px;
-    left: 40px;
+    top: 180px;
+    left: 52px;
 }
 
 .slider-button:nth-child(2) {
-    top: 160px;
-    left: 445px;
+    top: 180px;
+    left: 455px;
 }
 
 .helper-box {
