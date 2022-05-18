@@ -165,13 +165,10 @@
 .quick-info-box>div:nth-child(3)>p:nth-child(2) {
     color: white;
     font-weight: bolder;
-    margin: 0 20px 0 0;
 }
 
 .quick-info-box>div:nth-child(3)>p:nth-child(4) {
-    color: white;
-    font-weight: bolder;
-    margin: 0;
+
 }
 
 .direc-box-3 {
@@ -278,10 +275,32 @@ div.bot-container>div>p.bubble {
 } */
 
 .cuisine-flag-rd {
-    width: 40px;
+    width:30px;
+    height: 30px;
+    padding: 1px 1px;
+    border-radius: 100%;
+    border: 5px solid rgb(218, 108, 77);
     position: relative;
-    top: -15px;
+    top: -2px;
+    left: -30px;
+    z-index: 1;
+    background-color: white;
 }
+
+.click-pan-icon:hover {
+    border: 5px solid rgb(253, 199, 185)
+}
+.click-pan-icon:hover ~ p.cookcount-text {
+    background-color: rgb(238, 177, 177);
+}
+
+.heart-icon:hover {
+    border: 5px solid rgb(253, 199, 185)
+}
+.heart-icon:hover ~ .heart-avg-text {
+    background-color: rgb(238, 177, 177);
+}
+
 
 .serving-text {
     margin: 0;
@@ -290,11 +309,43 @@ div.bot-container>div>p.bubble {
     color: white;
 }
 
-.clock-icon-rd {
-    width: 35px;
-    height: 35px;
+.cooking-time-text {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 4px 4px 4px 15px;
+    background-color: rgb(219, 137, 115);
     position: relative;
-    top: -8px;
+    top: -10px;
+    left: -32px;
+    z-index: 0;
+}
+
+.cuisine-text  {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 4px 4px 4px 15px;
+    background-color: rgb(219, 137, 115);
+    position: relative;
+    top: -10px;
+    left: -52px;
+    z-index: 0;
+}
+
+.clock-icon-rd {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: -3px;
+    left: -9px;
+    padding: 2px 2px;
+    border: 5px solid rgb(218, 108, 77);
+    border-radius: 100%;
+    background-color: white;
+    z-index: 1;
 }
 
 .login-wrapper::before {
@@ -395,7 +446,7 @@ div.bot-container>div>p.bubble {
     height: 30px;
     position: absolute;
     top: 292px;
-    left: 363px;
+    left: 213px;
     border-radius: 100%;
     padding: 2px 2px;
     background-color: white;
@@ -405,7 +456,7 @@ div.bot-container>div>p.bubble {
 .cookcount-text {
     position: absolute;
     top: 282px;
-    left: 400px;
+    left: 250px;
     border-radius: 5px;
     padding: 4px 4px 4px 10px;
     background-color: rgb(219, 137, 115);
@@ -417,7 +468,7 @@ div.bot-container>div>p.bubble {
 .helper-text {
     position: absolute;
     top: 310px;
-    left: 410px;
+    left: 260px;
     font-size: 12px;
     font-weight: 900;
     background-color: white;
@@ -428,7 +479,7 @@ div.bot-container>div>p.bubble {
 .heart-box {
     position: absolute;
     top: 292px;
-    left: 212px;
+    left: 465px;
 }
 
 .heart-icon {

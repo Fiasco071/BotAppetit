@@ -223,7 +223,7 @@ const RecipeDetail = () => {
             }
             <div className="heart-box">
                 <div>
-                    {recipe.recipe_hearts?.filter(heart => heart.user_id == userId).length <= 0
+                    {recipe?.recipe_hearts?.filter(heart => heart.user_id == userId).length <= 0
                         ? <img
                             onClick={() => setSHM(!showHeartMenu)}
                             className='heart-icon' src={require(`../../assets/img/noheart.png`).default} />

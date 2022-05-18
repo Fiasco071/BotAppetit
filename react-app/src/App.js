@@ -9,9 +9,8 @@ import Home from './components/Home';
 import RecipeForm from './components/RecipeForm';
 import RecipeDetail from './components/RecipeDetail';
 import LogInPage from './components/LogInPage';
-import Test from './components/test';
 import MenuBar from './components/MenuBar';
-import Test2 from './components/test/test';
+
 
 
 
@@ -61,7 +60,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/test' exact={true} >
         <MenuBar />
-          <Test2 />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -42,6 +42,17 @@ const LoginForm = () => {
               <div className='angry-bot-mouth'></div>
           </div>
         )}
+
+{errors.length === 0 && (
+      <>
+        <div className='sign-up-bubble-speech'>Let's Create an Account!</div>
+        <div className='happy-bot-face'>
+          <p>u</p>
+          <p>w</p>
+          <p>u</p>
+        </div>
+      </>
+    )}
       <div className='log-in-error-box'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>

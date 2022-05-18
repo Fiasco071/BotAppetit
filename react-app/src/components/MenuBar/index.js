@@ -57,7 +57,7 @@ const MenuBar = () => {
                 </ul>
             </div>
             <div className='menubar-contentbox'>
-                <Test ingredients={ingredients}/>
+                <Test />
             </div>
 
         </div>

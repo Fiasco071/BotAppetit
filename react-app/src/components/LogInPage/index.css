@@ -330,8 +330,8 @@ border: 9px solid black;
 
 .signup-error-box {
     position: absolute;
-    top: 3px;
-    left: 864px;
+    top: -206px;
+    left: 794px;
     width: 290px;
     height: 110px;
     font-size: 20px;

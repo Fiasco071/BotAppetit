@@ -15,7 +15,7 @@ export const getAllIngredients = () => async (dispatch) => {
   if (response.ok) {
     const ingredients = await response.json();
     dispatch(getIng(ingredients));
-    return response;
+    return ingredients;
   }
 };
 

@@ -5,12 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { getAllIngredients } from "../../store/ingredient";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllRecipes } from "../../store/recipe";
-import CommentBox from "../CommentBox";
 import { updateUser } from "../../store/session";
-import Test from "../test";
+// import Test from "../test";
 import './profile.css';
 import { useHistory } from "react-router-dom";
-import Test2 from "../test/test";
 
 
 const Home = () => {

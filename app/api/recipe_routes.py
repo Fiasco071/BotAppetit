@@ -8,12 +8,39 @@ import datetime
 
 recipe_routes = Blueprint('recipes', __name__)
 
+# [Recipe.ingredient.ingdata.name == item for item in list]
+
+
 
 @recipe_routes.route('/')
-@login_required
+# @login_required
 def get_all_recipes():
     recipes = Recipe.query.all()
     return {'recipes': [recipe.to_dict() for recipe in recipes]}
+
+@recipe_routes.route('/searchlist', methods=["POST"])
+@login_required
+def get_filtered_recipes():
+    
+    ### another better method will be to hit ing_recipes and grab those values and check if they have the corresponding id numbers.
+    # recipes = Recipe.query.filter(*[Recipe.to_dict().ingredients.ingdata.name == item for item in request.json["searchlist"]]).all()
+    recipes = Recipe.query.all()
+    recipes2 = [recipe.to_dict() for recipe in recipes]
+    filter_result = []
+    for item in request.json["searchlist"]:    
+        for i in range(len(recipes2)):
+            # print(i, recipes2[i]['ingredients'])
+            result = filter(lambda x : x['ingdata']['name'] == item ,recipes2[i]["ingredients"])
+            if result != None :
+                filter_result.append(result)
+                print('=-=-=--=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=', list(result))
+            ## result2 below needs to replace to filtering list
+            # filter_result.append(*result)
+            print(filter_result)
+            print(len(filter_result))
+    return {'recipe_id': filter_result[0]['recipe_id'] }
+
+
 
 @recipe_routes.route('/add', methods=['GET', "POST"])
 @login_required
