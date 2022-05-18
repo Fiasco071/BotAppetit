@@ -84,16 +84,20 @@ const Test = () => {
 
   const handleSearch = async () => {
     if (columns.box2.items.length > 0) {
-      console.log(columns.box2.items)
-      const result = columns?.box2?.items.map(item => item.name)
+      // console.log(columns.box2.items)
+      const result = columns?.box2?.items.map(item => item.id)
       const response = await fetch(`/api/recipes/searchlist`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "searchlist": result }),
       });
       const data = await response.json();
-      console.log(data)
-      history.push(`/recipes/${data['recipe_id']}`)
+      // console.log(data.recipe.id)
+      if (data.error) {
+        console.log(data.error)
+      } else {
+        history.push(`/recipes/${data.recipe?.id}`)
+      }
     }
   }
 

@@ -6,6 +6,9 @@ from app.models import db, Recipe, IngredientsInRecipe, Ingredient, CookCount, H
 import datetime
 
 
+
+
+
 recipe_routes = Blueprint('recipes', __name__)
 
 # [Recipe.ingredient.ingdata.name == item for item in list]
@@ -18,27 +21,30 @@ def get_all_recipes():
     recipes = Recipe.query.all()
     return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
-@recipe_routes.route('/searchlist', methods=["POST"])
+@recipe_routes.route('/searchlist', methods=["GET","POST"])
 @login_required
 def get_filtered_recipes():
     
-    ### another better method will be to hit ing_recipes and grab those values and check if they have the corresponding id numbers.
-    # recipes = Recipe.query.filter(*[Recipe.to_dict().ingredients.ingdata.name == item for item in request.json["searchlist"]]).all()
-    recipes = Recipe.query.all()
-    recipes2 = [recipe.to_dict() for recipe in recipes]
-    filter_result = []
-    for item in request.json["searchlist"]:    
-        for i in range(len(recipes2)):
-            # print(i, recipes2[i]['ingredients'])
-            result = filter(lambda x : x['ingdata']['name'] == item ,recipes2[i]["ingredients"])
-            if result != None :
-                filter_result.append(result)
-                print('=-=-=--=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=', list(result))
-            ## result2 below needs to replace to filtering list
-            # filter_result.append(*result)
-            print(filter_result)
-            print(len(filter_result))
-    return {'recipe_id': filter_result[0]['recipe_id'] }
+    recipes = db.session.query(Recipe).join(IngredientsInRecipe, Recipe.id == IngredientsInRecipe.recipe_id).filter(IngredientsInRecipe.ing_id.in_(request.json["searchlist"])).first()
+    
+    # recipes = Recipe.query.all()
+    # recipes2 = [recipe.to_dict() for recipe in recipes]
+    # filter_result = []
+    # for item in request.json["searchlist"]:    
+    #     for i in range(len(recipes2)):
+    #         # print(i, recipes2[i]['ingredients'])
+    #         result = filter(lambda x : x['ingdata']['name'] == item ,recipes2[i]["ingredients"])
+    #         if result != None :
+    #             filter_result.append(result)
+    #             print('=-=-=--=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=', list(result))
+    #         ## result2 below needs to replace to filtering list
+    #         # filter_result.append(*result)
+    #         print(filter_result)
+    #         print(len(filter_result))
+    if recipes != None:
+        return {'recipe': recipes.to_dict() }
+    else:
+        return {'error' : 'Not Found!'}
 
 
 
