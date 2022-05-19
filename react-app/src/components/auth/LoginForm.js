@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -13,6 +14,13 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
+    }
+  };
+
+  const demoLogin = async (e) => {
+    const data = await dispatch(login("demo@aa.io", "notpassword"));
     if (data) {
       setErrors(data);
     }
@@ -83,6 +91,9 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit' className='log-in-button'>Login</button>
+        <button 
+        onClick={e => onLogin(e)}
+        type='submit' className='log-in-button'>Demo</button>
       </div>
     </form>
   );
