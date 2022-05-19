@@ -1,0 +1,107 @@
+.search-bar-title {
+    margin: 0;
+    padding: 6px 10px 0px 10px;
+    font-size: 25px;
+    background-color: rgb(6, 211, 211);
+    border-radius: 5px 5px 0 0;
+    width:242px;
+    color: white;
+    /* clip-path: polygon(0 0, 97% 0, 93% 100%, 0% 100%); */
+}
+
+.search-bar-form {
+    border: 5px solid rgb(6, 211, 211);
+    width: 252px;
+    height: 200px; 
+    padding: 0;
+    background-color: rgb(207, 236, 236);
+}
+
+.search-bar-box {
+    position: absolute;
+    top: 207px;
+    left: 672px;
+}
+
+.search-bar-form > input {
+    width: 167px;
+    height: 41px;
+    background-color: rgb(168, 221, 221);
+    padding: 4px 10px 4px 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 0;
+    border: none;
+    position: relative;
+    top: -40.5px;
+    left: 85px;
+    z-index: 0;
+    clip-path: polygon(7% 0, 100% 0%, 100% 100%, 3% 100%);
+    font-weight: bolder;
+}
+
+
+.search-bar-form > input:focus {
+    outline: none;
+}
+
+.searchresult-list {
+    list-style: none;
+    position: relative;
+    top: -200px;
+    left: -20px;
+}
+
+.searchresult-list > li {
+    padding: 5px 10px;
+    background-color: rgb(168, 221, 221);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(85, 84, 84);
+}
+
+.empty-search-text {
+    font-size: 20px;
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px 10px;
+    background-color: white;
+}
+
+.empty-search-click {
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgb(36, 151, 151);
+    display: inline-block;
+    padding: 2px 3px;
+    color: white;
+    animation: shake3 3s infinite linear;
+    position: relative;
+    top: -93px;
+    left: 143px;
+}
+
+.empty-search-click:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(36, 151, 151);
+    border: 2px solid rgb(36, 151, 151);
+    box-sizing: border-box;
+    padding: 0 1px;
+}
+
+.search-bar-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 397px;
+    left: 884px;
+    border-radius: 20%;
+    background-image: url(../../assets/img/mglass.png);
+    background-position: center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: 5px solid rgb(36, 151, 151);
+    z-index: 2;
+}

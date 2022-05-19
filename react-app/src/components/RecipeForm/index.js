@@ -159,6 +159,7 @@ const RecipeForm = () => {
         if (checkForName(name)) errorslist.push({'name' : 'A Recipe with this name already exists!'})
         if (cooking_time <= 0 ) errorslist.push({'cooking time' : 'Cooking time needs a POSITIVE number.'})
         if (cooking_time <= 0 ) errorslist.push({'servings' : 'Servings needs a POSITIVE number.'})
+        if (directions.length >= 10000) errorslist.push({'directions' : 'directions cannot be longer than 10,000 characters'})
         setErrors(errorslist)
     }, [name, cooking_time, servings, directions, cuisine, ingredientsList])
 

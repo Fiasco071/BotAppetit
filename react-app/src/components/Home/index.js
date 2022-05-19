@@ -9,6 +9,7 @@ import { updateUser } from "../../store/session";
 // import Test from "../test";
 import './profile.css';
 import { useHistory } from "react-router-dom";
+import SearchBar from "../SearchBar";
 
 
 const Home = () => {
@@ -124,6 +125,10 @@ const Home = () => {
                 <div>
                     <div className='profile-icon' />
                     <div className='recipes-icon' />
+                </div>
+                <div>
+                    <SearchBar />
+                    <div className="search-bar-icon"></div>
                 </div>
             </div>
             <CookBot />

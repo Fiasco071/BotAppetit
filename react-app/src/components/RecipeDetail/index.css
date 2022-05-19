@@ -422,6 +422,11 @@ div.bot-container>div>p.bubble {
     background-color: #0064a9;
     border-radius: 5px;
     color: white;
+    animation: shake2 5s 0.5s linear infinite;
+}
+
+.comment-delete-button.recipe {
+    animation: shake2 5s linear infinite;
 }
 
 #root > div > div.cook-bot-container > div > p {
