@@ -13,6 +13,10 @@
     width: 50px;
 }
 
+.bubble-thought-search > .dnd-ing-icons {
+    animation: shake 3s linear infinite;
+}
+
 .individual-ing-dnd-icon {
     display: flex;
     justify-content: center;
@@ -32,10 +36,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+#root > div.menubar-wrapper.show-menu > div.menubar-contentbox > div:nth-child(2) > div:nth-child(2) > div > div {
+    top: 120px;
+    height: 400px;
+    left: 10px;
 }
 
 
-#root > div.menubar-wrapper.show-menu > div.menubar-contentbox > div > div:nth-child(2) > div {
+#root>div.menubar-wrapper.show-menu>div.menubar-contentbox>div>div:nth-child(2)>div {
     position: absolute;
     top: 321px;
     left: calc(-280%);
@@ -46,31 +57,32 @@
     opacity: 0;
 }
 
-#root > div.menubar-wrapper.show-menu > div.menubar-contentbox > div > div:nth-child(2) > div > div {
+#root>div.menubar-wrapper.show-menu>div.menubar-contentbox>div>div:nth-child(2)>div>div {
     padding-top: 100px;
     width: 200px;
     position: absolute;
+    top:150px;
 }
 
 
-#root > div.menubar-wrapper.show-menu > div.menubar-contentbox > div > div:nth-child(1) > div > div {
+#root>div.menubar-wrapper.show-menu>div.menubar-contentbox>div>div:nth-child(1)>div>div {
     background-color: white;
-    border: 7px solid rgb(22, 109, 121);
+    border: 7px solid rgb(54, 54, 54);
     padding: 10px 0;
     border-radius: 5px;
     overflow-y: auto;
     position: absolute;
     left: 50px;
-    top: 1px;
+    top: 50px;
     gap: 5px;
 }
 
 .bubble-thought-search {
     width: 316px;
     height: 98px;
-    background-color:#e2e2e2;
+    background-color: #e2e2e2;
     position: absolute;
-    top: -100px;
+    top: -19px;
     left: -687px;
     display: flex;
     justify-content: center;
@@ -90,4 +102,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.light-bulb-icon {
+    animation: shake 3s linear infinite;
 }

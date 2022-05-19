@@ -1,6 +1,5 @@
 import './index.css'
-import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -8,14 +7,14 @@ import Test from '../test';
 import { getAllIngredients } from '../../store/ingredient';
 import { useDispatch, useSelector } from 'react-redux';
 import HelperBox from '../HelperBox';
+import { logout } from '../../store/session';
 
 
 const MenuBar = () => {
-
+    const history = useHistory();
     const dispatch = useDispatch();
     const ingredients = useSelector(state => Object.values(state.ingredients))
     const [showHelper, setShowhelper] = useState(false)
-
 
     useEffect(() => {
         dispatch(getAllIngredients())
@@ -39,41 +38,47 @@ const MenuBar = () => {
             setShowhelper(false)
         }
 
-      }, []);
-    
-      useEffect(() => {
-        document.addEventListener("keydown", escFunction);
-    
-        return () => {
-          document.removeEventListener("keydown", escFunction);
-        };
-      }, [escFunction]);
+    }, []);
 
+    useEffect(() => {
+        document.addEventListener("keydown", escFunction);
+
+        return () => {
+            document.removeEventListener("keydown", escFunction);
+        };
+    }, [escFunction]);
+
+    const onLogout = async (e) => {
+        await dispatch(logout());
+    };
 
     return (
         <>
-            <div 
-            onClick={() => setShowhelper(true)}
-            className='explain-box'>
-                <h1>How to use Bot!</h1>
-                <div>
-                    {!showHelper 
-                    ? <><p>Click and Open Menu on the top right.</p>
-                    <p>Grab some ingredients and feed Bot.</p>
-                    <p>Click his thought bubble and let him find your recipe for you!</p></> 
-                    : <p>Press ESC on keyboard or press X to close helper window</p>
-                    }
-                    
-                </div>
-                <div className='robot-helper-icon'></div>
-                
-                {showHelper && (
-                <div className='helperbox-holder'>
-                    <p 
+            {showHelper && (
+                <p
                     onClick={() => setShowhelper(false)}
                     className='close-button'>X</p>
-                 <HelperBox />
+            )}
+            <div
+                onClick={() => setShowhelper(true)}
+                className='explain-box'>
+                <h1>How to use Bot!</h1>
+                <div>
+                    {!showHelper
+                        ? <><p>Click and Open Menu on the top right.</p>
+                            <p>Grab some ingredients and feed Bot.</p>
+                            <p>Click his thought bubble and let him find your recipe for you!</p></>
+                        : <p>Press ESC on keyboard or press X to close helper window</p>
+                    }
+
                 </div>
+                <div className='robot-helper-icon'></div>
+
+                {showHelper && (
+                    <div className='helperbox-holder'>
+
+                        <HelperBox />
+                    </div>
                 )}
             </div>
             <div className='explain-box-back'></div>
@@ -86,21 +91,18 @@ const MenuBar = () => {
             </div>
             <div ref={ref} className='menubar-wrapper'>
                 <div className='menubar-list'>
-                    <ul>
-                        <li>Menu</li>
-                        <li>Ingredients</li>
-                        <li>
-                            <NavLink to='/' exact={true} activeClassName='active'>
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <LogoutButton />
-                        </li>
-                    </ul>
+                    <div>Ingredients</div>
+                    <div 
+                    onClick={() => history.push('/home')}
+                    className='home-button'></div>
+                    <div 
+                    onClick={onLogout}
+                    className='logout-button'>
+                    </div>
                 </div>
                 <div className='menubar-contentbox'>
                     <Test />
+                    <div className='dnd-back'></div>
                 </div>
 
             </div>

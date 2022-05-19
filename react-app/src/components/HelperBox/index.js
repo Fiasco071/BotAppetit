@@ -4,7 +4,7 @@ import './index.css'
 const HelperBox = () => {
     const list = ['inst1', 'inst2', 'inst3', 'inst4']
     const [showDiv, setShowDiv] = useState(1)
-    
+
 
     const handleRClick = () => {
         setShowDiv(showDiv + 1 <= 4 ? showDiv + 1 : 1)
@@ -25,7 +25,10 @@ const HelperBox = () => {
                     showDiv === idx + 1 && (
                         <div key={idx} className={`instruction-image-box ${item}`}>
                             <div className={`helper-hand-box ${item}`}></div>
-                            <p className='inst-step-text'>{`Step ${idx+1}`}</p>
+                            <p className='inst-step-text'>{`Step ${idx+1} `}</p>
+                            {showDiv === 4 && (
+                                <p className='esc-text'>ESC to close</p>
+                            )}
                         </div>
                     )
                 ))}

@@ -157,6 +157,8 @@ const RecipeForm = () => {
         if (directions === '') errorslist.push({ "directions": "MISSING DIRECTIONS for the fleshlings." })
         if (ingredientsList.length <= 0) errorslist.push({ 'ingredients': "Maybe some ingredients for the recipe?" })
         if (checkForName(name)) errorslist.push({'name' : 'A Recipe with this name already exists!'})
+        if (cooking_time <= 0 ) errorslist.push({'cooking time' : 'Cooking time needs a POSITIVE number.'})
+        if (cooking_time <= 0 ) errorslist.push({'servings' : 'Servings needs a POSITIVE number.'})
         setErrors(errorslist)
     }, [name, cooking_time, servings, directions, cuisine, ingredientsList])
 
