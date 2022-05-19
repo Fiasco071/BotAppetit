@@ -116,7 +116,7 @@
     position: absolute;
     top: 249px;
     left: 753px;
-    z-index: 2;
+    z-index: 1;
     font-size: 20px;
     font-weight: 900;
 }
@@ -132,7 +132,7 @@
     left: 647px;
     font-size: 20px;
     font-weight: 900;
-    z-index: 2;
+    z-index: 1;
 }
 
 .home-wrapper .loginpage {

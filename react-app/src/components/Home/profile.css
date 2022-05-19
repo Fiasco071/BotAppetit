@@ -110,7 +110,7 @@ div.my-recipe-list::-webkit-scrollbar {
     background-repeat: no-repeat;
     background-color: white;
     border: 5px solid rgb(15, 145, 106);
-    z-index: 2;
+    z-index: 0;
 }
 
 .recipes-icon {
@@ -233,6 +233,6 @@ background-repeat: repeat;
 
 .cook-count {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 657px;
+    left: 194px;
 }
