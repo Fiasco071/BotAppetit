@@ -4,6 +4,15 @@
     top: 466px;
 }
 
+#root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
+    left: 620px;
+}
+
+#root > div.login-wrapper.loginpage > div.cookbot-container-login > div.dev-info-wrapper-box  {
+    left: 470px;
+    top: 296px;
+}
+
 .dev-icon-button {
     width: 60px;
     height: 60px;
