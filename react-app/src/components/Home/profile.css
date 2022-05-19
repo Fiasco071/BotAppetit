@@ -21,7 +21,7 @@
     border-radius: 5px;
     background-color: rgb(233, 236, 230);
     position: relative;
-    top: 20px;
+    top: 15px;
     padding-bottom: 15px;
     margin-bottom: 61px;
 }
@@ -101,7 +101,7 @@ div.my-recipe-list::-webkit-scrollbar {
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 241px;
+    top: 264px;
     left: 553px;
     border-radius: 20%;
     background-image: url(../../assets/img/ai.png);
@@ -117,7 +117,7 @@ div.my-recipe-list::-webkit-scrollbar {
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 424px;
+    top: 452px;
     left: 232px;
     border-radius: 20%;
     background-image: url(../../assets/img/recipe.png);
@@ -133,7 +133,7 @@ div.my-recipe-list::-webkit-scrollbar {
     background-color: rgb(39, 189, 226);
     display: inline-block;
     padding: 10px 25px;
-    font-size: 35px;
+    font-size: 45px;
     border-radius: 5px;
     border: solid 7px black;
     margin-left: 32px;
@@ -147,8 +147,8 @@ div.my-recipe-list::-webkit-scrollbar {
 .website-title-back {
     background-color: rgb(148, 189, 174);
     display: inline-block;
-    width: 240px;
-    height: 57px;
+    width: 300px;
+    height: 77px;
     border-radius: 5px;
     border: solid 7px black;
     margin-left: 32px;
@@ -233,6 +233,6 @@ background-repeat: repeat;
 
 .cook-count {
     position: absolute;
-    top: 657px;
+    top: 674px;
     left: 194px;
 }

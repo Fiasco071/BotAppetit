@@ -62,7 +62,7 @@ const MenuBar = () => {
             <div
                 onClick={() => setShowhelper(true)}
                 className='explain-box'>
-                <h1>How to use Bot!</h1>
+                <h1>Click for Tutorial</h1>
                 <div>
                     {!showHelper
                         ? <><p>Click and Open Menu on the top right.</p>
