@@ -24,7 +24,7 @@ const CookBot = () => {
 
     const loadRecipes = () => {
         setShowList(!showList)
-        const delayedisp = setTimeout(() => {
+        setTimeout(() => {
             ref?.current?.classList.add('disappear')
         }, 1950)
 

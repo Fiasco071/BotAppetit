@@ -435,3 +435,7 @@
     text-transform: uppercase;
     color: crimson;
 }
+
+#root > div.update-form-wrapper > div.recipe-form-wrapper > div > form > div:nth-child(8) {
+    visibility: hidden;
+}

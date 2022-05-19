@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAComment } from "../../store/comment";
-import { useHistory } from 'react-router-dom'
 
 const UpdateForm = ({comment, edit}) => {
-    const history = useHistory()
     const dispatch = useDispatch()
 
     const userId = useSelector(state => state.session.user.id)
@@ -48,7 +46,7 @@ const UpdateForm = ({comment, edit}) => {
 
     return (
         <div className="update-form-wrapper">
-        {comment.user_id == userId && (
+        {comment.user_id === userId && (
             <form onSubmit={(e) => submitUpdateForm(e)}
             className='comment-update-form'
             >

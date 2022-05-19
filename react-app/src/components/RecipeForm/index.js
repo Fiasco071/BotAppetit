@@ -22,7 +22,6 @@ const RecipeForm = () => {
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
-    const [checkName, setCheckName] = useState();
 
     //backend errors
     const [errors, setErrors] = useState([]);

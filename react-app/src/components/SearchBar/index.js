@@ -39,9 +39,9 @@ const SearchBar = () => {
             {searchWord != '' && (
                 <div>
                     <ul className='searchresult-list'>
-                        {filteredList.length > 0 ? filteredList.slice(0,5).map((recipe) => (
+                        {filteredList.length > 0 ? filteredList.slice(0,5).map((recipe,idx) => (
                             <li
-                                key={recipe.id}
+                                key={idx}
                                 value={recipe.name}
                                 onClick={() => history.push(`/recipes/${recipe[0]}`)}
                             >{recipe[1].length > 20 ? `${recipe[1].slice(0,20)}...` : recipe[1]}</li>

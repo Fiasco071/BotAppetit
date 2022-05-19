@@ -110,7 +110,7 @@ const CommentBox = () => {
                                 </div>
                             </div>
                         )}
-                        {comment.user_id == userId && (
+                        {comment.user_id === userId && (
                             <div className='editdel-button-box'>
                                 <p
                                     onClick={() => setShowEdit(`${comment.id}`)}
