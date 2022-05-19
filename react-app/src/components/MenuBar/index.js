@@ -69,6 +69,9 @@ const MenuBar = () => {
                 
                 {showHelper && (
                 <div className='helperbox-holder'>
+                    <p 
+                    onClick={() => setShowhelper(false)}
+                    className='close-button'>X</p>
                  <HelperBox />
                 </div>
                 )}

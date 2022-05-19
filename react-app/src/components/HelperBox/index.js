@@ -4,7 +4,7 @@ import './index.css'
 const HelperBox = () => {
     const list = ['inst1', 'inst2', 'inst3', 'inst4']
     const [showDiv, setShowDiv] = useState(1)
-
+    
 
     const handleRClick = () => {
         setShowDiv(showDiv + 1 <= 4 ? showDiv + 1 : 1)
