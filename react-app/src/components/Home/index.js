@@ -53,7 +53,7 @@ const Home = () => {
     }, [dispatch])
 
     return (
-        <div className="home-wrapper">
+        <div className="home-wrapper home">
             <div className="recipe-box profile-page">
                 <div className="website-title-back"></div>
                 <h1 className="website-title">Bot-Appetit</h1>
@@ -129,6 +129,10 @@ const Home = () => {
                 <div>
                     <SearchBar />
                     <div className="search-bar-icon"></div>
+                </div>
+
+                <div>
+
                 </div>
             </div>
             <CookBot />

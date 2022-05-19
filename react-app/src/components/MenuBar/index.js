@@ -6,8 +6,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Test from '../test';
 import { getAllIngredients } from '../../store/ingredient';
 import { useDispatch, useSelector } from 'react-redux';
-import HelperBox from '../HelperBox';
+// import HelperBox from '../HelperBox';
 import { logout } from '../../store/session';
+import HelperBoxModal from '../HelperBox/HelperBoxModal';
 
 
 const MenuBar = () => {
@@ -54,30 +55,21 @@ const MenuBar = () => {
 
     return (
         <>
-            {showHelper && (
-                <p
-                    onClick={() => setShowhelper(false)}
-                    className='close-button'>X</p>
-            )}
             <div
-                onClick={() => setShowhelper(true)}
                 className='explain-box'>
-                <h1>Click for Tutorial</h1>
+                <h1>Helpful Info</h1>
                 <div>
-                    {!showHelper
-                        ? <><p>Click and Open Menu on the top right.</p>
-                            <p>Grab some ingredients and feed Bot.</p>
-                            <p>Click his thought bubble and let him find your recipe for you!</p></>
-                        : <p>Press ESC on keyboard or press X to close helper window</p>
-                    }
-
+                    <p>Click and Open Menu on the top right.</p>
+                    <p>Grab some ingredients and feed Bot.</p>
+                    <p>Click his thought bubble and let him find your recipe for you!</p>
+                    <HelperBoxModal />
                 </div>
                 <div className='robot-helper-icon'></div>
 
                 {showHelper && (
                     <div className='helperbox-holder'>
 
-                        <HelperBox />
+                        {/* <HelperBox /> */}
                     </div>
                 )}
             </div>
@@ -92,12 +84,12 @@ const MenuBar = () => {
             <div ref={ref} className='menubar-wrapper'>
                 <div className='menubar-list'>
                     <div>Ingredients</div>
-                    <div 
-                    onClick={() => history.push('/home')}
-                    className='home-button'></div>
-                    <div 
-                    onClick={onLogout}
-                    className='logout-button'>
+                    <div
+                        onClick={() => history.push('/home')}
+                        className='home-button'></div>
+                    <div
+                        onClick={onLogout}
+                        className='logout-button'>
                     </div>
                 </div>
                 <div className='menubar-contentbox'>

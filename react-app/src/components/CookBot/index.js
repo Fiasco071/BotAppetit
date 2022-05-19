@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllRecipes } from '../../store/recipe';
+import DevInfo from '../DevInfo';
 import './index.css'
 
 
@@ -31,6 +32,7 @@ const CookBot = () => {
     }
 
     return (
+        <>
         <div className='bot-wrapper'>
             <div 
             onClick={updateFormlink}
@@ -90,6 +92,10 @@ const CookBot = () => {
                     className='logo'>BOT</div>
             </div>
         </div>
+        <div className='dev-info-wrapper-box'>
+            <DevInfo/>
+        </div>
+        </>
     );
 }
 

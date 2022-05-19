@@ -172,6 +172,7 @@ background-repeat: repeat;
 
 .profile-page {
     background-color: rgb(226, 226, 226);
+    z-index: 0;
 }
 
 .loginpage-title-back {

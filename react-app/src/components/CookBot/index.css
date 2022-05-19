@@ -362,3 +362,9 @@ p.thought:after {
     left: 1025px;
     z-index: 4;
 }
+
+.dev-info-wrapper-box {
+    position: absolute;
+    left: 660px;
+    top: 466px;
+}

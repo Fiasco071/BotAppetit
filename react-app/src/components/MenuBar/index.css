@@ -152,7 +152,7 @@ div.helperbox-holder {
     position: absolute;
     top: 200px;
     left: -798px;
-    z-index: 2;
+    z-index: 5;
     border: none;
     padding: 20px;
     box-sizing: border-box;
