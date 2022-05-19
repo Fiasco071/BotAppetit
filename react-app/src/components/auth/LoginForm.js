@@ -92,7 +92,7 @@ const LoginForm = () => {
         />
         <button type='submit' className='log-in-button'>Login</button>
         <button 
-        onClick={e => onLogin(e)}
+        onClick={e => demoLogin(e)}
         type='submit' className='log-in-button'>Demo</button>
       </div>
     </form>
