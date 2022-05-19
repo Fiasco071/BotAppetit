@@ -39,7 +39,7 @@
     left: -14px;
     top: -3px;
     z-index: 3;
-    background-color: #f38dd6;
+    background-color: #f5e694;
     color: #1c1c1c;
 }
 
@@ -58,7 +58,7 @@
     border: 5px solid black;
     background-color: #1c1c1c;
     opacity: 0.8;
-    background: repeating-linear-gradient(-45deg, #f38dd6, #f38dd6 5px, #525252 5px, #525252 25px);
+    background: repeating-linear-gradient(-45deg, #f5e694, #f5e694 5px, #24b3ec  5px, #24b3ec  25px);
 }
 
 
@@ -168,7 +168,7 @@ div.helperbox-holder {
     top: 25px;
     background-color: #378454;
     opacity: 0.8;
-    background: repeating-linear-gradient(45deg, #d8eba0, #d8eba0 5px, #378454 5px, #378454 25px);
+    background: repeating-linear-gradient(45deg, #f5e694, #f5e694 5px, #24b3ec 5px, #24b3ec 25px);
     border-radius: 5px;
     border: 7px solid black;
     box-sizing: border-box;
@@ -231,7 +231,7 @@ div.helperbox-holder {
     text-shadow: 2px 2px 2px rgb(75, 73, 73), 2px -2px 2px rgb(75, 73, 73), -2px 2px 2px rgb(75, 73, 73), -2px -2px 2px rgb(75, 73, 73);
     background-color: #378454;
 opacity: 0.8;
-background: repeating-linear-gradient( -45deg, #d8eba0, #d8eba0 5px, #378454 5px, #378454 25px );
+background: repeating-linear-gradient( -45deg, #f5e694, #f5e694 5px, #24b3ec 5px, #24b3ec 25px );
 }
 
 
