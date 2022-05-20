@@ -1,17 +1,22 @@
 .dev-info-wrapper-box {
     position: absolute;
     left: 660px;
-    top: 466px;
+    top: 476px;
 }
 
 #root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
-    left: 652px;
-    top: 589px;
+    left: 505px;
+    top: 206px;
 }
 
 #root > div.login-wrapper.loginpage > div.cookbot-container-login > div.dev-info-wrapper-box  {
     left: 505px;
-    top: 229px;
+    top: 219px;
+}
+
+#root > div.update-form-wrapper > div.bot-container > div.dev-info-wrapper-box {
+    left: 660px;
+    top: 562px;
 }
 
 .dev-icon-button {

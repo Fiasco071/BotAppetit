@@ -3,6 +3,8 @@
     height: 653px;
     margin-left: 150px;
     margin-top: 364px;
+    overflow: hidden;
+    padding-left: 0;
 }
 
 .bot-head {
