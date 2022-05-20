@@ -140,6 +140,7 @@
     position: absolute;
     top: -22px;
     left: 201px;
+    cursor: pointer;
 }
 
 .input-box-wrapper {
@@ -267,6 +268,7 @@
     font-size: 25px;
     font-weight: bolder;
     color: white;
+    cursor: pointer;
 }
 
 .write-recipe-icon {

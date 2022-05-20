@@ -565,3 +565,6 @@ ul.cartoon-effect > li:nth-child(21) {
     }
 }
 
+.error-field {
+    background-color: rgb(250, 203, 203);
+}

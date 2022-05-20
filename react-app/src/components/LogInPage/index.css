@@ -14,7 +14,7 @@
 
 .log-in-form {
     width: 600px;
-    background-color: rgb(236, 240, 239);
+    background-color: rgb(240, 230, 245);
     height: 450px;
     padding: 80px 145px;
     box-sizing: border-box;
@@ -96,7 +96,14 @@
     color: rgb(255, 255, 255);
     position: relative;
     left: 113px;
- 
+}
+
+.login-button-box {
+    display: flex;
+    width: 350px;
+    gap: 20px;
+    position: relative;
+    left: -100px;
 }
 
 .log-in-title {
@@ -246,7 +253,7 @@ border: 9px solid black;
 
 .sign-up-form { 
     width: 600px;
-    background-color: rgb(236, 240, 239);
+    background-color: rgb(221, 230, 243);
     height: 450px;
     padding: 80px 145px;
     box-sizing: border-box;
@@ -330,7 +337,7 @@ border: 9px solid black;
 
 .signup-error-box {
     position: absolute;
-    top: -206px;
+    top: -270px;
     left: 794px;
     width: 290px;
     height: 110px;

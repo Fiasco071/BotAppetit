@@ -21,7 +21,7 @@ const DevInfo = () => {
                             <img 
                             className='dev-link-icon github' src={require(`../../assets/img/github.png`).default} />
                             </a>
-                            <a href='https://www.linkedin.com/schoi017/'>
+                            <a href='https://linkedin.com/in/schoi017'>
                             <img className='dev-link-icon linkedin' src={require(`../../assets/img/linkedin.png`).default} />
                             </a>
                             <a href='https://fiasco071.github.io/Portfolio/'>

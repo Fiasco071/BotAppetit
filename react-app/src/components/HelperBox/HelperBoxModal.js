@@ -9,7 +9,7 @@ function HelperBoxModal() {
 
   return (
     <>
-      <button className="" onClick={() => setShowModal(true)}>CLICK HERE</button>
+      <button className="helper-modal-button" onClick={() => setShowModal(true)}>HELP!</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <HelperBox />

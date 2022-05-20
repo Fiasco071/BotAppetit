@@ -79,6 +79,7 @@ div.my-recipe-list::-webkit-scrollbar {
 }
 
 .my-recipe-list>div.recipes-small-box {
+    cursor: pointer;
     width: 170px;
     height: 100px;
     border-radius: 5px;

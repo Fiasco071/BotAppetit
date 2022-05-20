@@ -33,7 +33,7 @@ const SearchBar = () => {
                 value={searchWord}
                 onChange={e => setSearchWord(e.target.value)}
                 className='search-bar-input'
-                placeholder='Search for recipes...'
+                placeholder='Type here...'
             />
             </form>
             {searchWord != '' && (

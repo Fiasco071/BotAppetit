@@ -150,6 +150,11 @@
     color: white;
     text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
     transform: skew(15deg, -15deg) skew(-15deg, -15deg) rotate(90deg);
+    cursor: pointer;
+}
+
+.logo:hover {
+    text-shadow: 0 0 10px rgb(219, 219, 241), 0 0 40px rgb(190, 190, 250), 0 0 80px rgb(130, 130, 255) ;
 }
 
 .bot-stomach-lid {
@@ -363,8 +368,10 @@ p.thought:after {
     z-index: 4;
 }
 
-.dev-info-wrapper-box {
-    position: absolute;
-    left: 660px;
-    top: 466px;
+.recipe-list > div {
+    cursor: pointer;
+}
+
+.searchresult-list > li {
+    cursor: pointer;
 }

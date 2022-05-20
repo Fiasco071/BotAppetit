@@ -55,6 +55,7 @@
     box-shadow: 1px 1px 2px rgb(155, 14, 42);
     margin:0;
     height:22px;
+    cursor: pointer;
 }
 
 .comment-update-button {
@@ -68,6 +69,7 @@
     box-shadow: 1px 1px 2px rgb(10, 69, 109);
     margin:0;
     height:22px;
+    cursor: pointer;
 }
 
 .editdel-button-box {
@@ -151,4 +153,17 @@
     border: none;
     border-radius: 5px;
     padding: 3px 7px;
+    cursor: pointer;
+}
+
+.update-button {
+    position: relative;
+    top: -25px;
+    left: 170px;
+    background-color: rgb(33, 105, 33);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 7px;
+    cursor: pointer;
 }

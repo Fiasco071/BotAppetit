@@ -38,39 +38,39 @@ const LoginForm = () => {
     return <Redirect to='/home' />;
   }
 
-  
-  return (
-    <form 
-    className='log-in-form'
-    onSubmit={onLogin}>
-      {errors.length != 0 && (
-          <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
-              <div className='angry-bot-eye l'></div>
-              <div className='angry-bot-eye r'></div>
-              <div className='angry-bot-mouth'></div>
-          </div>
-        )}
 
-{errors.length === 0 && (
-      <>
-        <div className='sign-up-bubble-speech'>Let's Create an Account!</div>
-        <div className='happy-bot-face'>
-          <p>u</p>
-          <p>w</p>
-          <p>u</p>
+  return (
+    <form
+      className='log-in-form'
+      onSubmit={onLogin}>
+      {errors.length != 0 && (
+        <div className={`angry-bot-face ${errors.length != 0 ? 'showbotface' : null}`}>
+          <div className='angry-bot-eye l'></div>
+          <div className='angry-bot-eye r'></div>
+          <div className='angry-bot-mouth'></div>
         </div>
-      </>
-    )}
+      )}
+
+      {errors.length === 0 && (
+        <>
+          <div className='sign-up-bubble-speech'>Let's Create an Account!</div>
+          <div className='happy-bot-face'>
+            <p>u</p>
+            <p>w</p>
+            <p>u</p>
+          </div>
+        </>
+      )}
       <div className='log-in-error-box'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>{error.split(":")[1]}</div>
         ))}
         {errors.length == 0 && (
           <p className='bubble-speech-login'>Let's Log In!</p>
         )}
       </div>
       <h1 className='log-in-title'>Log In</h1>
-      
+
       <div className='log-in-input-box'>
         <label htmlFor='email'>Email</label>
         <input
@@ -79,6 +79,7 @@ const LoginForm = () => {
           placeholder='Email'
           value={email}
           onChange={updateEmail}
+          className={errors.filter(error => error.includes('email')).length > 0 ? 'error-field' : null}
         />
       </div>
       <div className='log-in-input-box'>
@@ -89,11 +90,14 @@ const LoginForm = () => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          className={errors.filter(error => error.includes('password')).length > 0 ? 'error-field' : null}
         />
-        <button type='submit' className='log-in-button'>Login</button>
-        <button 
-        onClick={e => demoLogin(e)}
-        type='submit' className='log-in-button'>Demo</button>
+        <div className='login-button-box'>
+          <button type='submit' className='log-in-button'>Login</button>
+          <button
+            onClick={e => demoLogin(e)}
+            type='submit' className='log-in-button'>Demo</button>
+        </div>
       </div>
     </form>
   );

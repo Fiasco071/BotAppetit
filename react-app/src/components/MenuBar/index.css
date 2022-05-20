@@ -90,7 +90,7 @@
     left: 1400px;
     top: 50px;
     z-index: 1;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     box-sizing: border-box;
 }
 
@@ -198,6 +198,9 @@ div.helperbox-holder {
     border: 5px solid #212221;
     z-index: 2;
     animation: shake 3s infinite linear;
+    /* cursor: pointer; */
+    cursor: url(../../assets/img/cursor-r.png), pointer;
+
 }
 
 .logout-button {
@@ -215,6 +218,7 @@ div.helperbox-holder {
     border: 5px solid #212221;
     z-index: 2;
     animation: shake 3s 0.5s infinite linear;
+    cursor: pointer;
 }
 
 .menubar-list> div:first-child {
@@ -280,4 +284,12 @@ background: repeating-linear-gradient( -45deg, #f5e694, #f5e694 5px, #24b3ec 5px
     80% { transform: translate(-0.2px, -0.2px) rotate(1deg); }
     90% { transform: translate(0.2px, 0.5px) rotate(0deg); }
     100% { transform: translate(0.2px, -0.5px) rotate(-1deg); }
+  }
+
+  .explain-box-content > .info-pill-box > .label-tag {
+    background-color: rgb(33, 202, 33);
+  }
+
+  .explain-box-content {
+    background-color: rgb(195, 240, 195);
   }

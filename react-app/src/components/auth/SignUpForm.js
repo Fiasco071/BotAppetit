@@ -20,7 +20,6 @@ const SignUpForm = () => {
     setHasSubmitted(true);
 
 
-
     const data = await dispatch(signUp(username, email, password));
     if (data) {
       setErrors(data)
@@ -109,8 +108,10 @@ const SignUpForm = () => {
               <div key={ind}>{error.split(":")[1]}</div>
             </>
           ))}
-          {hasSubmitted && feErrors.length > 0 && feErrors.map(error => (
-            <div className='signup-fe-errors'>{error}</div>
+          {hasSubmitted && feErrors.length > 0 && feErrors.map((error,idx) => (
+            <div 
+            key={idx}
+            className='signup-fe-errors'>{error}</div>
           ))}
         </div>
 
@@ -121,6 +122,7 @@ const SignUpForm = () => {
             name='username'
             onChange={updateUsername}
             value={username}
+            className={errors.filter(error => error.includes('username')).length > 0 ? 'error-field' : null}
           ></input>
         </div>
 
@@ -131,6 +133,7 @@ const SignUpForm = () => {
             name='email'
             onChange={updateEmail}
             value={email}
+            className={errors.filter(error => error.includes('email')).length > 0 ? 'error-field' : null}
           ></input>
         </div>
 
@@ -141,6 +144,7 @@ const SignUpForm = () => {
             name='password'
             onChange={updatePassword}
             value={password}
+            className={errors.filter(error => error.includes('password')).length > 0 ? 'error-field' : null}
           ></input>
         </div>
 
@@ -152,6 +156,7 @@ const SignUpForm = () => {
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
+            className={errors.filter(error => error.includes('password')).length > 0 ? 'error-field' : null}
           ></input>
         </div>
 

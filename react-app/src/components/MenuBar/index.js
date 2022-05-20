@@ -58,10 +58,19 @@ const MenuBar = () => {
             <div
                 className='explain-box'>
                 <h1>Helpful Info</h1>
-                <div>
-                    <p>Click and Open Menu on the top right.</p>
-                    <p>Grab some ingredients and feed Bot.</p>
-                    <p>Click his thought bubble and let him find your recipe for you!</p>
+                <div className='explain-box-content'>
+                    <div className='info-pill-box'>
+                        <p className='label-tag'>Click</p>
+                        <p className='label-tag-text'>Menu</p>
+                    </div>
+                    <div className='info-pill-box'>
+                        <p className='label-tag'>Drag</p>
+                        <p className='label-tag-text'>Ingredients</p>
+                    </div>
+                    <div className='info-pill-box'>
+                        <p className='label-tag'>Click</p>
+                        <p className='label-tag-text'>Bubble</p>
+                    </div>
                     <HelperBoxModal />
                 </div>
                 <div className='robot-helper-icon'></div>

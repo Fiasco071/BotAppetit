@@ -423,6 +423,7 @@ div.bot-container>div>p.bubble {
     border-radius: 5px;
     color: white;
     animation: shake2 5s 0.5s linear infinite;
+    cursor: pointer;
 }
 
 .comment-delete-button.recipe {
@@ -480,6 +481,7 @@ div.bot-container>div>p.bubble {
     padding: 2px 2px;
     background-color: white;
     border: 5px solid rgb(218, 108, 77);
+    cursor: pointer;
 }
 
 .cookcount-text {
@@ -509,6 +511,7 @@ div.bot-container>div>p.bubble {
     position: absolute;
     top: 292px;
     left: 465px;
+    cursor: pointer;
 }
 
 .heart-icon {

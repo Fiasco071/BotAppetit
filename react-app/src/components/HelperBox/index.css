@@ -191,3 +191,33 @@
     position: relative;
 
 }
+
+.helper-modal-button {
+    cursor: pointer;
+    position: absolute;
+    top: 183px;
+    left: 178px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 5px solid #0a5e15;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    background-color: #158a24;
+    animation: colorBlink 2s linear infinite;
+}
+
+.helper-modal-button:hover {
+    border: 5px solid #13b429;
+    color:rgb(65, 65, 65);
+    background-color: #cff3d3;
+}
+
+@keyframes colorBlink {
+    0%, 100% {
+        color: rgb(235, 235, 235);
+    }
+    50%  {
+        color: rgb(163, 163, 163);
+    }
+}
