@@ -71,7 +71,7 @@ const MenuBar = () => {
                     onClick={e => switchChannel(e)}></div>
                 <div className='channel-switch-button-lgi channeldown' onClick={e => switchChannel(e)}></div>
                 <div className='introduction-box'>
-                    <h1 className='introduction-box-title'>Things you can do</h1>
+                    <h1 className='introduction-box-title'>Quick Links</h1>
                     <div className='introduction-box-title-back'></div>
                     <div className='introduction-box-content'>
                         <div 

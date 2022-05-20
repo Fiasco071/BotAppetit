@@ -129,9 +129,20 @@
 .label-tag-text > a:nth-child(3) {
     animation: shake2 5s 0.1s infinite linear;
 }
-.dev-link-icon:nth-child(2) {
-    
+
+.project1 {
+    animation: shake2 5s 0.3s infinite linear;
 }
+
+.project2 {
+    animation: shake2 5s 0.5s infinite linear;
+}
+
+.project3 {
+    animation: shake2 5s 0.7s infinite linear;
+}
+
+
 
 .dev-link-icon:nth-child(3) {
  

@@ -32,8 +32,18 @@ const DevInfo = () => {
                         </p>
                     </div>
                     <div className='info-pill-box'>
-                        <p className='label-tag'>Other Works</p>
-                        <p className='label-tag-text'>1,2,3</p>
+                        <p className='label-tag'>Othr Wrk</p>
+                        <p className='label-tag-text'>
+                        <a href='https://input-app.herokuapp.com/'>
+                            <img className='dev-link-icon project1' src={require(`../../assets/img/floppy-disk.png`).default} />
+                            </a>
+                            <a href='https://rocket-note-app.herokuapp.com/'>
+                            <img className='dev-link-icon project2' src={require(`../../assets/img/floppy-disk.png`).default} />
+                            </a>
+                            <a href='https://tothemoon-investment-app.herokuapp.com/'>
+                            <img className='dev-link-icon project3' src={require(`../../assets/img/floppy-disk.png`).default} />
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
