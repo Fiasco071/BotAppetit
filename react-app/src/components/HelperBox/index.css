@@ -139,7 +139,6 @@
 
 .helper-box-wrapper {
     z-index: 5;
-    background-color: white;
     width: 600px;
     height: 500px;
     display: flex;
@@ -220,4 +219,67 @@
     50%  {
         color: rgb(163, 163, 163);
     }
+}
+
+.instruction-video {
+    width: 482px;
+    height: 281px;
+    margin: 0;
+    position: relative;
+    top: -67px;
+    left: 13px;
+    background-color: grey;
+    border-radius: 15px;
+}
+
+.video-title {
+    background-color: white;
+    font-size: 25px;
+    background-color: rgb(255, 170, 131);
+    border: 7px solid rgb(247, 105, 39);
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    color: white;
+    font-weight: bolder;
+    z-index: 1;
+}
+
+#modal-content > div > div > div.tv-content-wrapper > div.introduction-box {
+   
+}
+
+#root > div.helper-box-wrappers > div > div > div.tv-content-wrapper > div.introduction-box {
+    position: relative;
+    left: -1000px;
+}
+
+.helper-box-wrappers {
+    position: absolute;
+    left: 1040px;
+    z-index: 3;
+}
+
+#root > div.helper-box-wrappers > div > div > div.tv-content-wrapper > div {
+    top: 10px;   
+}
+
+.helper-box > .tv-content-wrapper > .introduction-box > .introduction-box-title{
+    top: -25px;
+    left: -20px;
+}
+
+.helper-box > .tv-content-wrapper > .introduction-box > .introduction-box-title-back {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.helper-box > .tv-content-wrapper > .introduction-box > .introduction-box-content {
+    top: 90px;
+    left: -10px;
 }

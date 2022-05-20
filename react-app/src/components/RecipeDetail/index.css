@@ -571,3 +571,8 @@ div.bot-container>div>p.bubble {
     left: 22px;
     z-index: 1;
 }
+
+#root > div.helper-box-wrappers > div > div > div.tv-content-wrapper > div {
+    top: -40px;
+    left: 100px;
+}

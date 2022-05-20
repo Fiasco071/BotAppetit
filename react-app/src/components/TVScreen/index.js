@@ -10,6 +10,7 @@ const TVScreen = () => {
 
     
     const onLogout = async (e) => {
+        e.stopPropagation()
         await dispatch(logout());
     };
 
@@ -21,7 +22,7 @@ const TVScreen = () => {
             </div>
             <div className='tv-mount-stick'><div className='tv-mount-stick-shadow'></div></div>
             <div 
-            onClick={() => onLogout()}
+            onClick={(e) => onLogout(e)}
             className={`tv-button power ${user ? 'poweroff' : null}`}></div>
             <div className='tv-button up'></div>
             <div className='tv-button down'></div>

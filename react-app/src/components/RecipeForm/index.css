@@ -385,7 +385,8 @@
 }
 
 .recipe-validation-error-box > div  {
-    margin-left: 43px;
+    margin-left: 0px;
+    margin-right: 10px;
     margin-top: 10px;
 }
 
@@ -398,6 +399,7 @@
     display: inline-block;
     margin-top: 5px;
     margin-left: 10px;
+    background-color: white;
 }
 
 .error-validation-title {

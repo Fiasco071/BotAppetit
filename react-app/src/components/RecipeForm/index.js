@@ -151,13 +151,17 @@ const RecipeForm = () => {
     useEffect(() => {
         const errorslist = []
         if (name.length === 0 || name.length >= 100) errorslist.push({ 'name': 'We need a title and 100 characters or less!' })
-        if (cooking_time === '') errorslist.push({ 'cooking time': 'Cooking time needs a number!' })
-        if (servings === '') errorslist.push({ "servings": "Let's provide a serving size for this." })
+        // if (cooking_time === '') errorslist.push({ 'cooking time': 'Cooking time needs a number!' })
+        // if (servings === '') errorslist.push({ "servings": "Let's provide a serving size for this." })
         if (directions === '') errorslist.push({ "directions": "MISSING DIRECTIONS for the fleshlings." })
         if (ingredientsList.length <= 0) errorslist.push({ 'ingredients': "Maybe some ingredients for the recipe?" })
         if (checkForName(name)) errorslist.push({'name' : 'A Recipe with this name already exists!'})
         if (cooking_time <= 0 ) errorslist.push({'cooking time' : 'Cooking time needs a POSITIVE number.'})
-        if (cooking_time <= 0 ) errorslist.push({'servings' : 'Servings needs a POSITIVE number.'})
+
+        if (cooking_time > 600 ) errorslist.push({"cooking time" : "We need to cook, not forge vibranium. Let's try to keep cook time below 600m"})
+        if (servings > 100 ) errorslist.push({'servings' : 'Are we feeding a village? Try to keep servings down below 100'})
+
+        if (servings <= 0 ) errorslist.push({'servings' : 'Servings needs a POSITIVE number.'})
         if (directions.length >= 10000) errorslist.push({'directions' : 'directions cannot be longer than 10,000 characters'})
         setErrors(errorslist)
     }, [name, cooking_time, servings, directions, cuisine, ingredientsList])

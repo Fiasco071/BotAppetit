@@ -75,6 +75,7 @@
     top: -453px;
     left: 514px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .power {
@@ -83,6 +84,8 @@
 
 .poweroff {
     background-color: rgb(248, 91, 91);
+    width: 25px;
+    cursor: pointer;
 }
 
 .up {

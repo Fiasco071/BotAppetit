@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import HelperBox from '../HelperBox';
 import { logout } from '../../store/session';
 import HelperBoxModal from '../HelperBox/HelperBoxModal';
+import HelperBox from '../HelperBox';
 
 
 const MenuBar = () => {
@@ -66,28 +67,9 @@ const MenuBar = () => {
     const prop = { showMenu, setShowMenu };
     return (
         <> {!showMenu && (
-            <div className="tv-content-wrapper"><div ref={ref2} className='white-noise-screen'></div>
-                <div className='channel-switch-button-lgi channelup'
-                    onClick={e => switchChannel(e)}></div>
-                <div className='channel-switch-button-lgi channeldown' onClick={e => switchChannel(e)}></div>
-                <div className='introduction-box'>
-                    <h1 className='introduction-box-title'>Quick Links</h1>
-                    <div className='introduction-box-title-back'></div>
-                    <div className='introduction-box-content'>
-                        <div 
-                        onClick={() => history.push('/recipes/add')}
-                        className='tv-screen-icon-box'>
-                            <img className='tv-screen-icon' src={require(`../../assets/img/sketchbook.png`).default} />
-                            <p className='tv-screen-icon-text'>Write</p>
-                        </div>
-                        {/* <div className='tv-screen-icon-box'>
-                            <img className='tv-screen-icon' src={require(`../../assets/img/help.png`).default} />
-                            <p className='tv-screen-icon-text'>Help</p>
-                        </div> */}
-                        <HelperBoxModal/>
-                    </div>
-                </div></div>
-
+            <div className='helper-box-wrappers'>
+                <HelperBox/>
+            </div>
         )}
             <div
                 onClick={e => handleClick(e)}

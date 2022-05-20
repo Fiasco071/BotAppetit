@@ -46,7 +46,7 @@ const LoginForm = () => {
       ref.current.classList.remove('switchChannel')
     }, 500)
   }
-
+  
   return (
     <form
       className='log-in-form'
@@ -121,6 +121,7 @@ const LoginForm = () => {
             type='submit' className='log-in-button'>Demo</button>
         </div>
       </div>
+     
     </form>
   );
 };

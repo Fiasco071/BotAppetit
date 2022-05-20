@@ -332,19 +332,39 @@ background: repeating-linear-gradient( -45deg, #f5e694, #f5e694 5px, #24b3ec 5px
     color: white;
   }
 
-  #root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-content {
+ div.tv-content-wrapper > div.introduction-box > div.introduction-box-content {
     display: flex;   
     background-color: #f0cebe; 
     justify-content: space-around;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 12px;
     box-sizing: border-box;
-    width: 310px;
-    height: 170px;
+    width: 120px;
+    height: 160px;
     left: 30px;
 }
 
-#root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-content > div {
+#root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.log-in-error-box > div.white-noise-screen {
+    top: 0px;
+    left: 0px;
+}
+
+#root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.signup-error-box > div.white-noise-screen{
+    top: 0px;
+    left: 0px;
+}
+
+#root > div.tv-screen-wrapper > div.tv-button.up {
+    width:25px;
+}
+
+
+#root > div.helper-box-wrappers {
+    top: 7px;
+}
+
+
+div.introduction-box-content > div {
     display: flex;
     flex-direction: column;
 }
