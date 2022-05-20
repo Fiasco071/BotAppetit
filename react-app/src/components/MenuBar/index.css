@@ -1,5 +1,6 @@
 .menubar-wrapper {
     width: 200px;
+
     height: calc(100%);
     position: absolute;
     left: 1720px;
@@ -71,10 +72,8 @@
 .menubar-contentbox {
     display: flex;
     justify-content: center;
-}
-
-.menubar-contentbox {
     position: relative;
+    height: 700px;
 }
 
 .explain-box {
@@ -293,3 +292,79 @@ background: repeating-linear-gradient( -45deg, #f5e694, #f5e694 5px, #24b3ec 5px
   .explain-box-content {
     background-color: rgb(195, 240, 195);
   }
+
+#root > div.tv-content-wrapper > div.introduction-box > h1 {
+    background-color: #e37d4a;
+  }
+
+  #root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-title-back {
+      width: 325px;
+    background-color: #e37d4a;
+    opacity: 0.8;
+    background-image:  linear-gradient(135deg, #3cc99a 25%, transparent 25%), linear-gradient(225deg, #3cc99a 25%, transparent 25%), linear-gradient(45deg, #3cc99a 25%, transparent 25%), linear-gradient(315deg, #3cc99a 25%, #e37d4a 25%);
+    background-position:  10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+
+  }
+
+  .tv-screen-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    border: 6px solid #14805c;
+    background-color: #d8f7ec;
+    cursor: pointer;
+  }
+
+  p.tv-screen-icon-text {
+    font-size: 23px;
+    padding: 4px 10px;
+    background-color: #2b7058;
+    border-radius: 10px;
+    display: inline-block;
+    width: 82px;
+    position: relative;
+    top: -30px;
+    box-sizing: border-box;
+    border: 6px solid #14805c;
+    font-weight: bold;
+    color: white;
+  }
+
+  #root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-content {
+    display: flex;   
+    background-color: #f0cebe; 
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 20px;
+    box-sizing: border-box;
+    width: 310px;
+    height: 170px;
+    left: 30px;
+}
+
+#root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-content > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tv-screen-icon-box  {
+    animation: shake3 3s infinite linear;
+}
+
+
+.tv-screen-icon-box:nth-child(2)  {
+    animation: shake3 3s 0.5s infinite linear;
+}
+
+.tv-screen-icon-box:nth-child(2) > .tv-screen-icon {
+    border: 6px solid #e37d4a;
+    background-color: #f7d3c2;
+}
+
+
+.tv-screen-icon-box:nth-child(2) > .tv-screen-icon-text {
+    border: 6px solid #e37d4a;
+    background-color: #e77035;
+}

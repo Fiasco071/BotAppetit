@@ -8,7 +8,7 @@ import './index.css'
 
 
 
-const Test = () => {
+const Test = ({clicked}) => {
   const dispatch = useDispatch();
   const ingredients = useSelector(state => Object.values(state.ingredients))
   const history = useHistory()
@@ -135,11 +135,12 @@ const Test = () => {
       )}
       <div 
       onClick={handleSearch}
-      className='bubble-thought-search'>
+      className={`bubble-thought-search ${clicked.showMenu ? 'dnd-clicked' : ''}`}>
         {columns?.box2?.items.map(ing => (
           <img className='dnd-ing-icons' src={require(`../../assets/img/ingIcons/${ing.name.toLowerCase().includes("oil") ? 'oil' : ing.name}.png`).default} />
         ))}
       </div>
+      <div className='bubble-thought-search-back'></div>
       <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
         <DragDropContext
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}

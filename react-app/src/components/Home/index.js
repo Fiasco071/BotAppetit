@@ -29,21 +29,13 @@ const Home = () => {
     if (recipes) {
         instructionArr = recipes[0]?.directions.split("$")
     }
-
-
-    const [sliderFlag, setSliderFlag] = useState(false)
-
-    // const slidein = () => {
-    //     if (!sliderFlag) {
-    //         ref.current.classList.add("slideanimation");
-    //         ref2.current.classList.add('showingtab')
-    //         setSliderFlag(true)
-    //     } else {
-    //         ref.current.classList.remove("slideanimation");
-    //         ref2.current.classList.remove('showingtab')
-    //         setSliderFlag(false)
-    //     }
-    // }
+   
+  const switchChannel = () => {
+    ref.current.classList.add('switchChannel')
+    setTimeout(() => {
+      ref.current.classList.remove('switchChannel')
+    }, 500)
+  }
 
 
     useEffect(() => {
@@ -136,6 +128,7 @@ const Home = () => {
                 </div>
             </div>
             <CookBot />
+           
         </div>
     );
 }

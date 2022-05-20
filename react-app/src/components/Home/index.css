@@ -305,7 +305,7 @@ div.smallv-recipe-inglist::-webkit-scrollbar {
 .happy-bot-face {
     position: absolute;
     top: 435px;
-    left: 978px;
+    left: 1030px;
     width: 242px;
     height: 169px;
     border-radius: 5px;
@@ -569,7 +569,3 @@ ul.cartoon-effect > li:nth-child(21) {
     background-color: rgb(250, 203, 203);
 }
 
-div.switchChannel {
-    opacity: 1;
-    z-index: 2;
-}

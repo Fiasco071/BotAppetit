@@ -369,13 +369,13 @@
 
 .recipe-validation-error-box {
     position: absolute;
-    width: 325px;
-    height: 173px;
-    background-color: white;
-    top: 0px;
-    left: 1029px;
+    width: 479px;
+    height: 279px;
+    background-color:#e1b6f3;
+    top: -3px;
+    left: 1106px;
     z-index: 4;
-    border-radius: 40% 40% 40% 40%;
+    border-radius: 10px;
 }
 
 #root > div > div.bot-container > div > p {
@@ -420,8 +420,8 @@
 }
 
 .update-form-wrapper > .angry-bot-face {
-    left: 1137px;
-    top: 334px;
+    left: 1190px;
+    top: 467px;
 }
 
 .clear-button {

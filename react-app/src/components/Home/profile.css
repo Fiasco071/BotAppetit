@@ -141,7 +141,7 @@ div.my-recipe-list::-webkit-scrollbar {
     color: white;
     z-index: 2;
     position: relative;
-    top: 12px;
+    top: 11px;
     left: 2px;
 }
 
@@ -237,4 +237,18 @@ background-repeat: repeat;
     position: absolute;
     top: 674px;
     left: 194px;
+}
+
+.tv-content-wrapper {
+    position: absolute;
+    left: 1113px;
+    top: 106px;
+    width: 480px;
+    height: 277px;
+    z-index: 1;
+}
+
+#root > div.tv-content-wrapper > div.introduction-box > div.introduction-box-content {
+    top: 105px;
+    left: 14px;
 }

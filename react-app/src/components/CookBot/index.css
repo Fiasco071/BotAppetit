@@ -4,7 +4,7 @@
     margin-left: 150px;
     margin-top: 364px;
     overflow: hidden;
-    padding-left: 0;
+    padding-left: 50px;
 }
 
 .bot-head {
@@ -88,7 +88,7 @@
 
 .right-arm {
     position: relative;
-    left:-10px;
+    left: -10px;
     top: -684px;
     width: 30px;
     height: 150px;
@@ -161,7 +161,7 @@
 }
 
 .logo:hover {
-    text-shadow: 0 0 10px rgb(219, 219, 241), 0 0 40px rgb(190, 190, 250), 0 0 80px rgb(130, 130, 255) ;
+    text-shadow: 0 0 10px rgb(219, 219, 241), 0 0 40px rgb(190, 190, 250), 0 0 80px rgb(130, 130, 255);
 }
 
 .bot-stomach-lid {
@@ -321,16 +321,18 @@ p.thought:after {
     0% {
         opacity: 0;
     }
+
     99% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
 
-.recipe-list > div {
+.recipe-list>div {
     margin: 2px 0 2px 5px;
     padding: 2px 3px;
     box-sizing: border-box;
@@ -341,14 +343,14 @@ p.thought:after {
     font-weight: bolder;
 }
 
-#root > div > div.bot-wrapper > p {
-    height:110px;
+#root>div>div.bot-wrapper>p {
+    height: 110px;
     top: 44px;
     left: 1003px;
     background-color: #e2e2e2;
 }
 
-.create-recipe-speech-bubble > p {
+.create-recipe-speech-bubble>p {
     font-size: 25px;
     font-weight: bolder;
     color: white;
@@ -357,10 +359,10 @@ p.thought:after {
     position: relative;
     top: -55px;
     left: 115px;
-    
+
 }
 
-.create-recipe-speech-bubble > img {
+.create-recipe-speech-bubble>img {
     width: 80px;
     padding: 5px 8px;
     border-radius: 5px;
@@ -376,10 +378,94 @@ p.thought:after {
     cursor: pointer;
 }
 
-.recipe-list > div {
+.recipe-list>div {
     cursor: pointer;
 }
 
-.searchresult-list > li {
+.searchresult-list>li {
     cursor: pointer;
+}
+
+
+.bench-seat {
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(214, 206, 192);
+    transform: skew(104deg, 211deg) rotate(148deg);
+    border: 6px solid black;
+}
+
+.bench-front {
+    width: 300px;
+    height: 69px;
+    border-radius: 10px;
+    background-color: rgb(179, 158, 128);
+    border: 6px solid black;
+    position: relative;
+    left: -140px;
+}
+
+.bench-side {
+    width: 78px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(148, 128, 101);
+    border: 6px solid black;
+    transform: skew(17deg, 324deg) rotate(17deg);
+    position: relative;
+    left: 165px;
+    top: -173px;
+}
+
+.bench-side.bench-shade-three {
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    background-color: rgb(112, 95, 73);
+    top: -243px;
+    left: 167px;
+}
+
+.bench-front.bench-shade-two {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 15%);
+    background-color: rgb(153, 131, 99);
+    top: -80px;
+    left: -140px;
+}
+
+.bench-wrapper {
+    /*login screen location*/
+    padding-left: 150px;
+    padding-top: 20px;
+    width: 270px;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+    top: -600px;
+    left: 31px;
+    z-index: -1;
+}
+
+
+#root > div.home-wrapper.home > div.bench-wrapper {
+    top: 728px;
+    left: -607px;
+}
+
+#root > div.detail-wrapper > div.cook-bot-container > div.bench-wrapper {
+    top: -287px;
+    left: 179px;
+}
+
+#root > div.home-wrapper.home {
+    height: 1050px;
+    overflow-y: hidden;
+}
+
+.dnd-active-box {
+    overflow-y: hidden;
+}
+
+#root > div.update-form-wrapper > div.bot-container > div.bench-wrapper {
+    top: -289px;
+    left: 194px;
 }

@@ -99,6 +99,7 @@
     color: rgb(255, 255, 255);
     position: relative;
     left: 113px;
+    cursor: pointer;
 }
 
 .login-button-box {
@@ -129,6 +130,7 @@
     z-index: 1;
     font-size: 20px;
     font-weight: 900;
+    cursor: pointer;
 }
 
 .sign-up-icon {
@@ -143,6 +145,7 @@
     font-size: 20px;
     font-weight: 900;
     z-index: 1;
+    cursor: pointer;
 }
 
 .home-wrapper .loginpage {
@@ -153,7 +156,10 @@
     position: absolute;
     top: 159px;
     left: 999px;
+    height: 900px;
+    width: 1000px;
     z-index: 0;
+    overflow-y: hidden;
 }
 
 .login-wrapper::before {
@@ -189,7 +195,7 @@ border: 9px solid black;
 .angry-bot-face {
     position: absolute;
     top: 450px;
-    left: 968px;
+    left: 1020px;
     width: 240px;
     height: 170px;
     background-color: rgb(18, 43, 54);
@@ -368,6 +374,7 @@ border: 9px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 button:hover {
@@ -458,4 +465,35 @@ div.switchChannel {
 .introduction-box-content > p {
     margin-left: 15px;
     font-size: 20px;
+}
+
+.sign-up-welcome-screen {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+#root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.signup-error-box > div.introduction-box > div.introduction-box-title-back {
+    z-index: 1;
+    left: 31px;
+    top: 23px;
+}
+
+#root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.signup-error-box > div.introduction-box > h1{
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 32px;
+    background-color: #81c5f1;
+    border-radius: 5px;
+    border: 6px solid black;
+    padding: 10px 20px;
+    z-index: 2;
+}
+
+#root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.signup-error-box > div.introduction-box > div.introduction-box-content {
+    top: 46px;
+    left: -12px;
 }

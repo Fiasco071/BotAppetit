@@ -325,7 +325,7 @@ const RecipeForm = () => {
             </div>
             <div className='recipe-validation-error-box'>
                 {errors.length > 0 && hasSubmitted ?
-                    <h2 className='error-validation-title'>C@*NOT C0MPutE</h2> : <h2 className='recipe-create-greetmsg'>What are we making??</h2>
+                    <h2 className='error-validation-title'></h2> : <h2 className='recipe-create-greetmsg'>What are we making??</h2>
                 }
                 <div>
                     {errors.length > 0 && hasSubmitted && errors.map(error => (

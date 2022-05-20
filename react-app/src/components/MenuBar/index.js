@@ -23,8 +23,10 @@ const MenuBar = () => {
 
     const [showMenu, setShowMenu] = useState(false)
     const ref = useRef(null)
+    const ref2 = useRef(null)
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.stopPropagation()
         if (!showMenu) {
             ref.current.classList.add('show-menu')
             setShowMenu(true)
@@ -53,36 +55,42 @@ const MenuBar = () => {
         await dispatch(logout());
     };
 
-    return (
-        <>
-            {/* <div
-                className='explain-box'>
-                <h1>Helpful Info</h1>
-                <div className='explain-box-content'>
-                    <div className='info-pill-box'>
-                        <p className='label-tag'>Click</p>
-                        <p className='label-tag-text'>Menu</p>
-                    </div>
-                    <div className='info-pill-box'>
-                        <p className='label-tag'>Drag</p>
-                        <p className='label-tag-text'>Ingredients</p>
-                    </div>
-                    <div className='info-pill-box'>
-                        <p className='label-tag'>Click</p>
-                        <p className='label-tag-text'>Bubble</p>
-                    </div>
-                    <HelperBoxModal />
-                </div>
-                <div className='robot-helper-icon'></div>
+    const switchChannel = (e) => {
+        e.stopPropagation()
+        ref2.current.classList.add('switchChannel')
+        setTimeout(() => {
+            ref2.current.classList.remove('switchChannel')
+        }, 500)
+    }
 
-                {showHelper && (
-                    <div className='helperbox-holder'>
+    const prop = { showMenu, setShowMenu };
+    return (
+        <> {!showMenu && (
+            <div className="tv-content-wrapper"><div ref={ref2} className='white-noise-screen'></div>
+                <div className='channel-switch-button-lgi channelup'
+                    onClick={e => switchChannel(e)}></div>
+                <div className='channel-switch-button-lgi channeldown' onClick={e => switchChannel(e)}></div>
+                <div className='introduction-box'>
+                    <h1 className='introduction-box-title'>Things you can do</h1>
+                    <div className='introduction-box-title-back'></div>
+                    <div className='introduction-box-content'>
+                        <div 
+                        onClick={() => history.push('/recipes/add')}
+                        className='tv-screen-icon-box'>
+                            <img className='tv-screen-icon' src={require(`../../assets/img/sketchbook.png`).default} />
+                            <p className='tv-screen-icon-text'>Write</p>
+                        </div>
+                        {/* <div className='tv-screen-icon-box'>
+                            <img className='tv-screen-icon' src={require(`../../assets/img/help.png`).default} />
+                            <p className='tv-screen-icon-text'>Help</p>
+                        </div> */}
+                        <HelperBoxModal/>
                     </div>
-                )}
-            </div>
-            <div className='explain-box-back'></div> */}
+                </div></div>
+
+        )}
             <div
-                onClick={handleClick}
+                onClick={e => handleClick(e)}
                 className='menu-collapse-button'>
                 <div>
                     <FontAwesomeIcon icon={faEllipsis} />
@@ -100,7 +108,7 @@ const MenuBar = () => {
                     </div>
                 </div>
                 <div className='menubar-contentbox'>
-                    <Test />
+                    <Test clicked={prop} />
                     <div className='dnd-back'></div>
                 </div>
 

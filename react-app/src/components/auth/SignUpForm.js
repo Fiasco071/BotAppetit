@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -14,7 +14,7 @@ const SignUpForm = () => {
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
+  const ref = useRef(null)
   const onSignUp = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);
@@ -54,7 +54,12 @@ const SignUpForm = () => {
     return <Redirect to='/home' />;
   }
 
-
+  const switchChannel = () => {
+    ref.current.classList.add('switchChannel')
+    setTimeout(() => {
+      ref.current.classList.remove('switchChannel')
+    }, 500)
+  }
   return (
     <>
       {errors.length != 0 && (
@@ -66,13 +71,13 @@ const SignUpForm = () => {
       )}
       {errors.length === 0 && feErrors.length === 0 && !hasSubmitted && (
         <>
-          <div className='sign-up-bubble-speech'>Let's Create an Account!</div>
+          
           <div className='happy-bot-face'>
             <p>u</p>
             <p>w</p>
             <p>u</p>
           </div>
-          <ul className='cartoon-effect'>
+          {/* <ul className='cartoon-effect'>
             <li></li>
             <li></li>
             <li></li>
@@ -94,7 +99,7 @@ const SignUpForm = () => {
             <li></li>
             <li></li>
             <li></li>
-          </ul>
+          </ul> */}
         </>
       )}
 
@@ -108,11 +113,28 @@ const SignUpForm = () => {
               <div key={ind}>{error.split(":")[1]}</div>
             </>
           ))}
-          {hasSubmitted && feErrors.length > 0 && feErrors.map((error,idx) => (
-            <div 
-            key={idx}
-            className='signup-fe-errors'>{error}</div>
+          {hasSubmitted && feErrors.length > 0 && feErrors.map((error, idx) => (
+            <div
+              key={idx}
+              className='signup-fe-errors'>{error}</div>
           ))}
+          {errors.length == 0 && (
+            <><div ref={ref} className='white-noise-screen'></div>
+              <div className='channel-switch-button-lgi channelup'
+                onClick={switchChannel}></div>
+              <div className='channel-switch-button-lgi channeldown' onClick={switchChannel}></div>
+              <div className='introduction-box'>
+                <h1 className='introduction-box-title'>Bot Appetit</h1>
+                <div className='introduction-box-title-back'></div>
+                <div className='introduction-box-content'>
+                  <p>Welcome, Human</p>
+                  <p>Let's sign up for an account!</p>
+                  <p></p>
+
+                </div>
+              </div></>
+          )}
+
         </div>
 
         <div className='log-in-input-box'>

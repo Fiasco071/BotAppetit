@@ -5,17 +5,27 @@
 }
 
 #root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
-    left: 505px;
-    top: 206px;
+    /* recipe detail dev box */
+    left: 645px;
+    top: 566px;
 }
 
 #root > div.login-wrapper.loginpage > div.cookbot-container-login > div.dev-info-wrapper-box  {
+    /* login dev box */
     left: 505px;
-    top: 219px;
+    top: 209px;
+    
 }
 
 #root > div.update-form-wrapper > div.bot-container > div.dev-info-wrapper-box {
-    left: 660px;
+
+    left: 659px;
+    top: 562px;
+}
+
+#root > div.update-form-wrapper > div.bot-container > div.dev-info-wrapper-box {
+        /* create recipe box location*/
+    left: 650px;
     top: 562px;
 }
 
