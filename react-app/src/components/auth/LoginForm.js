@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -10,6 +10,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const ref = useRef(null)
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -38,6 +40,12 @@ const LoginForm = () => {
     return <Redirect to='/home' />;
   }
 
+  const switchChannel = () => {
+    ref.current.classList.add('switchChannel')
+    setTimeout(() => {
+      ref.current.classList.remove('switchChannel')
+    }, 500)
+  }
 
   return (
     <form
@@ -53,7 +61,6 @@ const LoginForm = () => {
 
       {errors.length === 0 && (
         <>
-          <div className='sign-up-bubble-speech'>Let's Create an Account!</div>
           <div className='happy-bot-face'>
             <p>u</p>
             <p>w</p>
@@ -63,10 +70,25 @@ const LoginForm = () => {
       )}
       <div className='log-in-error-box'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error.split(":")[1]}</div>
+          <div 
+          className='log-in-error-message'
+          key={ind}>{error.split(":")[1]}</div>
         ))}
         {errors.length == 0 && (
-          <p className='bubble-speech-login'>Let's Log In!</p>
+          <><div ref={ref} className='white-noise-screen'></div>
+          <div className='channel-switch-button-lgi channelup'
+          onClick={switchChannel}></div>
+          <div className='channel-switch-button-lgi channeldown' onClick={switchChannel}></div>
+          <div className='introduction-box'>
+              <h1 className='introduction-box-title'>Bot Appetit</h1>
+              <div className='introduction-box-title-back'></div>
+              <div className='introduction-box-content'>
+                  <p>Welcome</p>
+                  <p>Bot Appetit is a cooking recipe platform!</p>
+                  <p>View/Create/Share recipes with others.</p>
+              
+              </div>
+          </div></>
         )}
       </div>
       <h1 className='log-in-title'>Log In</h1>

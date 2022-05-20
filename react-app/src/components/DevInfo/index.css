@@ -5,12 +5,13 @@
 }
 
 #root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
-    left: 620px;
+    left: 652px;
+    top: 589px;
 }
 
 #root > div.login-wrapper.loginpage > div.cookbot-container-login > div.dev-info-wrapper-box  {
-    left: 470px;
-    top: 296px;
+    left: 505px;
+    top: 229px;
 }
 
 .dev-icon-button {

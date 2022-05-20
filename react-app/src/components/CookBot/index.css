@@ -1,8 +1,8 @@
 .bot-wrapper {
     width: 600px;
-    height: 500px;
+    height: 653px;
     margin-left: 150px;
-    margin-top: 233px;
+    margin-top: 364px;
 }
 
 .bot-head {
@@ -10,7 +10,7 @@
     height: 60px;
     background-color: rgb(167, 167, 167);
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .bot-side {
@@ -76,74 +76,79 @@
 .left-arm {
     position: relative;
     left: calc(50% + 30px);
-    top: -550px;
-    width: 50px;
-    height: 200px;
+    top: -535px;
+    width: 30px;
+    height: 150px;
     background-color: rgb(48, 48, 48);
-    clip-path: ellipse(28% 50% at 50% 50%);
+    border-radius: 25px;
     z-index: 0;
 }
 
 .right-arm {
     position: relative;
-    left: calc(-20px);
-    top: -745px;
-    width: 50px;
-    height: 200px;
+    left:-10px;
+    top: -684px;
+    width: 30px;
+    height: 150px;
+    transform: rotate(5deg);
     background-color: rgb(48, 48, 48);
-    clip-path: ellipse(28% 50% at 50% 50%);
+    border-radius: 25px;
     z-index: 0;
 }
 
 .right-leg {
     position: relative;
-    left: 227px;
-    top: -1095px;
+    left: 181px;
+    top: -839px;
     width: 50px;
-    height: 200px;
+    height: 81px;
     background-color: rgb(48, 48, 48);
+    -webkit-clip-path: ellipse(28% 50% at 50% 50%);
     clip-path: ellipse(28% 50% at 50% 50%);
+    transform: rotate(45deg);
     z-index: 0;
 }
 
 .left-leg {
     position: relative;
-    left: 70px;
-    top: -875px;
+    left: 73px;
+    top: -733px;
     width: 50px;
-    height: 200px;
+    height: 81px;
     background-color: rgb(48, 48, 48);
+    -webkit-clip-path: ellipse(28% 50% at 50% 50%);
     clip-path: ellipse(28% 50% at 50% 50%);
+    transform: rotate(70deg);
     z-index: 0;
 }
 
 .left-foot {
     position: relative;
-    top: -895px;
-    left: 65px;
-    width: 45px;
+    top: -733px;
+    left: 152px;
+    width: 72px;
     height: 25px;
     border-radius: 25px;
     background-color: black;
-    transform: rotate(-20deg);
+    transform: rotate(85deg);
 }
 
 .right-foot {
     position: relative;
-    top: -1115px;
-    left: 220px;
-    width: 45px;
-    height: 25px;
+    top: -854px;
+    left: 37px;
+    width: 76px;
+    height: 27px;
     border-radius: 25px;
     background-color: black;
-    transform: rotate(-35deg);
+    transform: rotate(80deg);
 }
 
 
 .logo {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    top: -1322px;
+    top: -986px;
     left: 56px;
     font-size: 100px;
     font-weight: bolder;
@@ -366,6 +371,7 @@ p.thought:after {
     top: 125px;
     left: 1025px;
     z-index: 4;
+    cursor: pointer;
 }
 
 .recipe-list > div {

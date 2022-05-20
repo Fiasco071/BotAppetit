@@ -69,16 +69,19 @@
 }
 
 .log-in-error-box {
-    background-color: white;
-    width: 266px;
-    height: 120px;
+    width: 473px;
+    height: 275px;
     position: absolute;
-    top: 3px;
-    left: 871px;
+    top: -11px;
+    left: 939px;
     z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.log-in-error-box > div {
+.log-in-error-message {
     font-size: 25px;
     font-weight: bold;
     color: crimson;
@@ -185,8 +188,8 @@ border: 9px solid black;
 
 .angry-bot-face {
     position: absolute;
-    top: 318px;
-    left: 965px;
+    top: 450px;
+    left: 968px;
     width: 240px;
     height: 170px;
     background-color: rgb(18, 43, 54);
@@ -289,7 +292,7 @@ border: 9px solid black;
 }
 
 #root > div.login-wrapper.loginpage > div.cookbot-container-login > div {
-    margin-top: 182px;
+    margin-top: 313px;
     margin-left: 127px;
 }
 
@@ -337,12 +340,16 @@ border: 9px solid black;
 
 .signup-error-box {
     position: absolute;
-    top: -270px;
-    left: 794px;
-    width: 290px;
-    height: 110px;
+    top: -265px;
+    left: 832px;
+    width: 483px;
+    height: 282px;
     font-size: 20px;
     color: crimson;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .sign-up-button {
@@ -365,4 +372,90 @@ border: 9px solid black;
 
 button:hover {
     transform:translate(0px, -2px) ;
+}
+
+.introduction-box-title {
+    position: absolute;
+    top: -12px;
+    left: 8px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: #81c5f1;
+    border-radius: 5px;
+    border: 6px solid black;
+    padding: 10px 20px;
+    z-index: 1;
+}
+.introduction-box-title-back {
+    position: absolute;
+    top: 20px;
+    left: 27px;
+    height: 62px;
+    width: 210px;
+    border-radius: 5px;
+    border: 6px solid black;
+    background-color: #e0d8aa;
+    opacity: 0.8;
+    background-image: linear-gradient(135deg, #24b3ec 25%, transparent 25%), linear-gradient(225deg, #24b3ec 25%, transparent 25%), linear-gradient(45deg, #24b3ec 25%, transparent 25%), linear-gradient(315deg, #24b3ec 25%, #e0d8aa 25%);
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+}
+
+.introduction-box-content {
+    background-color: rgb(242, 236, 245);
+    height: 152px;
+    width: 411px;
+    position: relative;
+    top: 46px;
+    left: -11px;
+    border-radius: 5px;
+    border: 6px solid rgb(59, 59, 59);
+}
+
+.white-noise-screen {
+    width: 483px;
+    height: 282px;
+    background-image: url(../../assets/img/whitenoise.png);
+    background-size: cover;
+    animation: whitenoise 0.5s linear infinite;
+    position: absolute;
+    top: -3px;
+    border-radius: 5px;
+    z-index: -2;
+    opacity: 0;
+}
+
+@keyframes whitenoise {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+div.switchChannel {
+    opacity: 1;
+    z-index: 2;
+}
+
+.channel-switch-button-lgi {
+    position: absolute;
+    top: 293px;
+    left: 421px;
+    cursor: pointer;
+    height: 15px;
+    width: 25px;
+}
+
+
+.channel-switch-button-lgi.channelup {
+    top: 292px;
+    left: 384px;
+}
+
+.introduction-box-content > p {
+    margin-left: 15px;
+    font-size: 20px;
 }

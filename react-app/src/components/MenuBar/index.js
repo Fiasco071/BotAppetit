@@ -55,7 +55,7 @@ const MenuBar = () => {
 
     return (
         <>
-            <div
+            {/* <div
                 className='explain-box'>
                 <h1>Helpful Info</h1>
                 <div className='explain-box-content'>
@@ -77,12 +77,10 @@ const MenuBar = () => {
 
                 {showHelper && (
                     <div className='helperbox-holder'>
-
-                        {/* <HelperBox /> */}
                     </div>
                 )}
             </div>
-            <div className='explain-box-back'></div>
+            <div className='explain-box-back'></div> */}
             <div
                 onClick={handleClick}
                 className='menu-collapse-button'>

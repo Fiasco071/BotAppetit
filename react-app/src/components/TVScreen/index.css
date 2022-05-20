@@ -1,0 +1,97 @@
+.tv-outline {
+    width: 550px;
+    height: 350px;
+    border-radius: 15px;
+    border: 10px solid black;
+    position: relative;
+    background-color: rgb(97, 96, 96);
+    z-index: 1;
+}
+
+.tv-screen {
+    width: 480px;
+    height: 280px;
+    border-radius: 15px;
+    border: 10px solid black;
+    position: relative;
+    top: -335px;
+    left: 35px;
+    background-color: rgb(241, 181, 241);
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.tv-screen-shadow {
+    width: 480px;
+    height: 280px;
+    border-radius: 15px;
+    position: relative;
+    top: 1px;
+    left: 1px;
+    background-color: rgb(245, 194, 245);
+    z-index: 1;
+    -webkit-clip-path: polygon(79% 0, 0 0, 0 100%);
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+}
+
+.tv-mount-stick {
+    width: 50px;
+    height: 100px;
+    background-color: rgb(97, 96, 96);
+    border: 10px solid black;
+    border-radius: 15px;
+    position: relative;
+    top: -760px;
+    left: 249px;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.tv-mount-stick-shadow {
+    width: 50px;
+    height: 100px;
+    background-color: rgb(56, 56, 56);
+    border-radius: 15px;
+    position: relative;
+    left: 28px;
+    top: -10px;
+    z-index: 0;
+}
+
+.tv-screen-wrapper {
+    position: absolute;
+    left: 1068px;
+    top: 60px;
+}
+
+.tv-button {
+    border-radius: 15px;
+    border: 6px solid black;
+    width: 25px;
+    height: 9px;
+    position: relative;
+    z-index: 1;
+    top: -453px;
+    left: 514px;
+    cursor: pointer;
+}
+
+.power {
+    background-color: rgb(76, 206, 76);
+}
+
+.poweroff {
+    background-color: rgb(248, 91, 91);
+}
+
+.up {
+    top: -474px;
+    left: 464px;
+    background-color: rgb(187, 187, 187);
+}
+.down {
+    top: -495px;
+    left: 425px;
+    background-color: rgb(187, 187, 187);
+}

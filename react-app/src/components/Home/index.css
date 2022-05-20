@@ -289,11 +289,11 @@ div.smallv-recipe-inglist::-webkit-scrollbar {
 
 .sign-up-bubble-speech {
     position: absolute;
-    top: -16px;
-    left: 874px;
-    width: 280px;
-    height: 139px;
-    background-color: transparent;
+    top: -12px;
+    left: 936px;
+    width: 480px;
+    height: 282px;
+
     z-index: 4;
     font-size: 35px;
     font-weight: bolder;
@@ -304,7 +304,7 @@ div.smallv-recipe-inglist::-webkit-scrollbar {
 
 .happy-bot-face {
     position: absolute;
-    top: 304px;
+    top: 435px;
     left: 978px;
     width: 242px;
     height: 169px;
@@ -567,4 +567,9 @@ ul.cartoon-effect > li:nth-child(21) {
 
 .error-field {
     background-color: rgb(250, 203, 203);
+}
+
+div.switchChannel {
+    opacity: 1;
+    z-index: 2;
 }

@@ -34,15 +34,15 @@ const CookBot = () => {
     return (
         <>
         <div className='bot-wrapper'>
-            <div 
+            {/* <div 
             onClick={updateFormlink}
             className='create-recipe-speech-bubble'>
                 <img className='light-bulb-icon' src={require(`../../assets/img/lightbulb.png`).default} />
                 <p>An idea for a new recipe?</p>
-            </div>
-            <p className="bubble thought main"
+            </div> */}
+            {/* <p className="bubble thought main"
                 
-            ></p>
+            ></p> */}
             <div className='bot-head'></div>
             <div className='bot-side'></div>
             <div className='bot-face'>
@@ -81,9 +81,7 @@ const CookBot = () => {
             <div className="left-arm"></div>
             <div className="right-arm"></div>
             <div>
-                <div className="left-leg">
-
-                </div>
+                <div className="left-leg"></div>
                 <div className='left-foot'></div>
                 <div className="right-leg"></div>
                 <div className='right-foot'></div>

@@ -24,7 +24,12 @@
 body {
   background: rgb(212, 212, 218);
   font-family: Arial, Helvetica, sans-serif;
-  width: 1937px;
-  height: 900px;
+  width: 1957px;
+  height: 950px;
   overflow: hidden;
+}
+
+html {
+  overflow-x: auto;
+  overflow-y: auto;
 }

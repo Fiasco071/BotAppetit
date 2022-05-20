@@ -11,6 +11,7 @@ import RecipeDetail from './components/RecipeDetail';
 import LogInPage from './components/LogInPage';
 import MenuBar from './components/MenuBar';
 import HelperBox from './components/HelperBox';
+import TVScreen from './components/TVScreen';
 
 
 
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <BrowserRouter>
-
+      <TVScreen/>
       <Switch>
         <Route path='/' exact={true}>
           <LogInPage />

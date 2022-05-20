@@ -42,20 +42,18 @@ def invalid_password_length(form, field):
         raise ValidationError('Password needs 6 characters at least.')
     if len(password) >= 250:
         raise ValidationError('Password is too long (less than 250 characters).')    
-
     
     
 def invalid_username_length(form, field):
     username = field.data
     if len(username) > 40:
         raise ValidationError('User name is too long (less than 40 characters).')
-    if len(username) > 40:
+    if len(username) < 6:
         raise ValidationError('User name needs 6 characters at least.')
-    
     
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists, invalid_username_length])
-    email = StringField('email', validators=[DataRequired(), user_exists, email_format_is_valid, invalid_email_length ])
-    password = StringField('password', validators=[DataRequired(), invalid_password_length])
+        'username', validators=[ username_exists, invalid_username_length])
+    email = StringField('email', validators=[ user_exists, email_format_is_valid, invalid_email_length ])
+    password = StringField('password', validators=[ invalid_password_length])
