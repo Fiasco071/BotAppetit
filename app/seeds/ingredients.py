@@ -60,9 +60,37 @@ def seed_ingredients():
         name='pepper', ing_type='pepper')
     water = Ingredient(
         name='water', ing_type='water')
+    fish = Ingredient(
+        name='fish', ing_type='meat')
+    egg = Ingredient(
+        name='egg', ing_type='egg')
+    honey = Ingredient(
+        name='honey', ing_type='honey')
     
+    orange = Ingredient(
+        name='orange', ing_type='fruit')
+    chickpea =Ingredient(
+        name='chickpea', ing_type='vegetable')
+    broccoli = Ingredient(
+        name='broccoli', ing_type='vegetable')
+    lentil = Ingredient(
+        name='lentil', ing_type='vegetable')
+    lemon = Ingredient(
+        name='lemon', ing_type='fruit')
+    lime = Ingredient(
+        name='lime', ing_type='fruit') 
+    eggplant = Ingredient(
+        name='eggplant', ing_type='vegetable')
+    pineapple = Ingredient(
+        name='pineapple', ing_type='fruit')
+    rhubarb = Ingredient(
+        name='rhubarb', ing_type='vegetable')
+    bread = Ingredient (
+        name='bread', ing_type='bread'
+    )
+
     
-    db.session.add_all([apple,carrot,potato,tomato,onion,lettuce,garlic,rice,spinach,chicken,beef,pork,sugar,salt,flour,olive_oil,vege_oil,cano_oil,cooking_spray,bellpepper,cheese,chili,milk,pepper,water])
+    db.session.add_all([apple,carrot,potato,tomato,onion,lettuce,garlic,rice,spinach,chicken,beef,pork,sugar,salt,flour,olive_oil,vege_oil,cano_oil,cooking_spray,bellpepper,cheese,chili,milk,pepper,water,fish,egg,honey, orange, chickpea,broccoli,lentil,lemon,lime,eggplant,pineapple,rhubarb,bread])
     db.session.commit()
 
 def undo_ingredients():

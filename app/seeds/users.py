@@ -9,11 +9,12 @@ def seed_users():
         username='marnie', email='marnie@aa.io', password='notpassword')
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='notpassword')
-
+    admin = User(
+        username='admin', email='admin@bot-appetit.com', password='adminPassword')
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
-
+    db.session.add(admin)
     db.session.commit()
 
 

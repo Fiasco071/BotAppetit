@@ -30,14 +30,6 @@ const Home = () => {
         instructionArr = recipes[0]?.directions.split("$")
     }
    
-  const switchChannel = () => {
-    ref.current.classList.add('switchChannel')
-    setTimeout(() => {
-      ref.current.classList.remove('switchChannel')
-    }, 500)
-  }
-
-
     useEffect(() => {
         dispatch(getAllIngredients())
         dispatch(getAllRecipes())
@@ -63,7 +55,7 @@ const Home = () => {
                                     <p className="info-text">{user.email}</p>
                                 </div>
                             </div>
-                            <div>
+                            {/* <div>
                                 <div className="info-box">
                                     <p className="info-tag">Cuisine</p>
                                     <p className="info-text">{!user.cuisine_pref ? `update` : user.cuisine_pref}</p>
@@ -73,7 +65,7 @@ const Home = () => {
                                     <p className="info-text">{!user.cook_proficiency ? 'update' : user.cook_proficiency}</p>
 
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>
