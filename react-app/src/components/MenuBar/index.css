@@ -560,3 +560,8 @@ div.introduction-box-content>div {
     border: 6px solid #e37d4a;
     background-color: #e77035;
 }
+
+#root > div.menubar-wrapper.show-menu > div.menubar-contentbox > div:nth-child(4) > div:nth-child(2) > div > div {
+    position: absolute;
+    top: -53px;
+}
