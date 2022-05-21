@@ -392,14 +392,24 @@
 
 .recipe-validation-error-box > div > div {
     font-size: 20px;
+    font-weight: bold;
+    /* color: white;
+    text-shadow: -3px -3px crimson, 3px -3px crimson, -3px 3px crimson, 3px 3px crimson, 3px 0 crimson, 0 3px crimson, -3px 0 crimson, 0 -3px crimson; */
+
+    /* color: crimson;
+    text-shadow: -3px -3px white, 3px -3px white, -3px 3px white, 3px 3px white, 3px 0 white, 0 3px white, -3px 0 white, 0 -3px white; */
+
     color: crimson;
+    text-shadow: -3px -3px black, 3px -3px black, -3px 3px black, 3px 3px black, 3px 0 black, 0 3px black, -3px 0 black, 0 -3px black;
+
+
     padding: 5px 10px;
-    border: 2px solid crimson;
-    border-radius: 5px;
-    display: inline-block;
+    /* border: 2px solid crimson; */
+    /* border-radius: 5px; */
+    /* display: inline-block; */
     margin-top: 5px;
     margin-left: 10px;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .error-validation-title {

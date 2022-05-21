@@ -8,7 +8,8 @@ import video5 from '../../assets/img/instructions/comment-video.mp4'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/session'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 
 const HelperBox = () => {
@@ -58,10 +59,12 @@ const HelperBox = () => {
             <div className='helper-box'>
                 <div ref={ref2} className='white-noise-screen'></div>
                 <div className='channel-switch-button-lgi channelup'
-                    onClick={e => handleLClick(e)}></div>
-                <div className='channel-switch-button-lgi channeldown' onClick={e => handleRClick(e)}></div>
+                    onClick={e => handleLClick(e)}>
+                    <FontAwesomeIcon className='channel-button' icon={faCaretLeft} />
+                </div>
+                <div className='channel-switch-button-lgi channeldown' onClick={e => handleRClick(e)}><FontAwesomeIcon className='channel-button' icon={faCaretRight} /></div>
                 <div className='channel-switch-button-lgi powerdown' onClick={(e) => onLogout(e)}></div>
-                
+
                 {showDiv === 1 && (
                     <div className="tv-content-wrapper">
 

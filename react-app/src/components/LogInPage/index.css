@@ -85,7 +85,8 @@
     font-size: 25px;
     font-weight: bold;
     color: crimson;
-    animation: errorblinking linear infinite 7s;
+    text-shadow: -3px -3px black, 3px -3px black, -3px 3px black, 3px 3px black, 3px 0 black, 0 3px black, -3px 0 black, 0 -3px black;
+    animation: errorblinking linear infinite 10s;
 }
 
 .log-in-button {
@@ -450,16 +451,29 @@ div.switchChannel {
 
 .channel-switch-button-lgi {
     position: absolute;
-    top: 389px;
+    top: 389.5px;
     left: 499px;
     cursor: pointer;
     height: 15px;
     width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
+.channel-button:nth-child(1) {
+    top: 3px;
+}
+
+.channel-button {
+    color: rgb(255, 255, 255);
+    position: relative;
+    top: 3px;
+}
 
 .channel-switch-button-lgi.channelup {
-    top: 388px;
+    top: 389px;
     left: 460px;
 }
 
@@ -503,4 +517,8 @@ div.switchChannel {
 #root > div.login-wrapper.loginpage > div.recipe-box.main-login > div:nth-child(3) > form > div.signup-error-box > div.introduction-box > div.introduction-box-content {
     top: 46px;
     left: -12px;
+}
+
+.signup-error-message {
+    animation: errorblinking linear infinite 10s;
 }

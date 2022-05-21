@@ -329,10 +329,12 @@ div.smallv-recipe-inglist::-webkit-scrollbar {
     top: -30px;
 }
 
-.signup-error-box > div {
-    font-size: 22px;
+.signup-error-box > .signup-error-message {
+    font-size: 25px;
     font-weight: bold;
     color: crimson;
+    text-shadow: -3px -3px black, 3px -3px black, -3px 3px black, 3px 3px black, 3px 0 black, 0 3px black, -3px 0 black, 0 -3px black;
+    /* animation: errorblinking 10s linear infinite; */
 }
 
 .cartoon-effect {

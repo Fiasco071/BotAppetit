@@ -9,7 +9,7 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     opacity: 0;
-    animation: errorblinking linear infinite 7s;
+    animation: errorblinking linear infinite 10s;
 }
 
 .comment-error > li {
@@ -21,18 +21,15 @@
 
 @keyframes errorblinking {
     0% {
-        opacity: 0;
-    }
-    20% {
         opacity: 1;
     }
-    40% {
+    25% {
         opacity: 0;
     }
-    60% {
+    50% {
         opacity: 1;
     }
-    80% {
+    75% {
         opacity: 0;
     }
     100% {

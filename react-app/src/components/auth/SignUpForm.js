@@ -110,7 +110,7 @@ const SignUpForm = () => {
         <div className='signup-error-box'>
           {errors.map((error, ind) => (
             <>
-              <div key={ind}>{error.split(":")[1]}</div>
+              <div className='signup-error-message' key={ind}>{error.split(":")[1]}</div>
             </>
           ))}
           {hasSubmitted && feErrors.length > 0 && feErrors.map((error, idx) => (
