@@ -1,6 +1,8 @@
 from .db import db
 from sqlalchemy import ForeignKey
 import datetime
+import simplejson as json
+from decimal import Decimal
 
 class Recipe(db.Model):
     __tablename__= 'recipes'
@@ -27,6 +29,10 @@ class Recipe(db.Model):
     
     
     def to_dict(self):
+        
+        hearts_len = len([heart.heart_num for heart in self.recipe_hearts])
+        hearts_sum = sum([heart.heart_num for heart in self.recipe_hearts])
+        
         return {
             'id' : self.id,
             'name' : self.name,
@@ -38,6 +44,7 @@ class Recipe(db.Model):
             'author_id' : self.author_id,
             'recipe_cc' : [cc.to_dict_cc() for cc in self.recipe_cc],
             'recipe_hearts' : [heart.to_dict_heart() for heart in self.recipe_hearts],
+            'recipe_hearts_avg' : [hearts_sum, hearts_len],
             'created_at' : self.created_at,
             'ingredients' : [ingredient.to_dict() for ingredient in self.recipe],
             # 'recipe_owner' : self.recipe_owner.to_dict_no_rel_user(),

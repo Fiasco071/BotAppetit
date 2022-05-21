@@ -78,10 +78,10 @@ const HelperBox = () => {
                                     <img className='tv-screen-icon' src={require(`../../assets/img/sketchbook.png`).default} />
                                     <p className='tv-screen-icon-text'>Write</p>
                                 </div>
-                                {/* <div className='tv-screen-icon-box'>
-                            <img className='tv-screen-icon' src={require(`../../assets/img/help.png`).default} />
-                            <p className='tv-screen-icon-text'>Help</p>
-                        </div> */}
+                            </div>
+                            <div className='channel-point-box'>
+                                <p className='tv-screen-icon-text channel-point-text'>Change Channel</p>
+                                <img className='tv-screen-icon channel-point-icon' src={require(`../../assets/img/arrow.png`).default} />
                             </div>
                         </div>
                     </div>
