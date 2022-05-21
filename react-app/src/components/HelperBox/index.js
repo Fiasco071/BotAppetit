@@ -90,6 +90,7 @@ const HelperBox = () => {
                             <p className='video-title'>{item.name}</p>
                             <video
                                 autoPlay="true"
+                                controls
                                 className={`instruction-video ${idx}`} src={item.video}>
                             </video>
                             {/* <div className={`helper-hand-box ${item}`}></div>
