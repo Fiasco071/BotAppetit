@@ -26,7 +26,7 @@ const RecipeDetail = () => {
 
     let instructionArr;
     if (recipe) {
-        instructionArr = recipe?.directions.split("$")
+        instructionArr = recipe?.directions.split("$**$")
     }
 
     const [cookcount, setCC] = useState();

@@ -39,7 +39,7 @@ const RecipeForm = () => {
 
     ///////////////////////////////////////////////////
     const testArr = []
-    const directions_list = filteredResult?.directions?.split("$")
+    const directions_list = filteredResult?.directions?.split("$**$")
     directions_list?.forEach(direction => {
         testArr.push({ direction })
     })
@@ -51,13 +51,13 @@ const RecipeForm = () => {
         let newFormValues = [...valueList];
         newFormValues[i][e.target.name] = e.target.value;
         setValueList(newFormValues);
-        setDirections(valueList.map(value => value.direction).join('$'))
+        setDirections(valueList.map(value => value.direction).join('$**$'))
     }
 
     const addFormFields = (e) => {
         e.preventDefault()
         setValueList([...valueList, { direction: "" }])
-        setDirections(valueList.map(value => value.direction).join('$'))
+        setDirections(valueList.map(value => value.direction).join('$**$'))
     }
 
 
@@ -67,9 +67,9 @@ const RecipeForm = () => {
         setValueList(newFormValues)
 
         //deconstruct directions and update the directions with last $ removed
-        const test = directions.split("$")
+        const test = directions.split("$**$")
         test.splice(i,1)
-        setDirections(test.join('$'))
+        setDirections(test.join('$**$'))
     }
     ///////////////////////////////////////////////////
 
