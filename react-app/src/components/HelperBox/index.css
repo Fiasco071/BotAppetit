@@ -135,6 +135,7 @@
     padding: 10px;
     margin-left: 50px;
     z-index: 3;
+    display: inline-block;
 }
 
 .helper-box-wrapper {
@@ -249,8 +250,10 @@
     z-index: 1;
 }
 
-#modal-content > div > div > div.tv-content-wrapper > div.introduction-box {
-   
+.tv-ql-wrapper {
+    position: relative;
+    left: -1358px;
+    top: -259px;
 }
 
 #root > div.helper-box-wrappers > div > div > div.tv-content-wrapper > div.introduction-box {
@@ -262,6 +265,12 @@
     position: absolute;
     left: 1040px;
     z-index: 3;
+    display: inline-block;
+}
+
+#root > div.helper-box-wrappers > div > div > div.tv-content-wrapper{
+    position: relative;
+    left: -1000px;
 }
 
 #root > div.helper-box-wrappers > div > div > div.tv-content-wrapper > div {

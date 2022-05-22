@@ -67,8 +67,10 @@ const MenuBar = () => {
     const prop = { showMenu, setShowMenu };
     return (
         <> {!showMenu && (
-            <div className='helper-box-wrappers'>
-                <HelperBox/>
+            <div>
+                <div className='helper-box-wrappers'>
+                    <HelperBox />
+                </div>
             </div>
         )}
             <div

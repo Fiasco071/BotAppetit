@@ -498,9 +498,13 @@ img.tv-screen-icon.channel-point-icon {
 
 .channel-point-box {
     position: relative;
-    left: 190px;
-    top: 30px;
+    left: 234px;
+    top: 45px;
     display: inline-block;
+    
+}
+
+#root > div:nth-child(2) > div {
     
 }
 
@@ -514,6 +518,7 @@ div.tv-content-wrapper>div.introduction-box>div.introduction-box-content {
     width: 120px;
     height: 160px;
     left: 30px;
+    top: 105px;
 }
 
 #root>div.login-wrapper.loginpage>div.recipe-box.main-login>div:nth-child(3)>form>div.log-in-error-box>div.white-noise-screen {
@@ -529,6 +534,8 @@ div.tv-content-wrapper>div.introduction-box>div.introduction-box-content {
 #root>div.tv-screen-wrapper>div.tv-button.up {
     width: 25px;
 }
+
+#root > div:nth-child(2) > div > div > div > div.tv-ql-wrapper > div { }
 
 
 #root>div.helper-box-wrappers {

@@ -3,7 +3,9 @@
     left: 660px;
     top: 476px;
 }
-
+#root > div.detail-wrapper > div.cook-bot-container {
+    top: 75px;
+}
 #root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
     /* recipe detail dev box */
     left: 645px;

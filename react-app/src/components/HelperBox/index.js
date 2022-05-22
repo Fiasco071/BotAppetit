@@ -66,22 +66,23 @@ const HelperBox = () => {
                 <div className='channel-switch-button-lgi powerdown' onClick={(e) => onLogout(e)}></div>
 
                 {showDiv === 1 && (
-                    <div className="tv-content-wrapper">
-
-                        <div className='introduction-box'>
-                            <h1 className='introduction-box-title'>Quick Links</h1>
-                            <div className='introduction-box-title-back'></div>
-                            <div className='introduction-box-content'>
-                                <div
-                                    onClick={() => history.push('/recipes/add')}
-                                    className='tv-screen-icon-box'>
-                                    <img className='tv-screen-icon' src={require(`../../assets/img/sketchbook.png`).default} />
-                                    <p className='tv-screen-icon-text'>Write</p>
+                    <div className='tv-ql-wrapper'>
+                        <div className="tv-content-wrapper">
+                            <div className='introduction-box'>
+                                <h1 className='introduction-box-title'>Quick Links</h1>
+                                <div className='introduction-box-title-back'></div>
+                                <div className='introduction-box-content'>
+                                    <div
+                                        onClick={() => history.push('/recipes/add')}
+                                        className='tv-screen-icon-box'>
+                                        <img className='tv-screen-icon' src={require(`../../assets/img/sketchbook.png`).default} />
+                                        <p className='tv-screen-icon-text'>Write</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='channel-point-box'>
-                                <p className='tv-screen-icon-text channel-point-text'>Change Channel</p>
-                                <img className='tv-screen-icon channel-point-icon' src={require(`../../assets/img/arrow.png`).default} />
+                                <div className='channel-point-box'>
+                                    <p className='tv-screen-icon-text channel-point-text'>Change Channel</p>
+                                    <img className='tv-screen-icon channel-point-icon' src={require(`../../assets/img/arrow.png`).default} />
+                                </div>
                             </div>
                         </div>
                     </div>

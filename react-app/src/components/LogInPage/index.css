@@ -396,9 +396,9 @@ button:hover {
 }
 .introduction-box-title-back {
     position: absolute;
-    top: 20px;
-    left: 27px;
-    height: 62px;
+    top: 27px;
+    left: 33px;
+    height: 57px;
     width: 210px;
     border-radius: 5px;
     border: 6px solid black;
