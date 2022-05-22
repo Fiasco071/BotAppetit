@@ -3,32 +3,34 @@
     left: 660px;
     top: 476px;
 }
-#root > div.detail-wrapper > div.cook-bot-container {
+
+#root>div.detail-wrapper>div.cook-bot-container {
     top: 75px;
 }
-#root > div.detail-wrapper > div.cook-bot-container > div.dev-info-wrapper-box {
+
+#root>div.detail-wrapper>div.cook-bot-container>div.dev-info-wrapper-box {
     /* recipe detail dev box */
     left: 645px;
     top: 566px;
 }
 
-#root > div.login-wrapper.loginpage > div.cookbot-container-login > div.dev-info-wrapper-box  {
+#root>div.login-wrapper.loginpage>div.cookbot-container-login>div.dev-info-wrapper-box {
     /* login dev box */
     left: 505px;
     top: 209px;
-    
+
 }
 
-#root > div.update-form-wrapper > div.bot-container > div.dev-info-wrapper-box {
+#root>div.update-form-wrapper>div.bot-container>div.dev-info-wrapper-box {
 
     left: 659px;
     top: 562px;
 }
 
-#root > div.update-form-wrapper > div.bot-container > div.dev-info-wrapper-box {
-        /* create recipe box location*/
-    left: 650px;
-    top: 562px;
+#root>div.update-form-wrapper>div.bot-container>div.dev-info-wrapper-box {
+    /* create recipe box location*/
+    left: 645px;
+    top: 658px;
 }
 
 .dev-icon-button {
@@ -110,7 +112,7 @@
 }
 
 .info-pill-box:nth-child(2) {
-   margin-top: 10px;       
+    margin-top: 10px;
 }
 
 .dev-link-icon {
@@ -120,15 +122,15 @@
 }
 
 
-.label-tag-text > a:nth-child(1) {
+.label-tag-text>a:nth-child(1) {
     animation: shake2 5s 0.2s infinite linear;
 }
 
-.label-tag-text > a:nth-child(2) {
+.label-tag-text>a:nth-child(2) {
     animation: shake2 5s 0.7s infinite linear;
 }
 
-.label-tag-text > a:nth-child(3) {
+.label-tag-text>a:nth-child(3) {
     animation: shake2 5s 0.1s infinite linear;
 }
 
@@ -147,6 +149,6 @@
 
 
 .dev-link-icon:nth-child(3) {
- 
+
     animation: shake2 5s 0.5s infinite linear;
 }

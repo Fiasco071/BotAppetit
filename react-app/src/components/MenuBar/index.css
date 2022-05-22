@@ -483,6 +483,7 @@ img.tv-screen-icon.channel-point-icon {
     transform: rotate(230deg);
     position: relative;
     animation: shake4 3s linear infinite;
+    cursor: auto;
 }
 
 .tv-screen-icon-text.channel-point-text {

@@ -292,3 +292,7 @@
     top: 90px;
     left: -10px;
 }
+
+#root > div:nth-child(2) > div > div > div > div.tv-ql-wrapper {
+    /* top: -350px; */
+}

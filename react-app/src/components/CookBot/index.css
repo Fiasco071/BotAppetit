@@ -7,6 +7,11 @@
     padding-left: 50px;
 }
 
+#root > div.update-form-wrapper > div.bot-container > div.bot-wrapper {
+    margin-top: 456px;
+}
+
+
 .bot-head {
     width: 400px;
     height: 60px;

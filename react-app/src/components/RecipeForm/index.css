@@ -37,6 +37,7 @@
 .recipe-form-wrapper {
     position: relative;
     left: 100px;
+    top: 100px;
 }
 
 .recipe-form {
@@ -275,7 +276,7 @@
     width: 73px;
     height: 69px;
     position: absolute;
-    top: -12px;
+    top: 85px;
     left: 760px;
     border-radius: 20%;
     background-image: url(../../assets/img/writing-tool.png);
@@ -369,11 +370,11 @@
 
 .recipe-validation-error-box {
     position: absolute;
-    width: 479px;
-    height: 279px;
-    background-color:#e1b6f3;
-    top: -3px;
-    left: 1106px;
+    width: 485px;
+    height: 283px;
+    background-color: #e1b6f3;
+    top: 95px;
+    left: 1102px;
     z-index: 4;
     border-radius: 10px;
 }
@@ -432,8 +433,8 @@
 }
 
 .update-form-wrapper > .angry-bot-face {
-    left: 1190px;
-    top: 467px;
+    left: 1188px;
+    top: 555px;
 }
 
 .clear-button {
