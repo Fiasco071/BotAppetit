@@ -2,7 +2,7 @@
 
 <h5 align="center">  By: <a href="https://github.com/Fiasco071">Steve Choi</a> - <a href="https://bot-appetit.herokuapp.com/"><i>Live site</i></h5>
    
-([https://i.gyazo.com/41fcb69d760fc3d17b19905f1346c587.gif](https://raw.githubusercontent.com/Fiasco071/BotAppetit/main/react-app/src/assets/img/intro.gif)]
+<img src="https://raw.githubusercontent.com/Fiasco071/BotAppetit/main/react-app/src/assets/img/intro.gif" align="center" >
    
    
 <h2> About </h2>
