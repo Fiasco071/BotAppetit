@@ -24,7 +24,6 @@ With our application, you can simulate stock datas on different real stocks at a
 
 <h2>Technologies Used</h2> <a name="tech"></a>
    
-    <img src="https://github.com/prplx/svg-logos/blob/master/svg/angular.svg" width="60px" align="left">
    <img src="https://user-images.githubusercontent.com/93681149/167308732-afeeb5f2-d9a1-47ab-b8d9-82cd44b00b7e.svg" width="60px" align="left">
    <img src="https://user-images.githubusercontent.com/93681149/167308602-b05ea259-dd61-4df9-8f45-d7daeece6491.svg" width="60px" align="left">
    <img src="https://user-images.githubusercontent.com/93681149/167308754-79d7f324-d62d-461e-aa15-32487f495403.svg" width="60px" align="left">
